@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
+    depends_on:
+      - api
+  
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo:/data/db
+    
+  api:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    depends_on:
+      - mongo 
+    links:
+      - mongo
+volumes:
+  mongo:
