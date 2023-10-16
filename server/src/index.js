@@ -48,7 +48,7 @@ app.use(ftpRoutes);
 
 const start = async()=>{
     try{
-        await mongoose.connect('mongodb://127.0.0.1:2717/auth');
+        await mongoose.connect('mongodb://mongo/auth');
         console.log('database connected');
     }catch(err){
         console.log(err);
