@@ -11,7 +11,7 @@
   "author": "ncit",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "convert-excel-to-json": "^1.7.0",
     "express": "^4.18.2",
