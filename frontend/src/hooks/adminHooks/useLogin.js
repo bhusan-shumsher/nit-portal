@@ -14,10 +14,32 @@ export function useLogin(){
             // if(data.isFirstTime){
             //     return navigate('/change-password',{replace: true})
             // }
-            if(decodeToken()){
-                navigate('/admin/dashboard',{replace: true});
-            }else{
-                navigate('/account/dashboard',{replace:true});
+            // if(decodeToken()){
+            //     navigate('/admin/dashboard',{replace: true});
+            // }else{
+            //     navigate('/account/dashboard',{replace:true});
+            // }
+            const role = decodeToken();
+            switch(role){
+                case 'admin':
+                    return navigate('/admin/dashboard',{replace:true});
+                    break;
+                case 'account':
+                    return navigate('/account/dashboard',{replace: true});
+                    break;
+                // case 'se':
+                case 'BECE':
+                case 'BEELX':
+                case 'BECIVIL':
+                case 'BBA':
+                case 'BCA':
+                case 'BEIT':
+                case 'BESE':
+                    return navigate('/department/dashboard', {replace: true});
+                    break;
+                default:
+                    toast.error('You dont have specific role to login');
+                    navigate('/',{replace: true});
             }
         },
         onError: err=>{

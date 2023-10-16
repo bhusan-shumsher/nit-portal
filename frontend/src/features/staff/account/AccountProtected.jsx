@@ -1,8 +1,10 @@
 
 import {isAccount } from "../../../utils/decodeToken";
 import { Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Header from "../../../ui/Header";
 import AccountSideBar from "./AccountSideBar";
+
 function AccountProtectedRoute(){
     const account = isAccount();
     if(!account){

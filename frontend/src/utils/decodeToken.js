@@ -8,11 +8,12 @@ export function decodeToken(){
         return false;
     }
     const decoded = jwt_decode(token.token);
-    if(decoded.role === 'admin'){
-        return true;
-    }else{
-        return false;
-    }
+    // if(decoded.role === 'admin'){
+    //     return true;
+    // }else{
+    //     return false;
+    // }
+    return decoded.role;
 };
 
 

@@ -10,6 +10,7 @@ const resultRoutes = require('./routes/result');
 const departmentRoutes = require('./routes/department');
 const admintRoutes = require('./routes/admin');
 const accountRoutes = require('./routes/account');
+const ftpRoutes = require('./routes/ftp');
 const fileStorage = multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,'src/files');
@@ -39,7 +40,8 @@ app.use(resultRoutes);
 app.use(departmentRoutes);
 app.use(admintRoutes);
 app.use(accountRoutes);
-// app.use(express.static('public'));
+app.use(ftpRoutes);
+
 const start = async()=>{
     try{
         await mongoose.connect('mongodb://mongo:27017/auth');
@@ -52,15 +54,5 @@ const start = async()=>{
     })
 }
 
-// const start = async()=>{
-//     try{
-//         await mongoose.connect(`mongodb://${keys.dbUser}:${keys.dbPassword}@${keys.dbHost}:${keys.dbPort}/${keys.dbName}?authSource=admin`)
-//     }catch(err){
-//         console.log(err);
-//     }
-//     app.listen(3000, ()=>{
-//         console.log('server running!!')
-//     })
-// }
 start();
 

@@ -21,6 +21,10 @@ import StudentDetail from "./features/staff/StudentDetail";
 import FeeStatus from "./features/student/FeeStatus";
 import AccountDashboard from "./features/staff/account/AccountDashboard";
 import AccountProtected from "./features/staff/account/AccountProtected";
+
+import DepartmentDashboard from "./features/staff/department/DepartmentDashboard";
+import DepartmentProtectedRoute from "./features/staff/department/DepartmentProtectedRoute";
+import StudentList from './features/staff/department/StudentList';
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
@@ -59,6 +63,19 @@ const router = createBrowserRouter([
       
     ]
   }, 
+  {
+    element: <DepartmentProtectedRoute><AppLayout/></DepartmentProtectedRoute>,
+    children:[
+      {
+        path:'/department/dashboard',
+        element: <DepartmentDashboard/>
+      },
+      {
+        path:'/department/student',
+        element: <StudentList/>
+      }
+    ]
+  },
   {
     element: <AccountProtected><AppLayout/></AccountProtected>,
     children:[
