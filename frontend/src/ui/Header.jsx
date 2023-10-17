@@ -1,10 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { useLogout} from "../hooks/useLogout";
-import { usePersonalInfo } from "../hooks/usePersonalInfo";
+import { useBasicInfo } from "../hooks/adminHooks/useBasicInfo";
+import Spinner from "./Spinner";
 export default function Header(){
-    const {logout, isLoading} = useLogout();
-    let token = {'token' : JSON.parse(localStorage.getItem('token'))};
-    const firstName = token.token.firstName;
+    const {logout} = useLogout();
+    const {data, isLoading:basicInfoLoading} = useBasicInfo();
+    
+    if(basicInfoLoading){
+        return (
+            <Spinner/>
+        );
+    }
     return(
         <div className="header">
         <div className="header-left">
@@ -21,12 +27,6 @@ export default function Header(){
             </a>
         </div>
 
-        <div className="top-nav-search">
-            <form>
-                <input type="text" className="form-control" placeholder="Search here"/>
-                <button className="btn" type="submit"><i className="fas fa-search"></i></button>
-            </form>
-        </div>
         <ul className="nav user-menu">
             <li className="nav-item dropdown noti-dropdown me-2">
                 <a href="#" className="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
@@ -77,8 +77,8 @@ export default function Header(){
                         <img className="rounded-circle" src="/img/ncitlogo.jpeg" width="31"
                             alt="Soeng Souy"/>
                         <div className="user-text">
-                            <h6>{firstName || 'User'}</h6>
-                            <p className="text-muted mb-0">Admin</p>
+                            <h6>{data.firstName}</h6>
+                            <p className="text-muted mb-0">{data.role}</p>
                         </div>
                     </span>
                 </a>
@@ -89,8 +89,8 @@ export default function Header(){
                              className="avatar-img rounded-circle"/>
                         </div>
                         <div className="user-text">
-                            <h6>Suman</h6>
-                            <p className="text-muted mb-0">Administrator</p>
+                            <h6>{data.firstName}</h6>
+                            <p className="text-muted mb-0">{data.role}</p>
                         </div>
                     </div>
                     <button className="dropdown-item" onClick={logout}>Logout</button>

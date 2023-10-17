@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function searchStudentForAccount({rollNumber, studentName, semester, faculty}){
     const token = JSON.parse(localStorage.getItem('token'));
-        const response = await axios.get('/api/account/students',
+        const response = await axios.get('http://localhost:3000/api/account/students',
         {
             headers:{
                 'Authorization': 'Bearer '+`${token.token}`

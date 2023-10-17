@@ -65,4 +65,19 @@ export async function getResultByID({rollNumber}){
         throw new Error('cant post data');
     }
     return response.data;
-}
+};
+
+export async function getBasicInfo({rollNumber}){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.get(`/api/admin/basic-info`,
+    {
+        headers:{
+            'Authorization': 'Bearer '+`${token.token}`
+        }
+    }
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+};

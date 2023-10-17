@@ -3,13 +3,14 @@ import { useForm } from "react-hook-form";
 import {useState} from 'react'
 import Spinner from '../../../ui/Spinner';
 import ShowStudent from '.././ShowStudent';
+import { useBasicInfo } from '../../../hooks/adminHooks/useBasicInfo';
 export default function StudentList(){
     const {register, handleSubmit,formState} = useForm();
     const [enabled, setEnabled] = useState(false);
     const [values,setValues] = useState({});
     const {data,isLoading,error,isError} = useSearchStudent(values,{enabled:false});
-
-    if(isLoading){
+    const {data:basicData, isLoading: basicLoading, error: basicError} = useBasicInfo();
+    if(isLoading || basicLoading){
         return(
             <div className="page-wrapper">
             <div className="content container-fluid">
@@ -74,11 +75,7 @@ export default function StudentList(){
 <select type="text" className="form-control"
     {...register('faculty')}
 >
-    <option value='0'>All Faculty</option>
-    <option value="BESE">BESE</option>
-    <option value="BEIT">BEIT</option>
-    <option value="BECE">BECE</option>
-    <option value="BEELX">BEELX</option>
+    <option value={basicData?.role}>{basicData?.role}</option>
 </select>
 </div>
 
