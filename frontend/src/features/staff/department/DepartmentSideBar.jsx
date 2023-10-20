@@ -23,30 +23,23 @@ export default function DeparmentSideBar(){
 <NavLink to='/student/exam-form'><i className="fas fa-chalkboard-teacher"></i> <span> Exam Form</span> <span className="menu-arrow"></span></NavLink>
 
 </li>
-<li className="submenu">
-<a href="#"><i className="fas fa-clipboard"></i> <span> Invoices</span> <span className="menu-arrow"></span></a>
-<ul>
-<li><a href="invoices.html">Invoices List</a></li>
-<li><a href="invoice-grid.html">Invoices Grid</a></li>
-<li><a href="add-invoice.html">Add Invoices</a></li>
-<li><a href="edit-invoice.html">Edit Invoices</a></li>
-<li><a href="view-invoice.html">Invoices Details</a></li>
-<li><a href="invoices-settings.html">Invoices Settings</a></li>
-</ul>
-</li>
 <li className="menu-title">
 <span>Management</span>
 </li>
 <li className="submenu">
-<a href="#"><i className="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span className="menu-arrow"></span></a>
-<ul>
-<li><a href="fees-collections.html">Fees Collection</a></li>
-<li><a href="expenses.html">Expenses</a></li>
-<li><a href="salary.html">Salary</a></li>
-<li><a href="add-fees-collection.html">Add Fees</a></li>
-<li><a href="add-expenses.html">Add Expenses</a></li>
-<li><a href="add-salary.html">Add Salary</a></li>
-</ul>
+<NavLink to='/department/add-new-student'><i className="fas fa-file-invoice-dollar"></i> <span> Add New Student</span> <span className="menu-arrow"></span></NavLink>
+</li>
+<li className="submenu">
+<NavLink to='/department/add-school-info'><i className="fas fa-file-invoice-dollar"></i> <span> Add School Info</span> <span className="menu-arrow"></span></NavLink>
+</li>
+<li className="menu-title">
+<span>Bulk Upload</span>
+</li>
+<li className="submenu">
+<NavLink to='/department/bulk-upload-student'><i className="fas fa-file-invoice-dollar"></i> <span>Bulk Student Upload</span> <span className="menu-arrow"></span></NavLink>
+</li>
+<li className="submenu">
+<NavLink to='/department/bulk-school-info'><i className="fas fa-file-invoice-dollar"></i> <span> Bulk School Info</span> <span className="menu-arrow"></span></NavLink>
 </li>
 <li>
 <a href="holiday.html"><i className="fas fa-holly-berry"></i> <span>Holiday</span></a>

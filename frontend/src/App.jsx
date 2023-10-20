@@ -25,6 +25,11 @@ import AccountProtected from "./features/staff/account/AccountProtected";
 import DepartmentDashboard from "./features/staff/department/DepartmentDashboard";
 import DepartmentProtectedRoute from "./features/staff/department/DepartmentProtectedRoute";
 import StudentList from './features/staff/department/StudentList';
+import AddNewStudent from "./features/staff/department/AddStudent";
+import AddSchoolInfo from "./features/staff/department/AddSchoolInfo";
+import BulkUploadStudent from "./features/staff/department/BulkUploadStudent";
+import BulkAcademicInfo from "./features/staff/department/BulkAcademicInfo";
+
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
@@ -73,6 +78,26 @@ const router = createBrowserRouter([
       {
         path:'/department/student',
         element: <StudentList/>
+      },
+      {
+        path:'/admin/student/details',
+        element: <StudentDetail/>
+      },
+      {
+        path:'/department/add-new-student',
+        element: <AddNewStudent/>
+      },
+      {
+        path:'/department/add-school-info',
+        element:<AddSchoolInfo/>
+      },
+      {
+        path:'/department/bulk-upload-student',
+        element: <BulkUploadStudent/>
+      },
+      {
+        path:'/department/bulk-school-info',
+        element: <BulkAcademicInfo/>
       }
     ]
   },
@@ -91,10 +116,6 @@ const router = createBrowserRouter([
       {
         path: '/admin/dashboard',
         element: <AdminDashboard/>
-      },
-      {
-        path:'/admin/student/details',
-        element: <StudentDetail/>
       },
       {
         path:'/admin/student',

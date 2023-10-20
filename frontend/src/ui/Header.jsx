@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 export default function Header(){
     const {logout} = useLogout();
     const {data, isLoading:basicInfoLoading} = useBasicInfo();
-    
+    console.log(data)
     if(basicInfoLoading){
         return (
             <Spinner/>
@@ -77,7 +77,7 @@ export default function Header(){
                         <img className="rounded-circle" src="/img/ncitlogo.jpeg" width="31"
                             alt="Soeng Souy"/>
                         <div className="user-text">
-                            <h6>{data.firstName}</h6>
+                            <h6>{data.firstName || 'User'}</h6>
                             <p className="text-muted mb-0">{data.role}</p>
                         </div>
                     </span>
@@ -89,7 +89,7 @@ export default function Header(){
                              className="avatar-img rounded-circle"/>
                         </div>
                         <div className="user-text">
-                            <h6>{data.firstName}</h6>
+                            <h6>{data.firstName || 'User'}</h6>
                             <p className="text-muted mb-0">{data.role}</p>
                         </div>
                     </div>

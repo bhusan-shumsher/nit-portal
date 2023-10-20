@@ -81,3 +81,73 @@ export async function getBasicInfo({rollNumber}){
     }
     return response.data;
 };
+
+
+// ADD NEW STUDENT
+export async function addNewStudent(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/department/add-new-student',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+
+};
+
+// ADD ACADEMIC INFO OF STUDENT
+export async function addAcademicInfo(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/department/add-academic-info',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+};
+
+//BULK UPLOAD STUDENT
+export async function bulkUploadStudent(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/users/create-bulk-users',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}
+
+// BULK UPLOAD STUDENT'S SCHOOL INFORMATION
+export async function bulkUploadSchoolInfo(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/users/bulk-school-info',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}

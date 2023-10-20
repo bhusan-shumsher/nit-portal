@@ -9,6 +9,8 @@ export default function StudentDetail(){
     if(isLoading){
         <h1>Loading....</h1>
     }
+    console.log('here',data)
+
     if(!error && data && data.length >0){
         return(
 

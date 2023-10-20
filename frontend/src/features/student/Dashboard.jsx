@@ -29,7 +29,7 @@ export default function Dashboard () {
     }
     const {email,rollNumber,batch,faculty,firstName, lastName, middleName,dobNepali,dobEnglish,religion,gender,
         district,zone,ward,address,studentContactNumber,town,
-        fatherContactNumber,motherContactNumber,currentSemester} = data.data;
+        fatherContactNumber,motherContactNumber,currentSemester,imageURL} = data.data;
     return(
         <div className="page-wrapper">
         <div className="content container-fluid">
@@ -61,6 +61,7 @@ export default function Dashboard () {
             batch={batch}
             faculty={faculty}
             rollNumber={rollNumber}
+            imageURL={imageURL}
         />
         </div>
         </div>
