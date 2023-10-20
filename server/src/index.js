@@ -1,8 +1,8 @@
-const http = require('http');
+// const http = require('http');
 const express = require('express');
 const {json} = require('body-parser');
 const mongoose = require('mongoose');
-const serveIndex = require('serve-index');
+// const serveIndex = require('serve-index');
 const multer = require('multer'); // for file upload 
 // const keys = require('./keys');
 const authRoutes = require('./routes/auth');
@@ -25,6 +25,8 @@ app.use(json());
 app.use(multer({
     storage: fileStorage
 }).single('file'));
+// make this folder publically accessible
+app.use('/src/files',express.static('src/files'));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -42,8 +44,6 @@ app.use(resultRoutes);
 app.use(departmentRoutes);
 app.use(admintRoutes);
 app.use(accountRoutes);
-// app.use('/api/show-forms',express.static('src/submitted-form'),serveIndex('src/submitted-form',{icons: true}));
-// app.use(express.static('public'));
 app.use(ftpRoutes);
 
 const start = async()=>{
