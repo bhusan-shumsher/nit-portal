@@ -14,15 +14,15 @@ export default function DeparmentSideBar(){
 <NavLink to='/department/dashboard'><i className="feather-grid"></i> <span> Dashboard</span> <span className="menu-arrow"></span></NavLink>
 
 </li>
-<li className="submenu">
+{/* <li className="submenu">
 <NavLink to='/student/result'><i className="fas fa-chalkboard-teacher"></i> <span> Result</span> <span className="menu-arrow"></span></NavLink>
 
-</li>
+</li> */}
 
-<li className="submenu">
+{/* <li className="submenu">
 <NavLink to='/student/exam-form'><i className="fas fa-chalkboard-teacher"></i> <span> Exam Form</span> <span className="menu-arrow"></span></NavLink>
 
-</li>
+</li> */}
 <li className="menu-title">
 <span>Management</span>
 </li>
@@ -40,6 +40,9 @@ export default function DeparmentSideBar(){
 </li>
 <li className="submenu">
 <NavLink to='/department/bulk-school-info'><i className="fas fa-file-invoice-dollar"></i> <span> Bulk School Info</span> <span className="menu-arrow"></span></NavLink>
+</li>
+<li className="submenu">
+<NavLink to='/department/bulk-result-upload'><i className="fas fa-file-invoice-dollar"></i> <span> Bulk Result Upload</span> <span className="menu-arrow"></span></NavLink>
 </li>
 <li>
 <a href="holiday.html"><i className="fas fa-holly-berry"></i> <span>Holiday</span></a>
