@@ -4,7 +4,7 @@ import { decodeToken } from '../../../utils/decodeToken';
 import Header from '../../../ui/Header';
 import DepartmentSideBar from './DepartmentSideBar';
 import { toast } from "react-hot-toast";
-
+import { isTokenExpired } from '../../../utils/decodeToken';
 const DepartmentRoles = ['BECE','BESE','BEIT','BEELX','BECIVIL','BBA','BCA','admin'];
 function DepartmentProtectedRoute(){
     const role = decodeToken();
@@ -15,7 +15,12 @@ function DepartmentProtectedRoute(){
     // }else if(auth.token.isFirstTime){
     //     return <Navigate to='/change-password'/>;
     // }
-    }else{
+    }
+    if(!isTokenExpired()){
+        toast.error('session expired');
+        return <Navigate to ='/' />
+    }
+    else{
         return(
             <div >
                  <Header/>

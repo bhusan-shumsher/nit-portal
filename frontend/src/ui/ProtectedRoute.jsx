@@ -2,6 +2,8 @@
 import {Navigate, Outlet} from 'react-router-dom';
 import Header from './Header';
 import SideBar from './SideBar';
+import { isTokenExpired } from '../utils/decodeToken';
+import { toast } from 'react-hot-toast';
 function ProtectedRoute(){
     let auth = {'token' : JSON.parse(localStorage.getItem('token'))};
 
@@ -10,7 +12,12 @@ function ProtectedRoute(){
     // }else if(auth.token.isFirstTime){
     //     return <Navigate to='/change-password'/>;
     // }
-    }else{
+    }
+    if(!isTokenExpired()){
+        toast.error('session expired')
+        return <Navigate to ='/'/>
+    }
+    else{
         return(
             <div >
                 <Header/>

@@ -1,7 +1,6 @@
 import jwt_decode from 'jwt-decode';
 
 
-
 export function decodeToken(){
     const token =  JSON.parse(localStorage.getItem('token'));
     if(!token){
@@ -26,3 +25,13 @@ export function isAccount(){
 };
 
 
+export  function  isTokenExpired(){
+    const token =  JSON.parse(localStorage.getItem('token'));
+
+    const {exp} = jwt_decode(token.token);
+    if(Date.now() > exp * 1000){
+        return false;
+    }else{
+        return true;
+    }
+}

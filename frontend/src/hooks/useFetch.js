@@ -12,7 +12,7 @@ export function useFetch(){
         async function getUsers(){
             try{
                 setIsLoading(true);
-                const res = await axios.get('/api/users/all');
+                const res = await axios.get('http://localhost:3000/api/users/all');
                 if(!res.ok){
                     throw new Error('Cant load');
                 }

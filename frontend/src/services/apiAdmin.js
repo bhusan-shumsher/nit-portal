@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export async function login({email,password}){
     const response = await axios.post('/api/staff/login',{
         email,
@@ -138,7 +137,7 @@ export async function bulkUploadStudent(data){
 // BULK UPLOAD STUDENT'S SCHOOL INFORMATION
 export async function bulkUploadSchoolInfo(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/users/bulk-school-info',
+    const response = await axios.post('http://localhost:3000/api/users/bulk-school-info',
         data,
         {
             headers:{
@@ -156,7 +155,48 @@ export async function bulkUploadSchoolInfo(data){
 // BULK UPLOAD RESULT 
 export async function bulkUploadResult(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/result/bulk-upload',
+    const response = await axios.post('http://localhost:3000/api/result/bulk-upload',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}
+
+// GET SUBJECTS OF GIVEN FACULTY AND SEMESTER
+export async function getSubjectBySemester({semester,faculty}){
+    console.log('time',faculty)
+
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.get(`http://localhost:3000/api/subjects`,
+    {
+        params:{
+            semester,
+            faculty
+        },
+        headers:{
+            'Authorization': 'Bearer '+`${token.token}`
+        }
+    }
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+
+    return response.data;
+}
+
+
+// ADD R3ESULT OF INDIVIDUAL STUDENT 
+export async function addResult(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('http://localhost:3000/api/result/add-result',
         data,
         {
             headers:{

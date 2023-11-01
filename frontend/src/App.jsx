@@ -30,6 +30,8 @@ import AddSchoolInfo from "./features/staff/department/AddSchoolInfo";
 import BulkUploadStudent from "./features/staff/department/BulkUploadStudent";
 import BulkAcademicInfo from "./features/staff/department/BulkAcademicInfo";
 import BulkResultUpload from "./features/staff/department/BulkResultUpload";
+import AddResult from "./features/staff/department/AddResult";
+import VerifyResult from "./features/staff/department/VerifyResult";
 
 const queryClient = new QueryClient({});
 
@@ -103,6 +105,14 @@ const router = createBrowserRouter([
       {
         path: '/department/bulk-result-upload',
         element: <BulkResultUpload/>
+      },
+      {
+        path:'/department/add-result',
+        element: <AddResult/>
+      },
+      {
+        path:'/department/verify-result',
+        element:<VerifyResult/>
       }
     ]
   },

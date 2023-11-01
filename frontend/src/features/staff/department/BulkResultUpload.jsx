@@ -125,7 +125,7 @@ export default function BulkResultUpload(){
              <input
                 {...register('file',{required:true})}
                  type="file"
-                 accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
+                 accept='.xls,.xlsx,.xlsb'
                  onChange={e=>{
                     e.preventDefault();
                     setFileName(e.target.files[0].name);

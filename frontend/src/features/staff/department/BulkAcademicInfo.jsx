@@ -36,7 +36,7 @@ export default function BulkAcademicInfo(){
             <div className="page-sub-header">
             <h3 className="page-title">Bulk Uploader</h3>
             <ul className="breadcrumb">
-            <li className="breadcrumb-item"><a href="students.html">Student</a></li>
+            <li className="breadcrumb-item"><a href="students.html">Department</a></li>
             <li className="breadcrumb-item active">Bulk Upload Student's School Information</li>
             </ul>
             </div>
