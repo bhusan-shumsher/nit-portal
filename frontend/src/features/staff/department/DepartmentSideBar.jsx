@@ -32,6 +32,9 @@ export default function DeparmentSideBar(){
 <li className="submenu">
 <NavLink to='/department/add-school-info'><i className="fas fa-file-invoice-dollar"></i> <span> Add School Info</span> <span className="menu-arrow"></span></NavLink>
 </li>
+<li className="submenu">
+<NavLink to='/department/add-result'><i className="fas fa-file-invoice-dollar"></i> <span> Add Result</span> <span className="menu-arrow"></span></NavLink>
+</li>
 <li className="menu-title">
 <span>Bulk Upload</span>
 </li>
