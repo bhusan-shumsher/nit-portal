@@ -3,12 +3,10 @@
 
 export default function Label({value, register,name}){
     return(
-            // <div className="form-group local-forms">
-            <div className="form-group row">
-                {/* <label className="col-form-label col-md-2">Readonly Input</label> */}
-                <div className="col-md-10">
+        <div className="col-12 col-sm-3">
+        <div className="form-group local-forms">
                 <input 
-                    type="text" 
+                    type='text'
                     className="form-control" 
                     value={value} 
                     readonly="readonly"
@@ -17,6 +15,7 @@ export default function Label({value, register,name}){
                     />
             </div>
             </div>
-            // </div>
+        //   </div> 
     );      
 }
+

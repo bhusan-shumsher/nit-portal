@@ -4,21 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import TextBox from '../../../ui/form-elements/TextBox';
 import Dropdown from '../../../ui/form-elements/Dropdown';
 import {useState} from 'react'
-import GradeSubmitList from './GradeSubmitList';
 import { getObjectValue } from '../../../utils/getObjectValue';
 import { sgpaCalc } from '../../../utils/sgpaCalc';
-export default function AddResult(){
+import EditResultForm from '../../../ui/EditResultForm';
+import { useEditResult } from '../../../hooks/adminHooks/useEditResult';
+
+export default function EditResult(){
     const navigate = useNavigate();
     const [formStep, setFormStep] = useState(0);
+    const {editResult,isLoading} = useEditResult();
     const completeFormStep = ()=>{
         setFormStep(current=> current + 1);
     }
-    const backForm = ()=>{
-        setFormStep(current=> current -1);
-    }
-  
+    
     const renderButton = ()=>{
-       if(formStep === 2){
+       if(formStep === 1){
             return(
                 <div className="col-12">
                 <div className="student-submit">
@@ -29,7 +29,7 @@ export default function AddResult(){
                 </div>
                 </div>
             )
-        }else if(formStep === 1){
+        }else{
             return(
                 <div className="col-12">
                 <div className="student-submit">
@@ -39,29 +39,8 @@ export default function AddResult(){
                     onClick={completeFormStep}>Next</button>
 
                 </div>
-                <div className="student-submit">
-                <button 
-                    type="button" 
-                    className="btn btn-success"
-                    onClick={backForm}
-                    >Back</button>
-
-               
-                </div>
                 </div>
             )
-        }else{
-            return(
-                <div className="col-12">
-                <div className="student-submit">
-                <button 
-                    type="button" 
-                    className="btn btn-primary"
-                    onClick={completeFormStep}
-                    >Next</button>
-               </div>
-                </div>
-            );
         }
     }
     const {
@@ -71,6 +50,7 @@ export default function AddResult(){
         formState: { errors },
       } = useForm()
       const onSubmit = (data) => {
+        console.log(data);
         const keys = Object.keys(data.name);
         var grades = new Array();
         keys.forEach(key=>{
@@ -82,21 +62,14 @@ export default function AddResult(){
             grades.push(value);
         })
         const object = {
-            examRollNumber : data.examRollNumber,
             rollNumber: data.rollNumber,
             semester: data.semester,
             grades: grades,
-            semesterType: data.semesterType,
-            faculty: data.faculty,
-            year: data.year,
             sgpa: sgpaCalc(grades)
         }
-        console.log(object);
-        const sgpa = sgpaCalc(grades);
-        console.log('sgpa',sgpa)
-        navigate('/department/verify-result',{state:{object}});
+        editResult(object);
       }
-    const values = watch(['semester','faculty']);
+    const values = watch(['semester','rollNumber']);
     return(
         <div className="page-wrapper">
                 <div className="content container-fluid">
@@ -104,10 +77,10 @@ export default function AddResult(){
                 <div className="row align-items-center">
                 <div className="col-sm-12">
                 <div className="page-sub-header">
-                <h3 className="page-title">Add Result</h3>
+                <h3 className="page-title">Edit Result</h3>
                 <ul className="breadcrumb">
                 <li className="breadcrumb-item"><a href="students.html">Department</a></li>
-                <li className="breadcrumb-item active">Add Result</li>
+                <li className="breadcrumb-item active">Edit Result</li>
                 </ul>
                 </div>
                 </div>
@@ -121,11 +94,19 @@ export default function AddResult(){
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                 <div className="col-12">
-                <h5 className="form-title student-info">Student Information <span></span></h5>
+                <h5 className="form-title student-info">Result  <span></span></h5>
                 </div>
                 {values.semester}
                 {formStep === 0 && 
                     <>
+                        <TextBox 
+                label='College Roll Number' 
+                placeholder='Enter College Roll Number'
+                register={register}
+                name='rollNumber'
+                errors={errors}
+
+            />
                          <Dropdown 
             label='Select Semster'
             values = {[
@@ -144,71 +125,17 @@ export default function AddResult(){
             name='semester'
             errors={errors}
         />
-                <Dropdown 
-            label='Select Faculty'
-            values = {[
-                {placeholder: 'BECE', value:'BECE'},
-                    {placeholder: 'BESE', value: 'BESE'},
-                    {placeholder: 'BEIT', value:'BEIT'},
-                    {placeholder: 'BEELX', value:'BEELX'},
-                    {placeholder: 'BECIVIL', value:'BECIVIL'},
-                    {placeholder: 'BCA', value:'BCA'},
-                    {placeholder: 'BBA', value:'BBA'}
-            ]}
-            isCompulsory={true}
-            register={register}
-            name='faculty'
-            errors={errors}
-        />
-         <Dropdown 
-            label='Select Semster Type'
-            values = {[
-                {placeholder: 'SPRING', value:'SPRING'},
-                    {placeholder: 'FALL', value: 'FALL'}
-            ]}
-            isCompulsory={true}
-            register={register}
-            name='semesterType'
-            errors={errors}
-        />
-        <TextBox 
-                label='Year' 
-                placeholder='Enter Year'
-                register={register}
-                name='year'
-                errors={errors}
-
-            />
-
+                
                     </>
                 }
                
                 {formStep === 1 && 
-                     <>
-                         <TextBox 
-                    label='NCIT Roll'
-                    placeholder='Enter NCIT Roll Number'
-                    isCompulsory={true}
-                    register={register}
-                    name='rollNumber'
-                    errors={errors}
-                />
-                < TextBox 
-                    label='Exam Roll Number'
-                    placeholder='Exam Roll Number'
-                    isCompulsory={true}
-                    register={register}
-                    errors={errors}
-                    name='examRollNumber'
-                />
-                    </>}
-                {formStep === 2 && 
-                        <GradeSubmitList 
-                           semester = {values[0]}
-                           faculty={values[1]}
-                           register={register}
-                           errors={errors}
-                        />
+                    <EditResultForm
+                        register={register}
+                        errors={errors}
+                        semester={values[0]}
+                        rollNumber={values[1]}
+                    />
                 }
                
                {renderButton()}

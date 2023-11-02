@@ -47,8 +47,11 @@ export default function DeparmentSideBar(){
 <li className="submenu">
 <NavLink to='/department/bulk-result-upload'><i className="fas fa-file-invoice-dollar"></i> <span> Bulk Result Upload</span> <span className="menu-arrow"></span></NavLink>
 </li>
+<li className="menu-title">
+<span>Bulk Upload</span>
+</li>
 <li>
-<a href="holiday.html"><i className="fas fa-holly-berry"></i> <span>Holiday</span></a>
+<NavLink to='/department/edit-result'><i className="fas fa-file-invoice-dollar"></i> <span>Edit Result</span> <span className="menu-arrow"></span></NavLink>
 </li>
 <li>
 <a href="fees.html"><i className="fas fa-comment-dollar"></i> <span>Fees</span></a>
@@ -56,45 +59,6 @@ export default function DeparmentSideBar(){
 <li>
 <a href="exam.html"><i className="fas fa-clipboard-list"></i> <span>Exam list</span></a>
 </li>
-<li>
-<a href="event.html"><i className="fas fa-calendar-day"></i> <span>Events</span></a>
-</li>
-<li>
-<a href="time-table.html"><i className="fas fa-table"></i> <span>Time Table</span></a>
-</li>
-<li>
-<a href="library.html"><i className="fas fa-book"></i> <span>Library</span></a>
-</li>
-<li className="submenu">
-<a href="#"><i className="fa fa-newspaper"></i> <span> Blogs</span>
-<span className="menu-arrow"></span>
- </a>
-</li>
-<li className="submenu">
-<a href="#"><i className="fas fa-shield-alt"></i> <span> Authentication </span> <span className="menu-arrow"></span></a>
-<ul>
-<li><a href="login.html">Login</a></li>
-<li><a href="register.html">Register</a></li>
-<li><a href="forgot-password.html">Forgot Password</a></li>
-<li><a href="error-404.html">Error Page</a></li>
-</ul>
-</li>
-<li>
-<a href="blank-page.html"><i className="fas fa-file"></i> <span>Blank Page</span></a>
-</li>
-<li className="menu-title">
-<span>Others</span>
-</li>
-<li>
-<a href="sports.html"><i className="fas fa-baseball-ball"></i> <span>Sports</span></a>
-</li>
-<li>
-<a href="hostel.html"><i className="fas fa-hotel"></i> <span>Hostel</span></a>
-</li>
-<li>
-<a href="transport.html"><i className="fas fa-bus"></i> <span>Transport</span></a>
-</li>
-
 
 
 

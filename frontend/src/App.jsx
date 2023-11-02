@@ -32,6 +32,7 @@ import BulkAcademicInfo from "./features/staff/department/BulkAcademicInfo";
 import BulkResultUpload from "./features/staff/department/BulkResultUpload";
 import AddResult from "./features/staff/department/AddResult";
 import VerifyResult from "./features/staff/department/VerifyResult";
+import EditResult from "./features/staff/department/EditResult";
 
 const queryClient = new QueryClient({});
 
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
       {
         path:'/department/verify-result',
         element:<VerifyResult/>
+      },
+      {
+        path:'/department/edit-result',
+        element: <EditResult/>
       }
     ]
   },

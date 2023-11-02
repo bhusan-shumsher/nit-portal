@@ -11,7 +11,7 @@ const GRADE_VALUE = Object.freeze({
    "D+": 1.3,
    "D": 1,
    "NQ": 0,
-   "EXP": 0,
+   "Expelled": 0,
    "ABS": 0,
    "F": 0,
    "CNR": 0

@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export async function login({email,password}){
     const response = await axios.post('/api/staff/login',{
         email,
@@ -197,6 +196,40 @@ export async function getSubjectBySemester({semester,faculty}){
 export async function addResult(data){
     const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.post('/api/result/add-result',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}
+
+// GET RESULT OF STUDENT BY SEMESTER
+export async function getResultBySem({semester, rollNumber}){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.get(`/api/admin/result-by-sem/${rollNumber}/${semester}`,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+            
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}
+
+// EDIT RESULT 
+export async function editResult(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/result/edit-result',
         data,
         {
             headers:{
