@@ -33,4 +33,6 @@ router.post('/api/result/add-result',resultController.addResult);
 router.post('/api/result/edit-result',resultController.editResult);
 
 
+// bulk update back paper 
+router.post('/api/result/update-backlogs',resultController.postBulkBackPaper);
 module.exports = router;
