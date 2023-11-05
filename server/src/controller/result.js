@@ -1,7 +1,7 @@
 const Result = require('../models/result');
 const util = require('../utils/excel-to-json');
 const Subject = require('../models/subject');
-
+const backHelper = require('../utils/back-paper');
 exports.addBulkResult = async (req,res,next)=>{
     try{
         const {semester,year,semesterType,faculty} = req.body;
