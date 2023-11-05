@@ -242,3 +242,21 @@ export async function editResult(data){
     }
     return response.data;
 }
+
+//UPDATE BACKLOGS
+
+export async function updateBacklogs(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/result/update-backlogs',
+        data,
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            }
+        }  
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}

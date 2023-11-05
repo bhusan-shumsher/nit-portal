@@ -33,6 +33,7 @@ import BulkResultUpload from "./features/staff/department/BulkResultUpload";
 import AddResult from "./features/staff/department/AddResult";
 import VerifyResult from "./features/staff/department/VerifyResult";
 import EditResult from "./features/staff/department/EditResult";
+import BackPaperUpload from "./features/staff/department/BackPaperUpload";
 
 const queryClient = new QueryClient({});
 
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path:'/department/edit-result',
         element: <EditResult/>
+      },
+      {
+        path:'department/update-backlogs',
+        element: <BackPaperUpload/>
       }
     ]
   },
