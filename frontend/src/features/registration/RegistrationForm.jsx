@@ -4,7 +4,6 @@ import { useState } from 'react';
 import LongTextBox from "./formui/LongTextBox";
 import { DatePicker } from 'antd';
 import Dropdown  from './formui/DropDown';
-import dayjs from 'dayjs';
 // import NepaliDate from 'nepali-date-converter'
 import { useSaveRegDetails } from '../../hooks/registrationHooks/useSaveRegDetails';
 import Spinner from '../../ui/Spinner';
