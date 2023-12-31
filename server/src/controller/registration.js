@@ -115,7 +115,6 @@ exports.saveDetails = async (req,res,next)=>{
         }
         });
         console.log('dir', dir);
-        console.log(process.cwd());
         const engDate = new Date(dobEnglish);
          const dobE = engDate.getFullYear()+'-'+(engDate.getMonth() + 1) +'-'+engDate.getDate();
 
@@ -198,8 +197,8 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             signature: toBase64(user[0].signature),
             plusTwoYear: user[0].plusTwoYear
         };
-        console.log(toBase64(user[0].photoURL));
-        
+        console.log(toBase64(data.logo));
+
         const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/form.html'), 'utf8');
         // handlebars.registerHelper("inc", function(value, options)
         // {
