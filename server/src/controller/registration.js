@@ -113,7 +113,7 @@ exports.saveDetails = async (req,res,next)=>{
             return res.status(500).send({ error: 'Failed to store the file' });
         }
         });
-        
+        console.log('dir', dir)
         const engDate = new Date(dobEnglish);
          const dobE = engDate.getFullYear()+'-'+(engDate.getMonth() + 1) +'-'+engDate.getDate();
 
@@ -222,6 +222,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
         console.log(err)
         return res.status(500).send({message:'error'});
     }
+    console.log('folder created');
 
     // Downlaod the PDF
   const pdf = await page.pdf({
