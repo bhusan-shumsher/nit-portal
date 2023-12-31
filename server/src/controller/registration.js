@@ -205,7 +205,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
         // {
         //     return parseInt(value) + 1;
         // });
-        console.log(templateHtml);
+        console.log('html',templateHtml);
         var template = handlebars.compile(templateHtml);
 	    var html = template(data);
 
