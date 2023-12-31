@@ -12,6 +12,8 @@ const departmentRoutes = require('./routes/department');
 const admintRoutes = require('./routes/admin');
 const accountRoutes = require('./routes/account');
 const ftpRoutes = require('./routes/ftp');
+const registration = require('./routes/registration');
+
 const fileStorage = multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,'src/files');
@@ -45,10 +47,11 @@ app.use(departmentRoutes);
 app.use(admintRoutes);
 app.use(accountRoutes);
 app.use(ftpRoutes);
+app.use(registration);
 
 const start = async()=>{
     try{
-        await mongoose.connect('mongodb://mongo/auth');
+        await mongoose.connect('mongodb://mongo/ncit-portal');
         console.log('database connected');
     }catch(err){
         console.log(err);
