@@ -211,7 +211,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
 
     // var pdfPath = path.join('form');
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox'],
+        args: ['--no-sandbox','--disable-web-security'],
 		headless: 'new'
 	});
     var page = await browser.newPage();
