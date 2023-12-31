@@ -161,6 +161,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             return res.status(500).send({message:'cant find data'});
         }
         
+        console.log('user',user);
         const name = user[0].fullName.toUpperCase();
         const data ={
             email: req.email,
