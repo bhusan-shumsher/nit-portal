@@ -67,7 +67,7 @@ export async function uploadExtra(formData){
 
 export async function generateForm(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/registration/form',{},
+    const response = await axios.post('/api/registration/form',null,
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
