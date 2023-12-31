@@ -231,7 +231,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     // Downlaod the PDF
   const pdf = await page.pdf({
     path: `src/files/registration/${data.program}/${data.email}/registration.pdf`,
-    margin: { top: '30px', right: '50px', bottom: '40px', left: '50px' },
+    margin: { top: '30px', right: '50px', bottom: '30px', left: '50px' },
     printBackground: true,
     format: 'A4',
   });
