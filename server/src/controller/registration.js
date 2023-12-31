@@ -155,6 +155,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     try{
 
         const email = req.email;
+        console.log(email);
         const user = await RegistrationDetail.find({email});
         if(!user){
             return res.status(500).send({message:'cant find data'});
@@ -197,8 +198,8 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             signature: toBase64(user[0].signature),
             plusTwoYear: user[0].plusTwoYear
         };
-        console.log(toBase64(data.logo));
-
+        console.log('logo',toBase64(data.logo));
+        console.log(data.nationality);
         const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/form.html'), 'utf8');
         // handlebars.registerHelper("inc", function(value, options)
         // {
