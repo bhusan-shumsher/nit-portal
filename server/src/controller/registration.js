@@ -194,7 +194,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             plusTwoDivision: user[0].plusTwoDivision,
             plusTwoSymbol: user[0].plusTwoSymbol,
             photoURL: toBase64(user[0].photoURL),
-            logo: toBase64('src/public/logo.jpg'),
+            logo: toBase64('src/files/registration/logo.jpg'),
             currentDate: getTodayDate(),
             signature: toBase64(user[0].signature),
             plusTwoYear: user[0].plusTwoYear
@@ -225,7 +225,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
         }
     }catch(err){
         console.log(err)
-        return res.status(500).send({message:'error'});
+        return res.status(500).send({message:err.message});
     }
     console.log('folder created');
 
