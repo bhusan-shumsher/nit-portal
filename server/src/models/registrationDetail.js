@@ -113,13 +113,11 @@ const registrationDetailSchema = new Schema({
     },
     secondaryDivision:{
         type: String,
-        enum:['FIRST','SECOND','DISTINCTION','THIRD'],
-        required: true
+        enum:['First','Second','Distinction','Third'],
     },
     secondarySymbol:{
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     plusTwoName:{
         type: String,
@@ -144,13 +142,12 @@ const registrationDetailSchema = new Schema({
     },
     plusTwoDivision:{
         type: String,
-        enum:['FIRST','SECOND','DISTINCTION','THIRD'],
+        enum:['First','Second','Distinction','Third'],
         required: true
     },
     plusTwoSymbol:{
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     photoURL:{
         type: String,

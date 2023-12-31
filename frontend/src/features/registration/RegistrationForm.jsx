@@ -218,8 +218,8 @@ export default function RegistrationForm(){
                 />
 
             <LongTextBox 
-                    label="Zone"
-                    placeholder="Zone"
+                    label="Province/Zone"
+                    placeholder="Province/Zone"
                     isCompulsory={true}
                     register={register}
                     name='zone'
@@ -275,8 +275,8 @@ export default function RegistrationForm(){
                 />
             
             <LongTextBox 
-                    label="Total Marks"
-                    placeholder="Total Marks"
+                    label="Total Marks/Grade"
+                    placeholder="Total Marks/Grade"
                     isCompulsory={true}
                     register={register}
                     name='secondaryTotalMarks'
@@ -284,8 +284,8 @@ export default function RegistrationForm(){
                 />
             
             <LongTextBox 
-                    label="Marks Obtained"
-                    placeholder="Marks Obtained"
+                    label="Marks/Grade Obtained"
+                    placeholder="Marks/Grade Obtained"
                     isCompulsory={true}
                     register={register}
                     name='secondaryMarksObtained'
@@ -296,10 +296,10 @@ export default function RegistrationForm(){
                 label='Division'
                 placeholder='Select Division'
                 values={[
-                    {placeholder: 'Distinction', value:'DISTINCTION'},
-                    {placeholder: 'First', value: 'FIRST'},
-                    {placeholder: 'Second', value:'SECOND'},
-                    {placeholder: 'Third', value:'THIRD'}
+                    {placeholder: 'Distinction', value:'Distinction'},
+                    {placeholder: 'First', value: 'First'},
+                    {placeholder: 'Second', value:'Second'},
+                    {placeholder: 'Third', value:'Third'}
                 ]}
                 register = {register}
                 name='secondaryDivision'
@@ -363,8 +363,8 @@ export default function RegistrationForm(){
         />
     
     <LongTextBox 
-            label=" High School Total Marks"
-            placeholder="High School Total Marks"
+            label=" High School Total Marks/Grade"
+            placeholder="High School Total Marks/Grade"
             isCompulsory={true}
             register={register}
             name='plusTwoTotalMarks'
@@ -372,8 +372,8 @@ export default function RegistrationForm(){
         />
     
     <LongTextBox 
-            label="High School Marks Obtained"
-            placeholder="High School Marks Obtained"
+            label="High School Marks/Grade Obtained"
+            placeholder="High School Marks/Grade Obtained"
             isCompulsory={true}
             register={register}
             name='plusTwoMarksObtained'
@@ -384,10 +384,10 @@ export default function RegistrationForm(){
         label='High School Division'
         placeholder='Select Division'
         values={[
-            {placeholder: 'Distinction', value:'DISTINCTION'},
-            {placeholder: 'First', value: 'FIRST'},
-            {placeholder: 'Second', value:'SECOND'},
-            {placeholder: 'Third', value:'THIRD'}
+            {placeholder: 'Distinction', value:'Distinction'},
+            {placeholder: 'First', value: 'First'},
+            {placeholder: 'Second', value:'Second'},
+            {placeholder: 'Third', value:'Third'}
         ]}
         register = {register}
         name='plusTwoDivision'
