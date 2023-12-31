@@ -7,7 +7,6 @@ export async function login({email,password}){
     if(!response){
         throw new Error('Cant login!')
     }
-    console.log(response);
     return response.data;
 };
 
@@ -170,8 +169,6 @@ export async function bulkUploadResult(data){
 
 // GET SUBJECTS OF GIVEN FACULTY AND SEMESTER
 export async function getSubjectBySemester({semester,faculty}){
-    console.log('time',faculty)
-
     const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(`/api/subjects`,
     {

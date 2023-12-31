@@ -9,10 +9,8 @@ export function useAddNewStudent(){
         mutationFn: (info)=>addNewStudent(info),
         onSuccess: (data)=>{
             toast.success('new student added !!');
-
         },
         onError: err=>{
-            console.log('Error',err);
             // add toast
             toast.error(err.message);
         }

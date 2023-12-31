@@ -35,6 +35,14 @@ import VerifyResult from "./features/staff/department/VerifyResult";
 import EditResult from "./features/staff/department/EditResult";
 import BackPaperUpload from "./features/staff/department/BackPaperUpload";
 
+import RegistrationLogin from "./features/registration/RegistrationLogin";
+import RegistrationForm from "./features/registration/RegistrationForm";
+import RegistrationProtectedRoute from "./features/registration/RegistrationProtectedRoute";
+import SignatureUpload from "./features/registration/SIgnatureUpload";
+import UploadDocs from "./features/registration/UploadDocs";
+import FormDownload from "./features/registration/FormDownload";
+import GenerateForm from "./features/registration/GenerateForm";
+
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
@@ -164,6 +172,35 @@ const router = createBrowserRouter([
   {
     path:'/staff/login',
     element: <StaffLogin/>
+  },
+  {
+    path:'/new-student/login',
+    element: <RegistrationLogin/>
+  },
+  {
+    element: <RegistrationProtectedRoute><AppLayout/></RegistrationProtectedRoute>,
+    children:[
+      {
+        path:"/new-student/registration-form",
+        element: <RegistrationForm/>
+      },
+      {
+        path:'/new-student/signature-upload',
+        element: <SignatureUpload/>
+      },
+      {
+        path:'/new-student/upload-supporting-docs',
+        element:<UploadDocs/>
+      },
+      {
+        path:'/new-student/generate-form',
+        element: <GenerateForm/>
+      },
+      {
+        path:'/new-student/form-download',
+        element:<FormDownload/>
+      }
+    ]
   }
   
 ]);
