@@ -105,6 +105,7 @@ exports.saveDetails = async (req,res,next)=>{
         const dir = `src/files/registration/${program}/${req.email}`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir, { recursive: true });
+            console.log('dir created', dir);
         }
         const filePath = `${dir}/${file.filename}`;
         fs.rename(file.path, filePath, (err) => {
@@ -114,7 +115,7 @@ exports.saveDetails = async (req,res,next)=>{
         }
         });
         console.log('dir', dir);
-        path.join('MotherFKR',process.cwd());
+        console.log(process.cwd());
         const engDate = new Date(dobEnglish);
          const dobE = engDate.getFullYear()+'-'+(engDate.getMonth() + 1) +'-'+engDate.getDate();
 
