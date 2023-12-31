@@ -211,12 +211,10 @@ exports.generateRegistrationForm = async (req,res,next)=>{
 
     // var pdfPath = path.join('form');
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox','--font-render-hinting=none'],
+        args: ['--no-sandbox'],
 		headless: 'new'
 	});
     var page = await browser.newPage();
-    await page.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36");
-
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
     // create a folder 
