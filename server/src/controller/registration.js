@@ -102,7 +102,7 @@ exports.saveDetails = async (req,res,next)=>{
     // Process and store the files as required
     // For example, save the files to a specific directory using fs module
    
-        const dir = `src/files/registration/${program}/${req.email}`;
+        const dir = path.join(process.cwd(),`src/files/registration/${program}/${req.email}`);
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir, { recursive: true });
             console.log('dir created', dir);
