@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form';
 import { useUploadSignature } from '../../hooks/registrationHooks/useUploadSignature';
 
 export default function SignatureUpload(){
-    const {saveSignature, isLoadinf} = useUploadSignature();
+    const {saveSignature, isLoading} = useUploadSignature();
     function objectToFormData(obj) {
         const formData = new FormData();
         Object.entries(obj).forEach(([key, value]) => {
@@ -24,7 +24,6 @@ export default function SignatureUpload(){
         watch
       } = useForm()
       const onSubmit = (data) => {
-        console.log(data);
         const formData = objectToFormData(data);  
         saveSignature(formData);
       }

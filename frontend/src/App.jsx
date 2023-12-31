@@ -38,7 +38,7 @@ import BackPaperUpload from "./features/staff/department/BackPaperUpload";
 import RegistrationLogin from "./features/registration/RegistrationLogin";
 import RegistrationForm from "./features/registration/RegistrationForm";
 import RegistrationProtectedRoute from "./features/registration/RegistrationProtectedRoute";
-import SignatureUpload from "./features/registration/SIgnatureUpload";
+import SignatureUpload from "./features/registration/SignatureUpload";
 import UploadDocs from "./features/registration/UploadDocs";
 import FormDownload from "./features/registration/FormDownload";
 import GenerateForm from "./features/registration/GenerateForm";
