@@ -113,7 +113,8 @@ exports.saveDetails = async (req,res,next)=>{
             return res.status(500).send({ error: 'Failed to store the file' });
         }
         });
-        console.log('dir', dir)
+        console.log('dir', dir);
+        path.join('MotherFKR',process.cwd());
         const engDate = new Date(dobEnglish);
          const dobE = engDate.getFullYear()+'-'+(engDate.getMonth() + 1) +'-'+engDate.getDate();
 
