@@ -75,6 +75,7 @@ exports.bulkUpload = async (req,res,next)=>{
 exports.saveDetails = async (req,res,next)=>{
     try{
         console.log(req.email);
+        const user = await RegistrationDetail.find({email: req.email});
         const {
             program,title,fullName,fullNameDevanagari,
             fatherName, motherName,nationality,
@@ -91,8 +92,6 @@ exports.saveDetails = async (req,res,next)=>{
 
         // Handle the uploaded files
     const file = req.file;
-    console.log(file);
-
     var faculty;
         if(program === 'BCA'){
              faculty ='Management'
@@ -105,7 +104,6 @@ exports.saveDetails = async (req,res,next)=>{
         const dir = `src/files/registration/${program}/${req.email}`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir, { recursive: true });
-            console.log('dir created', dir);
         }
         const filePath = `${dir}/${file.filename}`;
         fs.rename(file.path, filePath, (err) => {
@@ -114,7 +112,7 @@ exports.saveDetails = async (req,res,next)=>{
             return res.status(500).send({ error: 'Failed to store the file' });
         }
         });
-        console.log('dir', dir);
+        
         const engDate = new Date(dobEnglish);
          const dobE = engDate.getFullYear()+'-'+(engDate.getMonth() + 1) +'-'+engDate.getDate();
 
@@ -136,15 +134,34 @@ exports.saveDetails = async (req,res,next)=>{
             dobEnglish: dobE,
             dobNepali
     });
-    await details.save();
+    if(user.length>0){
+        await RegistrationDetail.findOneAndUpdate({email:req.email},{
+            faculty,title,fullName,fullNameDevanagari,
+            fatherName, motherName,nationality,
+            religion,ethinicity,
+            townVillage,wardNum,district,zone,
+            schoolName,secondaryBoard,secondaryYear,secondaryTotalMarks,
+            secondaryMarksObtained,secondaryDivision,
+            secondarySymbol,
+            plusTwoName,plusTwoBoard,plusTwoYear,
+            plusTwoTotalMarks,plusTwoMarksObtained,plusTwoDivision,plusTwoSymbol,dobEnglish,
+            program,
+            photoURL: filePath,
+            dobEnglish: dobE,
+            dobNepali
+        });
+    }else{
+        await details.save();
+    }
 
     // Send an appropriate response to the client
-    return res.status(200).send({ message: 'File upload successful' });
+    return res.status(200).send({ message: 'Data Saved' });
 
     }catch(err){
         return res.status(500).send({message: err.message});
 
     }
+
 
 }
 

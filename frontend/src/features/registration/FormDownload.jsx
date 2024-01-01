@@ -1,8 +1,13 @@
+import {useNavigate} from 'react-router-dom';
 import Spinner from "../../ui/Spinner";
 import { useDownloadForm } from '../../hooks/registrationHooks/useDownloadForm';
 export default function FormDownload(){
     const {data,isLoading,isError,error} = useDownloadForm();
-    
+    const navigate = useNavigate();
+
+    const onClick = ()=>{
+        navigate('/new-student/registration-form');
+    }
     if(isLoading){
         <>
         <div class="content container-fluid">
@@ -78,6 +83,14 @@ export default function FormDownload(){
                 <div className="card comman-shadow">
                 <div className="card-body">
             <span>**Please Download the form and submit the color printed hard copy of this form along with all supporting docs**</span>
+            <br/>
+            <button 
+                        type="button" 
+                        className="btn btn-primary"
+                        onClick={onClick}
+                        >
+                            Edit 
+                        </button>
             <Viewer url={data}/>
             </div></div></div></div>
         </div>

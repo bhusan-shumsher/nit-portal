@@ -459,7 +459,7 @@ export default function RegistrationForm(){
     )}
     {formStep === 5 && (
         <section>
-           <div className="col-12 col-sm-4">
+           {/* <div className="col-12 col-sm-4">
             <div className="form-group students-up-files">
             <label>Upload Recent PP Size Photo</label>
             <div className="uplod">
@@ -471,7 +471,20 @@ export default function RegistrationForm(){
             </label>
             </div>
             </div>
-            </div>
+            </div> */}
+            <div className="form-group row">
+                        <label className="col-form-label col-md-2">PP Photo</label>
+                        <div className="col-md-6">
+                        <input 
+                            className="form-control" 
+                            type="file"
+                            accept=".jpg, .jpeg, .png"
+                            {...register("file", { required: true })}
+                            />
+                        </div>
+                        {errors.file && <span>This field is required</span>}
+
+                    </div>
             <button 
                         type="button" 
                         className="btn btn-primary"
