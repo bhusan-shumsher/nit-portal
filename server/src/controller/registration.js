@@ -199,13 +199,8 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             signature: toBase64(user[0].signature),
             plusTwoYear: user[0].plusTwoYear
         };
-        console.log('data',data);
         const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/form.html'), 'utf8');
-        // handlebars.registerHelper("inc", function(value, options)
-        // {
-        //     return parseInt(value) + 1;
-        // });
-        console.log('html',templateHtml);
+        
         var template = handlebars.compile(templateHtml);
 	    var html = template(data);
 
