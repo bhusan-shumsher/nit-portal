@@ -13,7 +13,7 @@ services:
   
   client:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./frontend
     volumes:
       - /app/node_modules
@@ -28,7 +28,7 @@ services:
   api:
     restart: always
     build: 
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./server
     volumes:
       - /app/node_modules

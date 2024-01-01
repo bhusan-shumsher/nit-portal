@@ -159,7 +159,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Home/>
+    element: <RegistrationLogin/>
   },
   {
     path:'/student/login',
