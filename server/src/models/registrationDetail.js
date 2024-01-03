@@ -113,7 +113,6 @@ const registrationDetailSchema = new Schema({
     },
     secondaryDivision:{
         type: String,
-        enum:['First','Second','Distinction','Third'],
     },
     secondarySymbol:{
         type: String,
@@ -141,9 +140,7 @@ const registrationDetailSchema = new Schema({
         required: true
     },
     plusTwoDivision:{
-        type: String,
-        enum:['First','Second','Distinction','Third'],
-        required: true
+        type: String
     },
     plusTwoSymbol:{
         type: String,

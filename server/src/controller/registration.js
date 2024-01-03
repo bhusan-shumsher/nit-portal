@@ -191,7 +191,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             dobEnglish: splitDate(user[0].dobEnglish),
             dobNepali: splitDate(user[0].dobNepali),
             nationality: user[0].nationality,
-            ethinicity: user[0].ethinictiy,
+            ethinicity: user[0].ethinicity,
             religion: user[0].religion,
             fatherName: addSpace(user[0].fatherName.toUpperCase()).split(''),
             motherName: addSpace(user[0].motherName.toUpperCase()).split(''),
@@ -243,10 +243,10 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     // Downlaod the PDF
   const pdf = await page.pdf({
     path: `src/files/registration/${data.program}/${data.email}/registration.pdf`,
-    margin: { top: '20px', right: '50px', bottom: '0px', left: '50px' },
+    margin: { top: '20px', right: '20px', bottom: '0px', left: '20px' },
     printBackground: true,
     width: '595px',
-    height:'842px',
+    // height:'842px',
     format: 'A4'
   });
 
