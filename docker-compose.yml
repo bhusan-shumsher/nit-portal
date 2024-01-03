@@ -12,11 +12,10 @@ services:
       - api
       - client
     volumes:
-      - web-root:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-  
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+      
   client:
     build:
       dockerfile: Dockerfile
@@ -56,7 +55,3 @@ services:
     command: certonly --webroot --webroot-path=/var/www/html --email bhusan@ncit.edu.np --agree-tos --no-eff-email --staging -d ncit.college  -d www.ncit.college
 volumes:
   mongo:
-  certbot-etc:
-  certbot-var:
-  web-root:
-    
