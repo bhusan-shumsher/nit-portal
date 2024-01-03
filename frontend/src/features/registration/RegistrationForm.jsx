@@ -295,6 +295,7 @@ export default function RegistrationForm(){
                 label='Division'
                 placeholder='Select Division'
                 values={[
+                    {placeholder:'Select One', value:''},
                     {placeholder: 'Distinction', value:'Distinction'},
                     {placeholder: 'First', value: 'First'},
                     {placeholder: 'Second', value:'Second'},
@@ -383,10 +384,11 @@ export default function RegistrationForm(){
         label='High School Division'
         placeholder='Select Division'
         values={[
-            {placeholder: 'Distinction', value:'Distinction'},
-            {placeholder: 'First', value: 'First'},
-            {placeholder: 'Second', value:'Second'},
-            {placeholder: 'Third', value:'Third'}
+                    {placeholder:'Select One', value:''},
+                    {placeholder: 'Distinction', value:'Distinction'},
+                    {placeholder: 'First', value: 'First'},
+                    {placeholder: 'Second', value:'Second'},
+                    {placeholder: 'Third', value:'Third'}
         ]}
         register = {register}
         name='plusTwoDivision'
