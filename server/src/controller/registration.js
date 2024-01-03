@@ -191,7 +191,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             dobEnglish: splitDate(user[0].dobEnglish),
             dobNepali: splitDate(user[0].dobNepali),
             nationality: user[0].nationality,
-            ethinicity: user[0].ethinicti,
+            ethinicity: user[0].ethinictiy,
             religion: user[0].religion,
             fatherName: addSpace(user[0].fatherName.toUpperCase()).split(''),
             motherName: addSpace(user[0].motherName.toUpperCase()).split(''),
@@ -246,8 +246,8 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     margin: { top: '20px', right: '50px', bottom: '0px', left: '50px' },
     printBackground: true,
     width: '595px',
-    height:'842px'
-    // format: 'A4',
+    height:'842px',
+    format: 'A4'
   });
 
 //   Close the browser instance
