@@ -11,8 +11,6 @@ services:
     depends_on:
       - api
       - client
-    volumes:
-      - ./nginx-conf:/etc/nginx/conf.d
       
   client:
     build:
