@@ -11,10 +11,7 @@ services:
     depends_on:
       - api
       - client
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./certbot/conf:/etc/nginx/ssl
-      - ./certbot/data:/var/www/html
+    
       
   client:
     build:
@@ -42,13 +39,6 @@ services:
       - mongo 
     links:
       - mongo
-  certbot:
-    container_name: certbot
-    image: certbot/certbot:latest
-    command: certonly --webroot --webroot-path=/usr/share/nginx/html  --email bhusan@ncit.edu.np --agree-tos --no-eff-email -d ncit.college -d www.ncit.college
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/logs:/var/log/letsencrypt
-      - ./certbot/data:/usr/share/nginx/html 
+  
 volumes:
   mongo:
