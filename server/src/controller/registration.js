@@ -12,7 +12,7 @@ const puppeteer = require('puppeteer');
 const path = require("path");
 // const url = require('url');
 const NepaliDate = require('nepali-date-converter');
-
+const excel = require('../utils/registerFromExcel');
 
 exports.signup = async (req,res,next)=>{
     const errors = validationResult(req);
@@ -56,12 +56,9 @@ exports.login = async (req,res,next)=>{
 
 exports.bulkUpload = async (req,res,next)=>{
     try{
-        console.log(hi);
         const file = req.file;
-        const {currentSemester,faculty} = req.body;
-        console.log('faca',faculty);
-        const data = util.ex2json(file.path, file.filename,'users',currentSemester);
-         const users = await User.insertMany(data);
+        const data = excel.registerBulk(file.path);
+         const users = await NewStudent.insertMany(data);
          if(users){
              return res.status(201).send({message: users.length + ' users created'});
          }
