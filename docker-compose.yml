@@ -12,7 +12,7 @@ services:
       - api
       - client
     volumes:
-      - /home/cert:/etc/nginx
+      - /home/cert:/etc/nginx/conf.d
   client:
     build:
       dockerfile: Dockerfile
