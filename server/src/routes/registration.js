@@ -21,5 +21,6 @@ router.post('/api/registration/extra-upload',isNewStudent,registrationController
 router.get('/api/registration/download',isNewStudent,registrationController.downloadForm);
 //BULK UPLOAD  
 router.post('/api/registration/bulk',registrationController.bulkUpload);
+router.post('/api/registration/tickdocs',isNewStudent,registrationController.tickDocs );
 
 module.exports = router;

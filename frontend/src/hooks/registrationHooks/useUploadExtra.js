@@ -9,7 +9,7 @@ export function useUploadExtra(){
         mutationFn: (info)=>uploadExtra(info),
         onSuccess: (data)=>{
             toast.success('Data Saved!!');
-            navigate('/new-student/generate-form');
+            navigate('/new-student/checkdocs');
         },
         onError: err=>{
             console.log('Error',err.message);

@@ -102,3 +102,19 @@ export async function getRegForm(){
     return fileUrl;
     // return response.data;
 };
+
+
+export async function tickDocs(data){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/registration/tickdocs',data,
+    {
+        headers:{
+            'Authorization': 'Bearer '+`${token.token}`
+        }
+    }
+    );
+    if(!response){
+        throw new Error('cant post data');
+    }
+    return response.data;
+}

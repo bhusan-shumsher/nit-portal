@@ -412,3 +412,34 @@ return currentDate;
     return res.status(500).send({message: err.message});
   }
 }
+
+
+
+exports.tickDocs = async(req,res,next)=>{
+    try{
+        const {citizenship, equivalence,secondaryGradeSheet,
+            secondaryCharacter, firstHighSchoolGradeSheet,
+            secondHighSchoolGradeSheet, highSchoolCharacter,
+            migration
+        } = req.body;
+        const email = req.email;
+        const user = await RegistrationDetail.find({email});
+        if(!user || user.lenghth <1){
+            throw new Error('cant find the user');
+        }
+        await RegistrationDetail.updateOne({email},{
+            equivalence,
+            migration,
+            citizenship,
+            firstHighSchoolGradeSheet,
+            secondHighSchoolGradeSheet,
+            highSchoolCharacter,
+            secondaryGradeSheet,
+            secondaryCharacter
+        });
+        return res.status(200).send({message: 'Details Saved!'});
+    }catch(err){
+        return res.status(500).send({message: err.message});
+
+    }
+}

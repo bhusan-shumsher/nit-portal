@@ -42,6 +42,7 @@ import SignatureUpload from "./features/registration/SignatureUpload";
 import UploadDocs from "./features/registration/UploadDocs";
 import FormDownload from "./features/registration/FormDownload";
 import GenerateForm from "./features/registration/GenerateForm";
+import TickDocs from "./features/registration/TickDocs";
 
 const queryClient = new QueryClient({});
 
@@ -191,6 +192,10 @@ const router = createBrowserRouter([
       {
         path:'/new-student/upload-supporting-docs',
         element:<UploadDocs/>
+      },
+      {
+        path:'/new-student/checkdocs',
+        element:<TickDocs/>
       },
       {
         path:'/new-student/generate-form',
