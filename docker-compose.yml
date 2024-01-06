@@ -12,7 +12,7 @@ services:
       - api
       - client
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d
+      - ./nginx/:/etc/nginx/conf.d
       
   certbot:
     image: certbot/certbot
