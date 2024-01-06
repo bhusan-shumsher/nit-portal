@@ -23,7 +23,9 @@ services:
     volumes: 
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email bhusan@ncit.edu.np -d ncit.college --agree-tos
+    depends_on:
+      - nginx 
+    command: certonly --webroot -w /var/share/nginx/html --force-renewal --email bhusan@ncit.edu.np -d ncit.college --agree-tos
   client:
     build:
       dockerfile: Dockerfile
