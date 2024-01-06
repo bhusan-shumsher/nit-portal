@@ -16,7 +16,11 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
       - web-root:/var/share/nginx/html
+    depends_on:
+      - api 
+      - client
       
+    
       
   certbot:
     image: certbot/certbot:latest
