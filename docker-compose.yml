@@ -12,7 +12,7 @@ services:
       - api
       - client
     volumes:
-      - /home/cert:/etc/ssl/
+      - /home/cert:/nginx/etc/ssl/
   client:
     build:
       dockerfile: Dockerfile
@@ -42,4 +42,3 @@ services:
   
 volumes:
   mongo:
-  
