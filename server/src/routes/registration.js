@@ -19,4 +19,7 @@ router.post('/api/registration/upload-signature',isNewStudent,registrationContro
 router.post('/api/registration/extra-upload',isNewStudent,registrationController.uploadExtra);
 // download form 
 router.get('/api/registration/download',isNewStudent,registrationController.downloadForm);
+//BULK UPLOAD  
+router.post('/api/registration/bulk',registrationController.bulkUpload);
+
 module.exports = router;
