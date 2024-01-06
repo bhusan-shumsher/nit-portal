@@ -169,7 +169,6 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     try{
 
         const email = req.email;
-        console.log('fuck this api',email);
         const user = await RegistrationDetail.find({email});
         if(!user){
             return res.status(500).send({message:'cant find data'});
