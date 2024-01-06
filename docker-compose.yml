@@ -11,8 +11,6 @@ services:
     depends_on:
       - api
       - client
-    volumes:
-      - /home/cert:/etc/nginx/conf.d
   client:
     build:
       dockerfile: Dockerfile
