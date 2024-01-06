@@ -242,7 +242,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     margin: { top: '20px', right: '20px', bottom: '0px', left: '20px' },
     printBackground: true,
     width: '595px',
-    // height:'842px',
+    height:'842px',
     format: 'A4'
   });
 
