@@ -35,6 +35,7 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
+      - ./public/files :/usr/src/files
     depends_on:
       - mongo 
     links:
