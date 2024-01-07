@@ -241,7 +241,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
     path: `src/files/registration/${data.program}/${data.email}/registration.pdf`,
     margin: { top: '30px', right: '20px', bottom: '0px', left: '20px' },
     printBackground: true,
-    width: '595px',
+    // width: '595px',
     // height:'842px',
     format: 'A4'
   });
