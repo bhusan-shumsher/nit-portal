@@ -112,9 +112,9 @@
            <div class="mis-middle-header">
             <span>अनुसुची - ३</span>
             <span>( नियम १२ को उपनियम (२) सँग सम्बन्धित )</span>
-            <span style="font-size: 14px; font-weight: bold;">POKHARA UNIVERSITY</span>
-            <span style="font-size: 16px; font-weight: bold;">OFFICE OF THE CONTROLLER OF EXAMINATIONS </span>
-            <span style="font-size: 14px; font-weight: bold;">STUDENT REGISTRATION FORM </span>
+            <span style="font-size: 18px; font-weight: bold;">POKHARA UNIVERSITY</span>
+            <span style="font-size: 20px; font-weight: bold;">OFFICE OF THE CONTROLLER OF EXAMINATIONS </span>
+            <span style="font-size: 18px; font-weight: bold;">STUDENT REGISTRATION FORM </span>
            </div>
            <img class="logo" src="{{ photoURL }}" alt="PP Size Photo">
         </div>
@@ -270,14 +270,17 @@
        </table>
        
        
-  <div style="display:flex;">
-    <p>I declare that the particulars are correct. If found incorrect any action taken by the university will be acceptable will be to me. Attach verified photo-copies of necessary certificates in support of these particulars.</p>
+       <div style="display:flex; flex-direction: column">
+        <p>I declare that the particulars are correct. If found incorrect any action taken by the university will be acceptable will be to me. Attach verified photo-copies of necessary certificates in support of these particulars.</p>
 
     <div class="st-sign">
+        <div style="text-align: center">
+
      <img class="sign" src="{{ signature}}" alt="Signature of Student">
      <div class="mis-over-head">
          Signature of Student<br>
          Date: {{ currentDate}}
+     </div>
      </div>
  </div>
   </div>
@@ -285,23 +288,23 @@
         <div class="mis-footer">
             <div class="mis-footer-head">TO BE FILLED BY THE COLLEGE/CAMPUS/SCHOOL</div>
             <p>It is certified that the documents submitted by the student have been properly verfied and the particulars furnished are accurate to the best of our knowledge.</p>
-            <div class="mis-footer-info">
+            <div class="mis-footer-info" style="margin-top: 40px">
                 <span class="mis-over-head">
+                    <div>Binod Upadhyaya</div>
                     <div> Checked by</div>
-                    <div>Binod</div>
                     <div>Date: {{currentDate}} </div>
                 </span>
-                <span class="mis-under-head">
+                <span class="mis-under-head" style="min-width: 260px">
                     <div> Name of Institute</div>
-                    <div>NCIT</div>
+                    <div>Nepal College of Information Technology</div>
                 </span>
                 <span class="mis-under-head">
                     <div> Office Seal</div>
                 </span>
 
                 <span class="mis-over-head">
-                    <div> Head of Institute</div>
                     <div> Niranjan Khakurel</div>
+                    <div> Head of Institute</div>
                     <div>Date: {{currentDate}} </div>
                 </span>
             </div>
