@@ -6,14 +6,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            body{
+                font-size: 14px;
+            }
             .mis-container{
                 margin: 0px;
                 color: #000;
 
             }
             .logo{
-                width: 70px;
-                height: 70px;
+                width:100px;
+                heigth: 100px;
             }
             .mis-header{
                 display: flex;
@@ -35,16 +38,17 @@
                 justify-content: space-between;
                 line-height: 25px;
                 margin-top: 10px;
+                gap: 16px;
             }
             .mis-over-head{
                 border-top: 1px solid #000;
                 width: 150px;
-                text-align:center
+                text-align:center;
             }
             .mis-under-head{
-                border-bottom: 2px dotted #000;
+                border-bottom: 1px dotted #000;
                 width: 125px;
-                text-align:center
+                text-align:center;
             }
             .st-sign{
                 width: 100%;
@@ -55,12 +59,12 @@
 
             table{
                 width: 100%;
-                border: 2px solid #000;
+                border: 1px solid #000;
                 border-collapse: collapse;
                 
             }
             th, td{
-                border: 2px solid #000;
+                border: 1px solid #000;
                 text-align: center;
                 padding: 2px 4px;
             }
@@ -85,23 +89,21 @@
                 align-items: center;
             }
             .st-sign {
-                position: relative;
-                margin-top: 55px;
+                display: flex;
+                
             }
     
             .sign {
                 height: 45px;
-                position: absolute;
-                top: -50px; /* Adjust the top position as needed */
-                right: 15px;
+                width: auto;
+                object-fit: contain;
+                margin-top: -30px;
             }
     
             .mis-over-head {
                 text-align: center;
             }
-            u { 
-             text-decoration: underline;
-}
+           
         </style>
     </head>
     <body class="mis-container">
