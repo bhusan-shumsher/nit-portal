@@ -43,6 +43,8 @@ import UploadDocs from "./features/registration/UploadDocs";
 import FormDownload from "./features/registration/FormDownload";
 import GenerateForm from "./features/registration/GenerateForm";
 import TickDocs from "./features/registration/TickDocs";
+// ERROR PAGE
+import Error404 from "./ui/Error404";
 
 const queryClient = new QueryClient({});
 
@@ -177,6 +179,10 @@ const router = createBrowserRouter([
   {
     path:'/new-student/login',
     element: <RegistrationLogin/>
+  },
+  {
+    path: '*',
+    element: <Error404/>
   },
   {
     element: <RegistrationProtectedRoute><AppLayout/></RegistrationProtectedRoute>,
