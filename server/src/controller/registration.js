@@ -210,7 +210,9 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             logo: toBase64('src/files/registration/logo.jpg'),
             currentDate: getTodayDate(),
             signature: toBase64(user[0].signature),
-            plusTwoYear: user[0].plusTwoYear
+            plusTwoYear: user[0].plusTwoYear,
+            rkbSign: toBase64('src/files/registration/rkb.png'),
+            principalSign: toBase64('src/files/registration/khakurel.png')
         };
         const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/form.html'), 'utf8');
         

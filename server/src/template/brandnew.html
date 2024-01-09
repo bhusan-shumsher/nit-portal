@@ -108,7 +108,7 @@
             .mis-footer-card{
                 display: flex;
                 flex-direction: column;
-                justify-content: start;
+                justify-contain: start;
                 align-items: center;
                 gap: 2px;
                 line-height: 14px;
@@ -123,12 +123,12 @@
                 padding-top: 8px;
 
             }
+           
         </style>
-
     </head>
     <body class="mis-container">
         <div class="mis-header">
-           <img class="logo" src="{{ logo }}" alt="logo">
+           <img class="logo" src="university-logo.jpg">
            <div class="mis-middle-header">
             <span>अनुसुची - ३</span>
             <span>( नियम १२ को उपनियम (२) सँग सम्बन्धित )</span>
@@ -136,55 +136,70 @@
             <span style="font-size: 20px; font-weight: bold;">OFFICE OF THE CONTROLLER OF EXAMINATIONS </span>
             <span style="font-size: 18px; font-weight: bold;">STUDENT REGISTRATION FORM </span>
            </div>
-           <img class="logo" src="{{ photoURL }}" alt="PP Size Photo">
+           <img class="logo" src="pp.jpg" alt="PP Size Photo">
         </div>
         <table>
             <tr> 
                 <th>Registration Number</th>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
             </tr>
         </table>
         <div class="faculty">
-            <span>Faculty: {{faculty}}</span>
-            <span>Level: {{level}}</span>
-            <span>Program: {{program}}</span>
+            <span>Faculty: {Faculty here}</span>
+            <span>Level: {Level her}</span>
+            <span>Program: {program here}</span>
         </div>
         <table style="margin-bottom: 16px">
             <tr> 
                 <th style="width:20%">Name of the student (In Block Letters)</th>
-                <td style="width:12%"> </td>
-                {{#each fullName}}
-                <td>{{this}}</td>
-                {{/each}}
+                <td style="width:12%">Mr/Ms/Mrs. </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
             </tr>
             <tr> 
-                <th>देवानगरिमा </th>
+                <th>देवनगरिमा </th>
                 <td>श्री / सुश्री / श्रीमति </td>
-                <td colspan=19 style="text-align: left; padding-left: 20px;">{{fullNameDevanagari}} </td>
+                <td colspan=19 style="text-align: left; padding-left: 20px;">अशोक बस्नेत  </td>
               
             </tr>
         </table>
 
-        <br>
         <table>
             <tr>
             <th>Date of Birth according to the Secondary level of certificate or Equivalent</th>
@@ -194,53 +209,89 @@
             </tr>
             <tr> 
                 <td>In AD </td>
-                {{#each dobEnglish}}
-                <td>{{this}}</td>
-                {{/each}}
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+             
             </tr>
             <tr> 
                 <td>In BS </td>
-                {{#each dobNepali}}
-                <td>{{this}}</td>
-                {{/each}}
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
                 
             </tr>
         </table>
 
         <div class="faculty">
-            <span>Nationality: {{nationality}}</span>
-            <span>Religion: {{religion}}</span>
-            <span>Ethinicity: {{ethinicity}}</span>
+            <span>Nationality: {Nationality here}</span>
+            <span>Religion: {Religion her}</span>
+            <span>Ethinicity: {Ethinicity here}</span>
         </div>
 
         <table style="margin-bottom: 16px">
             <tr> 
                 <th>Father's Name</th>
-                {{#each fatherName}}
-                <td>{{this}}</td>
-                {{/each}}
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
             </tr>
             <tr> 
                 <th>Mother's Name</th>
-                {{#each motherName}}
-                <td>{{this}}</td>
-                {{/each}}
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
+                <td>A </td>
             </tr>
         </table>
-        <br>
        <div class="address-info">
             <div class="right">
-                <span>Mailing Address (Town/Village) : {{townVillage}}</span>
-                <span>District: {{district}} </span>
+                <span>Mailing Address (Town/Village) : {Address Here}</span>
+                <span>District: {district here} </span>
                
             </div>
             <div class="left">
-                <span>Ward No. : {{wardNum}}</span>
-                <span>Zone : {{zone}} </span>
+                <span>Ward No. : {ward here}</span>
+                <span>Zone : {zone here} </span>
             </div>
        </div>
-       <table style="margin-bottom: 4px">
+       <div style="margin-bottom: 4px">
         <span>Examination Passed</span>
+       </div>
+       <table>
             <tr>
                 <th style="width: 20%;">Examination</th>
                 <th style="width: 25%;">Board/University</th>
@@ -253,21 +304,21 @@
 
             <tr>
                 <td>Secondary Level or Equivalent</td>
-                <td>{{secondaryBoard}}</td>
-                <td>{{secondaryYear}}</td>
-                <td>{{secondaryTotalMarks}}</td>
-                <td>{{secondaryMarksObtained}}</td>
-                <td>{{secondaryDivision}}</td>
-                <td>{{secondarySymbol}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Higher Secondary Level or Equivalent</td>
-                <td>{{plusTwoBoard}}</td>
-                <td>{{plusTwoYear}}</td>
-                <td>{{plusTwoTotalMarks}}</td>
-                <td>{{plusTwoMarksObtained}}</td>
-                <td>{{plusTwoDivision}}</td>
-                <td>{{plusTwoSymbol}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Bachelor Level</td>
@@ -290,56 +341,57 @@
        </table>
        
        
-       <div style="display:flex; flex-direction: column">
-        <p>I declare that the particulars are correct. If found incorrect any action taken by the university will be acceptable will be to me. Attach verified photo-copies of necessary certificates in support of these particulars.</p>
+  <div style="display:flex; flex-direction: column">
+    <p>I declare that the particulars are correct. If found incorrect any action taken by the university will be acceptable will be to me. Attach verified photo-copies of necessary certificates in support of these particulars.</p>
 
     <div class="st-sign">
         <div style="text-align: center">
-     <img class="sign" src="{{ signature}}" alt="Signature of Student">
-     <div class="mis-over-head">
-         Signature of Student
-         <br>
-         Date: {{ currentDate}}
-     </div>
-     </div>
- </div>
-  </div>
-
-  <div class="mis-footer" style="text-align: center">
-    <span class="mis-footer-head">TO BE FILLED BY THE COLLEGE/CAMPUS/SCHOOL</span>
-    <p>It is certified that the documents submitted by the student have been properly verfied and the particulars furnished are accurate to the best of our knowledge.</p>
-    <div class="mis-footer-info">
-        <div class="mis-footer-card">
-            <img class="sign" src="{{ rkbSign}}" alt="Signature of Student">
-           
-            <div class="mis-footer-card-end">
-                <span> Checked by</span>
-                <span style="font-size:12px">Date: {{currentDate}} </span>
-            </div>
-        </div>
-        <div class="mis-footer-card" style="min-width: 260px">
-            <div style="border-bottom: 1px dotted #000; width: 100%; padding: 4px 0; display: flex; flex-direction: column; gap:8px">
-                <span>Name of Institute</span>
-                <span><strong>Nepal College of Information Technology</strong></span>
-            </div>
-           
-        </div>
-
-        <div class="mis-footer-card" style="min-width: 160px">
-            <div style="border-bottom: 1px dotted #000; width: 100%; padding: 4px 0; height: 60px">
-                <span>Office Seal</span>
-            </div>
-        </div>
-
-        <div class="mis-footer-card">
-            <img class="sign" src="{{ principalSign }}" alt="Signature of Student">
-            <div class="mis-footer-card-end">
-                <span>  Head of Institute</span>
-                <span style="font-size:12px">Date: {{currentDate}} </span>
+            <img class="sign" src="sign.jpg" alt="Signature of Student">
+            <div class="mis-over-head">
+                <span>Signature of Student</span>
+                <br>
+                <span style="font-size:12px">Date: {date here}</span>
+               
             </div>
         </div>
     </div>
-</div>
+  </div>
+
+        <div class="mis-footer" style="text-align: center">
+            <span class="mis-footer-head">TO BE FILLED BY THE COLLEGE/CAMPUS/SCHOOL</span>
+            <p>It is certified that the documents submitted by the student have been properly verfied and the particulars furnished are accurate to the best of our knowledge.</p>
+            <div class="mis-footer-info">
+                <div class="mis-footer-card">
+                    <img class="sign" src="sign.jpg" alt="Signature of Student">
+                   
+                    <div class="mis-footer-card-end">
+                        <span> Checked by</span>
+                        <span style="font-size:12px">Date: {date here} </span>
+                    </div>
+                </div>
+                <div class="mis-footer-card" style="min-width: 260px">
+                    <div style="border-bottom: 1px dotted #000; width: 100%; padding: 4px 0; display: flex; flex-direction: column; gap:8px">
+                        <span>Name of Institute</span>
+                        <span><strong>Nepal College of Information Technology</strong></span>
+                    </div>
+                   
+                </div>
+
+                <div class="mis-footer-card" style="min-width: 160px">
+                    <div style="border-bottom: 1px dotted #000; width: 100%; padding: 4px 0; height: 60px">
+                        <span>Office Seal</span>
+                    </div>
+                </div>
+
+                <div class="mis-footer-card">
+                    <img class="sign" src="sign.jpg" alt="Signature of Student">
+                    <div class="mis-footer-card-end">
+                        <span>  Head of Institute</span>
+                        <span style="font-size:12px">Date: {date here} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </body>
 </html>
