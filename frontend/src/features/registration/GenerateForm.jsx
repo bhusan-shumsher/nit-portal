@@ -47,7 +47,7 @@ export default function GenerateForm(){
                 <div className="row">
                 <div className="col-12">
                 <h5 className="form-title student-info">Generate Form<span></span></h5>
-                <h6>**Combine Citizenship, Transcripts, Migration Certificate and other relevant docs into a single image or pdf file**</h6>
+                <h6>Please click Generate form</h6>
                 </div>
                 <form>
               <button 
