@@ -90,7 +90,7 @@ exports.saveDetails = async (req,res,next)=>{
         // Handle the uploaded files
     const file = req.file;
     var faculty;
-        if(program === 'BCA'){
+        if(program === 'BBA'){
              faculty ='Management'
         }else{
              faculty = 'Science & Technology'
