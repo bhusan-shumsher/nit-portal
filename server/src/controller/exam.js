@@ -30,10 +30,10 @@ const data = await User.aggregate([
 if(!data){
     res.status(500).send({message: 'cant process now'});
 }
-if(data[0].image === null){
+if(data[0].image.urlPath === null){
     throw new Error('Upload Photo!!');
 }
-if(data[0].signature === null){
+if(data[0].signature.sign === null){
     throw new Error('Upload signature !!');
 }
 const date = new Date();
