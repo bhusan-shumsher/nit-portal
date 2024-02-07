@@ -51,7 +51,7 @@ newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
 const baseImage = toBase64(data[0].image.data);
-newData.image = `data:image/png;base64,${toBase64(data[0].image.data)}`;
+newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.data)}`;
 newData.logo = logoToBase64('src/template/logo.jpg');
 console.log(baseImage);
 console.log(newData.image);
@@ -228,7 +228,8 @@ const toBase64=(data)=>{
     console.log('lado',data);
     const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
     console.log('ima',base64);
-    return base64;
+    return Buffer.from(img).toString('base64')
+    
 }
 
 function logoToBase64(filePath) {
