@@ -27,7 +27,7 @@ export default function UploadSignature(){
       const onSubmit = (data) => {
         console.log(data);
         const formData = objectToFormData(data);  
-        uploadPhoto(formData);
+        uploadSig(formData);
       }
     return(
   <div>      
