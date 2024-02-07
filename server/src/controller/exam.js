@@ -49,7 +49,7 @@ newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
-newData.image = `data:image/jpeg;base64,${logoToBase64(data[0].image.urlPath)}`;
+newData.image = `data:${data[0].image.contentType};base64,${logoToBase64(data[0].image.urlPath)}`;
 // newData.image = logoToBase64('src/template/logo.jpg');
 newData.logo = logoToBase64('src/template/logo.jpg');
 console.log('ahit',data[0].image.urlPath);
@@ -233,4 +233,10 @@ function logoToBase64(filePath) {
     const img = fs.readFileSync(filePath);
   
     return 'data:image/png;base64,'+ Buffer.from(img).toString('base64');
+  }
+
+  function toBase64(filePath) {
+    const img = fs.readFileSync(filePath);
+  
+    return  Buffer.from(img).toString('base64');
   }
