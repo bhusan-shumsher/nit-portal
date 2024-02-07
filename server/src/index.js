@@ -16,7 +16,7 @@ const registration = require('./routes/registration');
 
 const fileStorage = multer.diskStorage({
     destination: (req,file,cb)=>{
-        cb(null,'src/files/registration');
+        cb(null,'src/files/submitted-form');
     },
     filename: (req,file,cb)=>{
         cb(null,file.originalname);
