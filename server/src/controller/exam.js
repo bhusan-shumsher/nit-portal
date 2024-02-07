@@ -12,15 +12,6 @@ try{
 
 // get roll number
 const {rollNumber,faculty} = req; 
- const personalData = await User.find({rollNumber});
- if(personalData.length === 0){
-    throw new Error('cant fetch your details now. Try again later');
- }
- if(!personalData[0].hasOwnProperty('image') || Object.keys(personalData[0].image).length === 0){
-    console.log('wtf is this ')
-     throw new Error('Please upload a photo before submission');
- }
-
 // get current sem, ern 
 const data = await User.aggregate([
     {$match:{rollNumber}},
@@ -36,9 +27,11 @@ const data = await User.aggregate([
         }
     }}
 ]);
-console.log('data',data);
 if(!data){
     res.status(500).send({message: 'cant process now'});
+}
+if(Object.keys(data[0].image).length === 0){
+    console.log('hereh mofo ')
 }
 const date = new Date();
 const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFullYear();
@@ -55,7 +48,7 @@ newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
-newData.image = `data:${personalData[0].image.contentType};base64,${toBase64(personalData[0].image.data)}`;
+newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.data)}`;
 newData.logo = logoToBase64('src/template/logo.jpg')
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/newEntranceCard.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
@@ -89,8 +82,8 @@ var template = handlebars.compile(templateHtml);
  
     // create a folder 
     try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`,{recursive: true});
+        if(!fs.existsSync(`src/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -98,7 +91,7 @@ var template = handlebars.compile(templateHtml);
 
     // Downlaod the PDF
   const pdf = await page.pdf({
-    path: `src/submitted-form/${faculty}/${personalData[0].email}/${faculty}-${rollNumber}.pdf`,
+    path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}.pdf`,
     margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -123,8 +116,8 @@ var template = handlebars.compile(templateHtml);
  
     // create a folder 
     try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`,{recursive: true});
+        if(!fs.existsSync(`src/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -132,7 +125,7 @@ var template = handlebars.compile(templateHtml);
 
     // Downlaod the PDF
   const pdfTwo= await page.pdf({
-    path: `src/submitted-form/${faculty}/${personalData[0].email}/${faculty}-${rollNumber}-subReg.pdf`,
+    path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subReg.pdf`,
     margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -154,8 +147,8 @@ var template = handlebars.compile(secondaryHtml);
     // create a folder 
     console.log(__dirname);
     try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`,{recursive: true});
+        if(!fs.existsSync(`src/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -163,7 +156,7 @@ var template = handlebars.compile(secondaryHtml);
 
     // Downlaod the PDF
   const pdfThree = await page.pdf({
-    path: `src/submitted-form/${faculty}/${personalData[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
+    path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
     margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
     printBackground: true,
     format: 'A4',
