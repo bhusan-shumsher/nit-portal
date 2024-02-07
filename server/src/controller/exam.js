@@ -228,7 +228,7 @@ const toBase64=(data)=>{
     console.log('lado',data);
     const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
     console.log('ima',base64);
-    return Buffer.from(img).toString('base64')
+    return Buffer.from(data).toString('base64')
     
 }
 
