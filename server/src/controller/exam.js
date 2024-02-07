@@ -36,7 +36,7 @@ const data = await User.aggregate([
         }
     }}
 ]);
-
+console.log('data',data);
 if(!data){
     res.status(500).send({message: 'cant process now'});
 }
