@@ -115,6 +115,7 @@ const userSchema = new Schema({
         trim: true
     },
     image:{
+        default: null,
         urlPath: String,
         contentType: String
     },
@@ -127,6 +128,7 @@ const userSchema = new Schema({
         trim: true
     },
     signature:{
+        default: null,
         sign:{type: String, trim:true},
         contentType:{type:String, trim: true}
     }

@@ -30,16 +30,12 @@ const data = await User.aggregate([
 if(!data){
     res.status(500).send({message: 'cant process now'});
 }
-if(Object.keys(data[0].image).length === 0){
-    throw new Error('Upload image before submitting form');
+if(data[0].image === null){
+    throw new Error('Upload Photo!!');
 }
-if(Object.keys(data[0].image).length > 0){
-    console.log('check if path exists');
-    if(!fs.existsSync(data[0].image.urlPath)){
-        throw new Error('upload image before submitting form');
-    }
+if(data[0].signature === null){
+    throw new Error('Upload signature !!');
 }
-
 const date = new Date();
 const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFullYear();
 const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
