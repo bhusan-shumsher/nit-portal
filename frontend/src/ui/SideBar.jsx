@@ -1,11 +1,8 @@
-import { usePersonalInfo } from '../hooks/usePersonalInfo';
 import {NavLink} from 'react-router-dom';
 
 
 export default function SideBar(){
-    const {data,isLoading,error,isError} =usePersonalInfo();
-    if(!isLoading && !isError && !error && data){
-        const image = data.data.image;
+   
         return(
             <div className="sidebar" id="sidebar">
             <div className="sidebar-inner slimscroll">
@@ -42,6 +39,5 @@ export default function SideBar(){
             </div>
             </div>
                 );
-    }
     
 }
