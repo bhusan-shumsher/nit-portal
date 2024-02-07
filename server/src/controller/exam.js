@@ -57,7 +57,7 @@ newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
 newData.image = `data:${personalData[0].image.contentType};base64,${toBase64(personalData[0].image.data)}`;
 newData.logo = logoToBase64('src/template/logo.jpg')
-const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/entranceCard.html'), 'utf8');
+const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/newEntranceCard.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
 {
     return parseInt(value) + 1;
