@@ -31,8 +31,9 @@ if(!data){
     res.status(500).send({message: 'cant process now'});
 }
 if(Object.keys(data[0].image).length === 0){
-    console.log('hereh mofo ')
+    console.log('hereh mofo s')
 }
+console.log(data[0].image.data);
 const date = new Date();
 const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFullYear();
 const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
@@ -92,7 +93,7 @@ var template = handlebars.compile(templateHtml);
     // Downlaod the PDF
   const pdf = await page.pdf({
     path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}.pdf`,
-    margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+    margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
   });
