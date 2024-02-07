@@ -9,7 +9,7 @@ export default function Banner({firstName, middleName, lastName, faculty, batch,
     <div className="col-lg-4 col-md-4">
     <div className="profile-user-box">
     <div className="profile-user-img">
-    {image ?<img src={`data:${image?.contentType};base64,${toBase64(image.data)}`} alt="Profile"/>: null}
+    {/* {image ?<img src={`data:${image?.contentType};base64,${toBase64(image.data)}`} alt="Profile"/>: null} */}
    
     </div>
     <div className="names-profiles">
