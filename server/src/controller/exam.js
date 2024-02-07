@@ -87,8 +87,8 @@ var template = handlebars.compile(templateHtml);
  
     // create a folder 
     try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -96,7 +96,7 @@ var template = handlebars.compile(templateHtml);
 
     // Downlaod the PDF
   const pdf = await page.pdf({
-    path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}.pdf`,
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}.pdf`,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -121,8 +121,8 @@ var template = handlebars.compile(templateHtml);
  
     // create a folder 
     try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -130,7 +130,7 @@ var template = handlebars.compile(templateHtml);
 
     // Downlaod the PDF
   const pdfTwo= await page.pdf({
-    path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subReg.pdf`,
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subReg.pdf`,
     margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -152,8 +152,8 @@ var template = handlebars.compile(secondaryHtml);
     // create a folder 
     console.log(__dirname);
     try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -161,7 +161,7 @@ var template = handlebars.compile(secondaryHtml);
 
     // Downlaod the PDF
   const pdfThree = await page.pdf({
-    path: `src/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
     margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -178,7 +178,7 @@ var template = handlebars.compile(secondaryHtml);
 
 exports.downloadForm = async (req,res,next)=>{
     const {rollNumber,faculty,email} = req;
-    const fileDir = path.join('src','submitted-form',`${faculty}`,`${email}`);
+    const fileDir = path.join('src','files','submitted-form',`${faculty}`,`${email}`);
     const absPath = path.resolve(fileDir);
 
     const stream = fs.createReadStream(absPath+`/${faculty}-${rollNumber}.pdf`);

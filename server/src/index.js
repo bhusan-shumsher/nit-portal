@@ -16,7 +16,7 @@ const registration = require('./routes/registration');
 
 const fileStorage = multer.diskStorage({
     destination: (req,file,cb)=>{
-        cb(null,'src/submitted-form');
+        cb(null,'src/files/submitted-form');
     },
     filename: (req,file,cb)=>{
         cb(null,file.originalname);
@@ -28,7 +28,7 @@ app.use(multer({
     storage: fileStorage
 }).single('file'));
 // make this folder publically accessible
-app.use('/src/files/registration',express.static('src/files/registration'));
+app.use('/src/files/submitted-form',express.static('src/files/submitted-form'));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
