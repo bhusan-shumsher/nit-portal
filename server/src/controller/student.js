@@ -155,6 +155,8 @@ function toBase64(filePath) {
         }
 
         const filePath = `${dir}/${file.filename}`;
+        console.log(filePath);
+        console.log(file.path);
         fs.rename(file.path, filePath, (err) => {
         if (err) {
             // Handle error appropriately and send an error response
