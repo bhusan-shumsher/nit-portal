@@ -49,12 +49,10 @@ newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
-const baseImage = toBase64(data[0].image.data);
 newData.image = `data:${data[0].image.contentType};base64,${logoToBase64(data[0].image.urlPath)}`;
 // newData.image = logoToBase64('src/template/logo.jpg');
 newData.logo = logoToBase64('src/template/logo.jpg');
-console.log(baseImage);
-console.log(newData.image);
+console.log('ahit',data[0].image.urlPath);
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/newEntranceCard.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
 {
@@ -224,12 +222,12 @@ function removeEmptyObjects(array) {
   
 
 
-const toBase64=(data)=>{
-    console.log('lado',data);
-    // const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
-    return Buffer.from(data).toString('base64')
+// const toBase64=(data)=>{
+//     console.log('lado',data);
+//     // const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
+//     return Buffer.from(data).toString('base64')
     
-}
+// }
 
 function logoToBase64(filePath) {
     const img = fs.readFileSync(filePath);
