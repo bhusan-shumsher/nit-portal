@@ -31,7 +31,13 @@ if(!data){
     res.status(500).send({message: 'cant process now'});
 }
 if(Object.keys(data[0].image).length === 0){
-    console.log('hereh mofo s')
+    throw new Error('Upload image before submitting form');
+}
+if(Object.keys(data[0].image).length > 0){
+    console.log('check if path exists');
+    if(!fs.existsSync(data[0].image.urlPath)){
+        throw new Error('upload image before submitting form');
+    }
 }
 
 const date = new Date();

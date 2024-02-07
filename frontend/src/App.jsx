@@ -45,6 +45,7 @@ import GenerateForm from "./features/registration/GenerateForm";
 import TickDocs from "./features/registration/TickDocs";
 
 import UploadPics from "./features/student/UploadPics";
+import UploadSignature from "./features/student/UploadSignature";
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
         path:'/student/upload-pics',
         element:<UploadPics/>
       },
+      {
+        path:'/student/upload-signature',
+        element:<UploadSignature/>
+      },
+  
       {
         path:'/student/mock',
         element: <Dashboard/>

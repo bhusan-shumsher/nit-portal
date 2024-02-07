@@ -28,6 +28,9 @@ export default function SideBar(){
             <li className="submenu">
             <NavLink to='/student/upload-pics'><i className="fas fa-chalkboard-teacher"></i> <span>Upload Pics</span> <span className="menu-arrow"></span></NavLink>
             </li>
+            <li className="submenu">
+            <NavLink to='/student/upload-signature'><i className="fas fa-chalkboard-teacher"></i> <span>Upload Signature</span> <span className="menu-arrow"></span></NavLink>
+            </li>
             </ul>
             </div>
             </div>

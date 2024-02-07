@@ -177,3 +177,49 @@ function toBase64(filePath) {
 
     }
   }
+
+
+  exports.uploadSignature = async(req,res,next)=>{
+    try{
+        const email = req.email;
+        const file = req.file;
+        const user = await User.find({email});
+
+        if(!user || user.lenghth <1){
+            throw new Error('cant find the user');
+        }
+        const {faculty} = user[0];
+        const dir = `src/files/submitted-form/${faculty}/${email}`;
+
+        //CREATE A FOLDER
+        try{
+            if(!fs.existsSync(`src/files/submitted-form/${faculty}/${email}`)){
+                fs.mkdirSync(`src/files/submitted-form/${faculty}/${email}`,{recursive:true});
+            }
+        }catch(err){
+            throw new Error('Cant create a folder');
+        }
+
+        const filePath = `${dir}/${file.filename}`;
+        console.log(filePath);
+        console.log(file.path);
+        fs.rename(file.path, filePath, (err) => {
+        if (err) {
+            // Handle error appropriately and send an error response
+            return res.status(500).send({ error: 'Failed to store the file' });
+        }
+        });
+        const signature = {
+            urlPath: filePath,
+            contentType: req.file.mimetype
+        };
+        await User.findOneAndUpdate(
+            {email},
+            {signature: signature}
+        );
+        return res.status(200).send({ error: 'photo saved' });
+
+    }catch(err){
+
+    }
+  }

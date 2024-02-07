@@ -22,4 +22,5 @@ router.get('/api/users/get-fee-status',isAuth,studentController.getFeeStatus);
 
 // TO UPLOAD PIC
 router.post('/api/users/upload-pic',isAuth,studentController.uploadPic);
+router.post('/api/users/upload-signature',isAuth,studentController.uploadSignature);
 module.exports = router;

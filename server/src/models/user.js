@@ -125,6 +125,10 @@ const userSchema = new Schema({
     puRegistrationNumber:{
         type: String,
         trim: true
+    },
+    signature:{
+        sign:{type: String, trim:true},
+        contentType:{type:String, trim: true}
     }
 });
 

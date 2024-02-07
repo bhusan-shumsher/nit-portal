@@ -157,3 +157,19 @@ export async function uploadPic(formData){
     }
     return response.data;
 }
+
+export async function uploadSignature(formData){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('/api/users/upload-signature',
+    formData,
+    {
+        headers:{
+            'Authorization': 'Bearer '+`${token.token}`
+        }
+    }
+    );
+    if(!response){
+        throw new Error('cant post signature');
+    }
+    return response.data;
+}
