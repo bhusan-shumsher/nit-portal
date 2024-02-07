@@ -115,18 +115,7 @@ export default function PersonaDetail({
         </div>
         </div>
         </div>
-        {/* <div className="student-personals-grp">
-        <div className="card mb-0">
-        <div className="card-body">
-        <div className="heading-detail">
-        <h4>Skills:</h4>
-        </div>
-        <div className="skill-blk">
-        </div>
 
-        </div>
-        </div>
-        </div> */}
         </div>
     );
 }

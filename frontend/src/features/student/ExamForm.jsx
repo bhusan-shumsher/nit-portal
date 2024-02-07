@@ -61,7 +61,7 @@ export default function ExamForm(){
                 ...backLogs,
                 back
             ]);
-            console.log(backLogs.length);
+            // console.log(backLogs.length);
         }else{
             const arr = backLogs.filter(b=> b._id !== back._id);
             setBackLogs(arr);
