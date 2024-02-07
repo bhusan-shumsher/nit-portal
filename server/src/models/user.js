@@ -115,7 +115,7 @@ const userSchema = new Schema({
         trim: true
     },
     image:{
-        data: Buffer,
+        urlPath: String,
         contentType: String
     },
     examRollNumber:{
