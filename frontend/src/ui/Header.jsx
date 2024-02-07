@@ -12,7 +12,8 @@ export default function Header(){
     //     );
     // }
     const token = localStorage.getItem('token');
-    const name = token.token.firstName || 'Student';
+    console.log(token);
+    // const name = token.token.firstName || 'Student';
     return(
         <div className="header">
         <div className="header-left">
@@ -58,7 +59,7 @@ export default function Header(){
                         <img className="rounded-circle" src="/img/ncitlogo.jpeg" width="31"
                             alt="Soeng Souy"/>
                         <div className="user-text">
-                            <h6>{{name}}</h6>
+                            <h6>Student</h6>
                             <p className="text-muted mb-0">{data.role}</p>
                         </div>
                     </span>
