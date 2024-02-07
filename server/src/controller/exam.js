@@ -33,7 +33,7 @@ if(!data){
 if(Object.keys(data[0].image).length === 0){
     console.log('hereh mofo s')
 }
-console.log(data[0].image.data);
+console.log(data[0].image.data); 
 const date = new Date();
 const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFullYear();
 const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
@@ -49,7 +49,7 @@ newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
-newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.data)}`;
+newData.image = `data:${data[0].image.contentType};base64,${data[0].image.data}`;
 newData.logo = logoToBase64('src/template/logo.jpg')
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/newEntranceCard.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
