@@ -117,7 +117,7 @@ export default function ExamForm(){
 <div class="col-md-10">
         <form>
         {backLogData.map((backPaper,index)=>{
-            console.log('backpaper',backLogData);
+            // console.log('backpaper',backLogData);
             return <CheckBox 
                 back={backPaper.grades} 
                 semester ={backPaper.semester}
@@ -156,7 +156,7 @@ export default function ExamForm(){
                     {!feeData.duePaid ? <font color='red'>You have outstanding due. Please contact the Account Section</font> : null}
 
                 </div>
-                { userData.data.image ?<img class="logo" src={`data:${userData.data.image.contentType};base64,${toBase64(userData.data.image.data)}`} alt="PP Logo"/>: null}
+                {/* { userData.data.image ?<img class="logo" src={`data:${userData.data.image.contentType};base64,${toBase64(userData.data.image.data)}`} alt="PP Logo"/>: null} */}
             </div>
             
             <div class="cols">

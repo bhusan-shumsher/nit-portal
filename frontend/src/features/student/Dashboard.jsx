@@ -49,7 +49,6 @@ export default function Dashboard () {
                 <div className="col-md-12">
                 <div className="about-info">
                 </div>
-                {/* <SideBar/> */}
                 <Banner
                     firstName={firstName}
                     lastName ={lastName}
