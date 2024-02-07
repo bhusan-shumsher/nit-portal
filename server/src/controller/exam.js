@@ -16,10 +16,10 @@ const {rollNumber,faculty} = req;
  if(personalData.length === 0){
     throw new Error('cant fetch your details now. Try again later');
  }
- if(!personalData[0].hasOwnProperty('image') || Object.keys(personalData[0].image).length === 0){
-    console.log('wtf is this ')
-     throw new Error('Please upload a photo before submission');
- }
+//  if(!personalData[0].hasOwnProperty('image') || Object.keys(personalData[0].image).length === 0){
+//     console.log('wtf is this ')
+//      throw new Error('Please upload a photo before submission');
+//  }
 
 // get current sem, ern 
 const data = await User.aggregate([
