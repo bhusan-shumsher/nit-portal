@@ -16,7 +16,7 @@ const {rollNumber,faculty} = req;
  if(personalData.length === 0){
     throw new Error('cant fetch your details now. Try again later');
  }
- if(!personalData[0].hasOwnProperty('image') || personalData[0].keys('image').length === 0){
+ if(!personalData[0].hasOwnProperty('image') || Object.keys(personalData[0].image).length === 0){
      throw new Error('Please upload a photo before submission');
  }
 
