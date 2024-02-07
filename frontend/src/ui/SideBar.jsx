@@ -22,14 +22,14 @@ export default function SideBar(){
             <NavLink to='/student/result'><i className="fas fa-chalkboard-teacher"></i> <span> Result</span> <span className="menu-arrow"></span></NavLink>
             
             </li>
-            {image ? 
+            {/* {image ?  */}
             <li className="submenu">
             <NavLink to='/student/exam-form'><i className="fas fa-chalkboard-teacher"></i> <span> Exam Form</span> <span className="menu-arrow"></span></NavLink>
             </li>:
             <li className="submenu">
             <NavLink to='/student/upload-pics'><i className="fas fa-chalkboard-teacher"></i> <span> Exam Form</span> <span className="menu-arrow"></span></NavLink>
             </li>
-        }
+        {/* } */}
            
             <li className="submenu">
             <NavLink to='/student/upload-pics'><i className="fas fa-chalkboard-teacher"></i> <span>Upload Pics</span> <span className="menu-arrow"></span></NavLink>
