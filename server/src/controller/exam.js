@@ -76,6 +76,8 @@ var template = handlebars.compile(templateHtml);
 
     var pdfPath = path.join('form');
     const browser = await puppeteer.launch({
+        args: ['--no-sandbox'],
+
 		headless: 'new'
 	});
     var page = await browser.newPage();
@@ -109,6 +111,8 @@ var template = handlebars.compile(templateHtml);
 
     var pdfPath = path.join('form');
     const browserTwo = await puppeteer.launch({
+        args: ['--no-sandbox'],
+
 		headless: 'new'
 	});
     var page = await browserTwo.newPage();
@@ -137,6 +141,8 @@ var template = handlebars.compile(secondaryHtml);
 
     var pdfPath = path.join('form');
     const browserThree = await puppeteer.launch({
+        args: ['--no-sandbox'],
+
 		headless: 'new'
 	});
     var page = await browserThree.newPage();
