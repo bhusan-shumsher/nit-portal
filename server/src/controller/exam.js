@@ -16,10 +16,10 @@ const {rollNumber,faculty} = req;
  if(personalData.length === 0){
     throw new Error('cant fetch your details now. Try again later');
  }
-
- if(personalData[0].hasOwnProperty('image') ){
-    throw new Error('Upload pic before submitting form');
+ if(!personalData[0].hasOwnProperty('image') || personalData.keys('image').length === 0){
+     throw new Error('Please upload a photo before submission');
  }
+
 // get current sem, ern 
 const data = await User.aggregate([
     {$match:{rollNumber}},
@@ -169,7 +169,7 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
-  res.status(200).send({message:'success !'});
+  return res.status(200).send({message:'success !'});
 }catch(err){
     return res.status(501).send({message: err.message});
 }
