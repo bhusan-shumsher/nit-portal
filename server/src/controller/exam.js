@@ -89,7 +89,6 @@ var template = handlebars.compile(templateHtml);
     await page.emulateMediaType('screen');
  
     // create a folder 
-    console.log(__dirname);
     try{
         if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
             fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`);
@@ -126,7 +125,7 @@ var template = handlebars.compile(templateHtml);
     // create a folder 
     try{
         if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`);
+            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
@@ -157,7 +156,7 @@ var template = handlebars.compile(secondaryHtml);
     console.log(__dirname);
     try{
         if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`);
+            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`,{recursive: true});
         }
     }catch(err){
         console.log(err)
