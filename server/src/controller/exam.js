@@ -50,7 +50,8 @@ newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
-newData.image = `data:${data[0].image.contentType};base64,${data[0].image.data}`;
+const baseImage = toBase64(data[0].image);
+newData.image = `data:${data[0].image.contentType};base64,${baseImage}`;
 newData.logo = logoToBase64('src/template/logo.jpg');
 
 console.log(newData.image);
