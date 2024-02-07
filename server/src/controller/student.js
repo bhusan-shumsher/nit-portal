@@ -165,7 +165,7 @@ function toBase64(filePath) {
         });
         const image = {
             urlPath: filePath,
-            contentType: req.file.mimeType
+            contentType: req.file.mimetype
         };
         await User.findOneAndUpdate(
             {email},
