@@ -33,8 +33,7 @@ if(!data){
 if(Object.keys(data[0].image).length === 0){
     console.log('hereh mofo s')
 }
-console.log(data[0].image.data); 
-console.log(data[0].image.contentType);
+
 const date = new Date();
 const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFullYear();
 const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
@@ -51,7 +50,8 @@ newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
 const baseImage = toBase64(data[0].image.data);
-newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.data)}`;
+// newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.data)}`;
+newData.image = logoToBase64('src/template/logo.jpg');
 newData.logo = logoToBase64('src/template/logo.jpg');
 console.log(baseImage);
 console.log(newData.image);
@@ -226,8 +226,7 @@ function removeEmptyObjects(array) {
 
 const toBase64=(data)=>{
     console.log('lado',data);
-    const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
-    console.log('ima',base64);
+    // const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
     return Buffer.from(data).toString('base64')
     
 }
