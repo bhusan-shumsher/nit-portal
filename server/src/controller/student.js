@@ -147,8 +147,8 @@ function toBase64(filePath) {
 
         //CREATE A FOLDER
         try{
-            if(!fs.existsSync(`src/submitted-form/${faculty}/${email}`)){
-                fs.mkdirSync(`src/submitted-form/${faculty}/${email}`,{recursive:true});
+            if(!fs.existsSync(`src/files/submitted-form/${faculty}/${email}`)){
+                fs.mkdirSync(`src/files/submitted-form/${faculty}/${email}`,{recursive:true});
             }
         }catch(err){
             throw new Error('Cant create a folder');
@@ -164,7 +164,7 @@ function toBase64(filePath) {
         }
         });
         const image = {
-            urlPath: file.path,
+            urlPath: filePath,
             contentType: req.file.mimeType
         };
         await User.findOneAndUpdate(
