@@ -85,7 +85,7 @@ export async function postExamForm(formData){
     }
     );
     if(!response){
-        throw new Error('cant post data');
+        throw new Error(response.message);
     }
     return response.data;
 };
