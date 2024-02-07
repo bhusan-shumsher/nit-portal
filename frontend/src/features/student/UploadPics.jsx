@@ -30,36 +30,36 @@ export default function UploadPics(){
       }
     return(
   <div>      
-<div class="page-wrapper">
-<div class="content container-fluid">
+<div className="page-wrapper">
+<div className="content container-fluid">
 
-<div class="page-header">
-<div class="row">
-<div class="col">
-<h3 class="page-title">Upload PP Size Image</h3>
-<ul class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-<li class="breadcrumb-item active">Image Upload</li>
+<div className="page-header">
+<div className="row">
+<div className="col">
+<h3 className="page-title">Upload PP Size Image</h3>
+<ul className="breadcrumb">
+<li className="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+<li className="breadcrumb-item active">Image Upload</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div class="row">
-<div class="col-sm-12">
+<div className="row">
+<div className="col-sm-12">
 
-<div class="card-body">
+<div className="card-body">
   <font color='red'>** This image will be used for your exam form and all other official purposes</font>
   <br/>
   <font color='red'>**Upload colored PP Size pic with plain background</font>
   <br/>
   <br/>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                    <div class="form-group row">
-                        <label class="col-form-label col-md-2">Upload Image(image file)</label>
-                        <div class="col-md-6">
+                    <div className="form-group row">
+                        <label className="col-form-label col-md-2">Upload Image(image file)</label>
+                        <div className="col-md-6">
                         <input 
-                            class="form-control" 
+                            className="form-control" 
                             type="file"
                             accept=".jpg, .jpeg, .png"
                             {...register("file", { required: true })}
@@ -68,7 +68,7 @@ export default function UploadPics(){
                         {errors.file && <span>This field is required</span>}
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
     
                  </form>
                 </div>

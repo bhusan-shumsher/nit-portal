@@ -132,34 +132,34 @@ var template = handlebars.compile(templateHtml);
     format: 'A4',
   });
 //AGAIN DUP CODE
-var template = handlebars.compile(secondaryHtml);
-	var html = template(newData);
+// var template = handlebars.compile(secondaryHtml);
+// 	var html = template(newData);
 
-    var pdfPath = path.join('form');
-    const browserThree = await puppeteer.launch({
-		headless: 'new'
-	});
-    var page = await browser.newPage();
-    await page.setContent(html, { waitUntil: 'domcontentloaded' });
-    await page.emulateMediaType('screen');
+//     var pdfPath = path.join('form');
+//     const browserThree = await puppeteer.launch({
+// 		headless: 'new'
+// 	});
+//     var page = await browser.newPage();
+//     await page.setContent(html, { waitUntil: 'domcontentloaded' });
+//     await page.emulateMediaType('screen');
  
-    // create a folder 
-    console.log(__dirname);
-    try{
-        if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
-            fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`);
-        }
-    }catch(err){
-        console.log(err)
-    }
+//     // create a folder 
+//     console.log(__dirname);
+//     try{
+//         if(!fs.existsSync(`src/submitted-form/${faculty}/${personalData[0].email}`)){
+//             fs.mkdirSync(`src/submitted-form/${faculty}/${personalData[0].email}`);
+//         }
+//     }catch(err){
+//         console.log(err)
+//     }
 
-    // Downlaod the PDF
-  const pdfThree = await page.pdf({
-    path: `src/submitted-form/${faculty}/${personalData[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
-    margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
-    printBackground: true,
-    format: 'A4',
-  });
+//     // Downlaod the PDF
+//   const pdfThree = await page.pdf({
+//     path: `src/submitted-form/${faculty}/${personalData[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
+//     margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+//     printBackground: true,
+//     format: 'A4',
+//   });
 //   Close the browser instance
   await browser.close();
   res.status(200).send({message:'success !'});
