@@ -1,0 +1,117 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Form </title>
+    <style>
+        body {
+            margin: 20px;
+            color: #2e5cb8;
+        }
+        .header{
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer_head{
+            font-size: 22px;
+            font-weight: bold;
+            margin-top:20px; 
+            text-decoration:underline;
+        }
+        .footer{
+            display: flex;
+            flex-direction: column;
+            line-height: 35px;
+        }
+        .box{
+            border: 2px solid #2e5cb8;
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        table {
+            width: 100%;
+            border: 2px solid #2e5cb8;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 2px solid #2e5cb8;
+            padding: 2px 4px;
+            text-align: center;
+        }
+        .seal{
+            border-top: 2px solid #2e5cb8; 
+            width: 200px;
+            font-size:20px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span> Name of the Student: {{firstName}} {{middleName}} {{lastName}} </span>
+        <span>Exam Roll No. :{{examRollNumber}} </span>
+        <span style="margin:auto;"> To be filled by the College </span>
+    </div>
+    <div>
+        <span>Attendance percentage: </span>
+        <span class="box"> </span>
+    </div>
+    <div>
+        a. The statement of assessment marks obtainer:
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:10%;" rowspan="2"> S. No. </th>
+                    <th style="width:15%;"  rowspan="2"> Course Code</th>
+                    <th style="width:25%;"  rowspan="2">Course Title </th>
+                    <th style="width:10%;" colspan="2"> Theory</th>
+                    <th style="width:10%;" colspan="2">Practical </th>
+                    <th style="width:10%;"  rowspan="2">Remarks </th>
+                </tr>
+                <tr>
+                    <th style="width:10%;"> Full Marks</th>
+                    <th style="width:10%;"> Marks Obtained</th>
+                    <th style="width:10%;">Full Marks </th>
+                    <th style="width:10%;">Marks Obtained </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# each allSubjects }}
+                {{#if courseCode }}
+                <tr>
+                        <td><span style="color:black; font-family:Arial, Helvetica, sans-serif;font-size: small;">{{inc @index}}</span></td>
+                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif;font-size: small;">{{courseCode}}</span></td>
+                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif;font-size: small;">{{subjectName}}</span> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{remark}}</td>
+                    </tr>
+                {{/if}}
+                {{/each}}
+                
+            <tbody>
+        </table>
+    <div>
+        <footer class="footer">
+            <span class="footer_head">Account Section</span>
+            <span>Examination Fee Rs. {{totalBackDue}} Paid </span>
+            <span>Signature :............................................... </span>
+            <div style="display:flex; justify-content:space-between; margin: 0px 45px 0px 0px;">
+                <span> Signature of Principal :.................................</span>
+            <span class="seal"> Seal of College</span>
+            </div>
+            <span>Date : {{ date }}</span>
+        </footer>
+</body>
+</html>

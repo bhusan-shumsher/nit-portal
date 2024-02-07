@@ -1,16 +1,15 @@
 
 
 export default function BacklogTable({subjects}){
-    
     return (
-        <div class="col-lg-10">
-<div class="card">
-<div class="card-header">
-<h5 class="card-title">Back Subjects</h5>
+        <div className="col-lg-10">
+<div className="card">
+<div className="card-header">
+<h5 className="card-title">Back Subjects</h5>
 </div>
-<div class="card-body">
-<div class="table-responsive">
-<table class="table table-hover mb-0">
+<div className="card-body">
+<div className="table-responsive">
+<table className="table table-hover mb-0">
 <thead>
 <tr>
 <th>Code</th>
@@ -21,7 +20,6 @@ export default function BacklogTable({subjects}){
 </thead>
 <tbody>
 { subjects.map(sub=>{
-     
         return <SubjectRow data={sub}/>
     })
 }
@@ -38,9 +36,9 @@ export default function BacklogTable({subjects}){
 function SubjectRow ({data}){
     return (
     <tr>
-    <td>'CMM'</td>
+    <td>{data.courseCode}</td>
     <td>{data.subject}</td>
-    <td></td>
+    <td>{data.creditHour}</td>
     <td>Retake</td>
     </tr>
     )

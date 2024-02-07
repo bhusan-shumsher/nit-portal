@@ -5,7 +5,7 @@ const SchoolInfo = require('../models/school-info');
 const Fee = require('../models/fee');
 const util = require('../utils/excel-to-json');
 
-
+const fs = require('fs');
 
 
 exports.getPersonalInfo = async(req,res,next)=>{
@@ -87,3 +87,49 @@ exports.getFeeStatus = async(req,res,next)=>{
         return res.status(500).send(err.message);
     }
 }
+
+
+exports.uploadPic =async (req,res,next) => {
+    try{
+        const rollNumber = req.rollNumber;
+        const email = req.email;
+        const file = req.file;
+        console.log('email',email);
+        const user = await User.find({rollNumber});
+        if(!user || user.lenghth <1){
+            throw new Error('cant find the user');
+        }
+        if(!file){
+            throw new Error('Invalid photo!!');
+        }
+
+        console.log('mime',file.mimetype);
+        const pic = fs.readFileSync(file.path);
+        const image = {
+            data: pic,
+            contentType: req.file.mimetype
+        };
+        const result = await User.updateOne(
+            {rollNumber},
+            {$set:{image:image}}
+        );
+        if(result.modifiedCount < 1){
+            throw new Error('cant update pic now, try later')
+        }
+        console.log(res.modifiedCount);
+        res.status(200).send({message:'Success!'});
+
+    }catch(err){
+        return res.status(500).send(err.message);
+    }
+}
+
+
+// TO BASE 64
+function toBase64(filePath) {
+    const img = fs.readFileSync(filePath);
+  
+    return  Buffer.from(img).toString('base64');
+  }
+
+

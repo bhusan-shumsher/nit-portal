@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Registration Form</title>
+    <style>
+        body {
+            margin: 10px;
+            color: #2e5cb8;
+        }
+
+        .header {
+            display:flex;
+            justify-content: center;
+        }
+
+        .logo {
+            width:100px;
+            height:100px;
+        }
+
+        .info { 
+            padding:10px 20px;
+        }
+
+        .info span {
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            font-size: 24px;
+            font-weight:bold;
+            
+        }
+
+        .card-info {
+            line-height: 23px;
+            margin-top: 18px;
+        }
+
+        .row span{
+            display: inline-block;
+        }
+        .left{
+            width: 30%;
+        }
+        .right{
+            width: 70%;
+            
+        }
+        .card-info .row {
+            display: flex;
+            flex-basis: 50%;
+            justify-content: flex-start;
+        }
+
+        .regular-courses{
+            display: block;
+            margin-top: 15px;
+            font-weight: 18px;
+        }
+
+        table {
+            width: 100%;
+            border: 2px solid #2e5cb8;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 2px solid #2e5cb8;
+            padding: 4px;
+            text-align: center;
+        }
+        .footer{
+            margin-top: 20px; 
+            display:flex; 
+            justify-content:space-between; 
+
+        }
+        .recommendation{
+            margin-top: 10px;
+            border-top: 2px solid #2e5cb8;
+        }
+        .recommendation-footer{
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            margin: 20px 0px;
+        }
+        .seal{
+            border-top: 2px solid #2e5cb8; 
+            width: 250px; 
+            text-align:center;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="{{ logo }}" alt="University Logo">
+        <div class="info">  
+            <span>POKHARA UNIVERSITY</span>
+            <span>Office of the Controller of Examinations</span>
+            <span style="font-size:20px">Course Registration Form</span>
+        </div>
+    </div>
+    <div class="card-info">
+        <div class="row">
+            <span class="right">Name of the Student: {{firstName}} {{middleName}} {{lastName}} </span>
+            <span class="left">Roll No. : {{examRollNumber}}</span>
+        </div>
+        <div class="row">
+            <span  class="right">Faculty : {{ faculty }}</span>
+            <span class="left">Level : Bachleor </span>
+        </div>
+        <div class="row">
+            <span class="right">  P.U. Registration No. : {{regNumber}}</span>
+            <span class="left">Program : {test}</span>
+        </div>
+       
+        <div class="row">
+            <span class="right">Semester/Trimester/Year : Fall </span>
+            <span class="left">Year : 2023</span>
+        </div>
+        <div>
+            Name of the College : Nepal College of Information Technology
+        </div>
+    </div>
+    <div class="regular-courses">
+        <table>
+            <thead>
+                <tr>
+                    <th width="10%">S. No.</th>
+                    <th width="18%">Course Code</th>
+                    <th width="45%">Course Title</th>
+                    <th width="13%">Credit</th>
+                    <th width="14%">Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your course data here -->
+                <tbody>
+                    {{#each allSubjects}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{courseCode}} </td>
+                        <td>{{ subjectName}} </td>
+                        <td>{{creditHour}} </td>
+                        <td>{{remark}} </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </tbody>
+        </table>
+    </div>
+   
+    <div>
+        <div class="footer row">
+            <span class="right">Signature of the Student: </span>
+            <span class="left">Date:{{ date }}</span>
+        </div>
+    </div>
+    <div class="recommendation">
+        <div class="info"><span>Recommendation</span> </div>
+         <p>To the best of my knowledge, the particulars given by Mr./Ms. {{firstName}} {{middleName}} {{lastName}} are correct. I recommend for the registration of the courses listed above.</p>
+         <div class="recommendation-footer">
+            <span>Seal of Institute</span>
+            <span class="seal">Head of Institute </span>
+         </div>
+         <div class="recommendation-footer">
+            <span>Note:</span>
+            <span>Date: {{ date}}</span>
+         </div>
+         <div>
+            <ul>
+                <li>A regular Student of the university must register all the courses offered in the concerned semester</li>
+                <li>A regular Student is allowed to register additional three courses. However a final year student is allowed to register four additional courses and nonregular student is allowed to register maximum 24 credit hours courses.</li>
+                <li>If a student is not eligible to register regular subjects due to prerequisites, other courses may be registered.</li>
+            </ul>
+         </div>
+    <div>
+</body>
+</html>

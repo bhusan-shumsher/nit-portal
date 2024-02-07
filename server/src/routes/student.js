@@ -20,4 +20,6 @@ router.post('/api/users/generate-form',isAuth,examController.generateForm);
 router.get('/api/users/download-form',isAuth,examController.downloadForm);
 router.get('/api/users/get-fee-status',isAuth,studentController.getFeeStatus);
 
+// TO UPLOAD PIC
+router.post('/api/users/upload-pic',isAuth,studentController.uploadPic);
 module.exports = router;

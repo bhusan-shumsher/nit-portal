@@ -14,7 +14,7 @@ const resultSchema = new Schema({
    faculty:{
       type: String,
       required: true,
-      enum:['BECE','BESE','BEELX','BCA','BBA']
+      enum:['BECE','BESE','BEELX','BCA','BBA','BEIT']
    },
    semesterType:{
       type: String,
@@ -35,12 +35,16 @@ const resultSchema = new Schema({
     type: Number,
     default: 0.0,
    },
+   puRegistrationNumber:{
+      type: String,
+      trim: true
+   },
    grades: [
      {
-        subject: {type:String},
-        grade: {type: String},
-        courseCode: {type: String},
-        creditHour:{type: String}
+        subject: {type:String,trim:true},
+        grade: {type: String,trim:true},
+        courseCode: {type: String,trim:true},
+        creditHour:{type: String,trim:true}
      }
    ]
 });

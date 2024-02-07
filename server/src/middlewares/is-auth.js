@@ -21,5 +21,6 @@ module.exports = (req,res,next)=>{
     req.rollNumber = decodeToken.rollNumber;
     req.currentSemester = decodeToken.currentSemester;
     req.faculty = decodeToken.faculty;
+    req.email = decodeToken.email;
    next();
 }

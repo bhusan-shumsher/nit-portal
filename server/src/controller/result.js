@@ -57,9 +57,11 @@ exports.getBacklog = async (req,res,next)=>{
     const backlog = await Result.aggregate([
         {$match: {rollNumber}},
         {$unwind: '$grades'},
-        {$match: {'grades.grade' : 'F'}}
-    ]);
-
+        { $match: { $or: [
+            { 'grades.grade': 'F' }, 
+            { 'grades.grade': 'Abs' }, 
+            { 'grades.grade': 'Expelled' }
+        ] } }] );
     if(!backlog){
        return  res.status(500).send({message:'cant get backlog'});
     }

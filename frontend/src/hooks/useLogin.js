@@ -7,12 +7,8 @@ export function useLogin(){
     const {mutate: login, isLoading} = useMutation({
         mutationFn: ({email,password})=>loginApi({email,password}),
         onSuccess: (data)=>{
-            console.log(data.isFirstTime);
+            
             localStorage.setItem('token',JSON.stringify(data));
-            // if(data.isFirstTime){
-            //     return navigate('/change-password',{replace: true})
-            // }
-            console.log(data);
             navigate('/student/dashboard',{replace: true})
         },
         onError: err=>{

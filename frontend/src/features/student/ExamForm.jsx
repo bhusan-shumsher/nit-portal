@@ -9,6 +9,8 @@ import BacklogTable from '../../ui/BacklogTable';
 import {useState} from 'react';
 import { useExamForm } from '../../hooks/useExamForm';
 import Spinner from '../../ui/Spinner';
+import { toast } from "react-hot-toast";
+import { usePersonalInfo } from '../../hooks/usePersonalInfo';
 const Header = styled.header`
 display: flex;
 justify-content: center;
@@ -48,6 +50,8 @@ export default function ExamForm(){
 
     const {data:backLogData,isLoading: backlogIsLoading,error:backlogError,isError:backlogIsError} = useCurrentFailList();
     const {data,isLoading: currentSubjectIsLoading,error,isError} = useCurrentSubject();
+    const {data:userData,isLoading:userIsLoadin,error:userError,isError:userIsError} =usePersonalInfo();
+    const {data:feeData, isLoading:feeLoading} = useFeeStatus();
     const [backLogs, setBackLogs] = useState([]);
     const [selected, setSelected] = useState(false);
     const {postForm,isLoading} = useExamForm();
@@ -57,6 +61,7 @@ export default function ExamForm(){
                 ...backLogs,
                 back
             ]);
+            console.log(backLogs.length);
         }else{
             const arr = backLogs.filter(b=> b._id !== back._id);
             setBackLogs(arr);
@@ -65,7 +70,13 @@ export default function ExamForm(){
     }
     function onSubmit(e){
         e.preventDefault();
-        setSelected(true);
+        if(backLogs.length > 5){
+            toast.error('You cant retake more than 5 subjects');
+
+        }else{
+            setSelected(true);
+        }
+
     }
     function submitForm(){
         const form = new Object();
@@ -100,11 +111,13 @@ export default function ExamForm(){
 </div>
 </div>
         <div class="form-group row">
-<label class="col-form-label col-md-2">Backlogs</label>
+<label class="col-form-label col-md-2"> List of Backlogs</label>
+<label><font color='red'> *You can choose maximum 5 subjects to retake. Retake will cost Rs. 500/Subject</font></label>
+<br></br>
 <div class="col-md-10">
         <form>
         {backLogData.map((backPaper,index)=>{
-            
+            console.log('backpaper',backLogData);
             return <CheckBox 
                 back={backPaper.grades} 
                 semester ={backPaper.semester}
@@ -140,18 +153,23 @@ export default function ExamForm(){
                     <span>Office of the Controller of Examinations</span>
                     <span style={{fontSize:"16px"}}>Semester/Trimester/Yearly Examinations</span>
                     <span style={{fontSize:"16px"}}>Entrance Card</span>
+                    {!feeData.duePaid ? <font color='red'>You have outstanding due. Please contact the Account Section</font> : null}
+
                 </div>
-                <img class="logo" src="/img/student.jpg" alt="PP Logo"/>
+                { userData.data.image ?<img class="logo" src={`data:${userData.data.image.contentType};base64,${toBase64(userData.data.image.data)}`} alt="PP Logo"/>: null}
             </div>
             
             <div class="cols">
             <RegularSubjectTable subjects={data}/>
             <BacklogTable subjects={backLogs}/>
+            {feeData.duePaid ?
             <button 
                     class="btn btn-primary" 
                     type="submit"
                     onClick={submitForm}
                     >Continue</button>
+                : <font color='red'>You Have Outstanding due left. Please contact the Account Section</font>
+            }
         </div>
             </DIV> 
         </div>
@@ -174,8 +192,15 @@ function CheckBox ({back,semester,onClick}){
             <input 
                 type="checkbox"
                 onChange={(e)=>onClick(e,back)}
-             /> {back.subject} (Semester: {semester})
+             /> {back.subject} (Semester: {semester} | CourseCode: {back.courseCode})
             </label>
         </div>
     );
+}
+
+
+
+const toBase64=(data)=>{
+    const base64 = btoa(String.fromCharCode(... new Uint8Array(data.data)));
+    return base64;
 }

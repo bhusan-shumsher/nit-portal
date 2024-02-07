@@ -35,15 +35,20 @@ exports.login = async (req,res,next)=>{
     if(existingUser.isFirstTime){
         // if the password hasnt been hashed
         if(password === existingUser.password){
+            var hasImage = false;
+            if(existingUser.image){
+                 hasImage = true;
+            }
             const token = jwt.sign({
                 email: existingUser.email,
                 id: existingUser._id.toString(),
                 role: existingUser.role,
                 rollNumber: existingUser.rollNumber,
                 currentSemester: existingUser.currentSemester,
-                faculty: existingUser.faculty
+                faculty: existingUser.faculty,
+                hasPic: hasImage
             },'secret',
-            {expiresIn: '1h'});
+            {expiresIn: '10h'});
             return res.status(200).send({
                 token:token,
                  isFirstTime: existingUser.isFirstTime,
@@ -73,8 +78,8 @@ exports.login = async (req,res,next)=>{
 exports.bulkUpload = async (req,res,next)=>{
     try{
         const file = req.file;
-        const {currentSemester} = req.body;
-        console.log(currentSemester);
+        const {currentSemester,faculty} = req.body;
+        console.log('faca',faculty);
         const data = util.ex2json(file.path, file.filename,'users',currentSemester);
          const users = await User.insertMany(data);
          if(users){

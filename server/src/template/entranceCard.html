@@ -74,19 +74,19 @@
 </head>
 <body>
     <div class="header">
-        <img class="logo" src="university-logo.jpg" alt="University Logo">
+        <img class="logo" src="{{ logo }}" alt="University Logo">
         <div class="info">
             <span>POKHARA UNIVERSITY</span>
             <span>Office of the Controller of Examinations</span>
             <span style="font-size:16px">Semester/Trimester/Yearly Examinations</span>
             <span style="font-size:16px">Entrance Card</span>
         </div>
-        <img class="logo" src="/src/public/student.jpg" alt="PP Logo">
+        <img class="logo" src="{{ image }}" alt="PP Logo">
     </div>
     <div class="card-info">
         <div class="row">
             <span>Exam Roll No. : <span style="color:red">{{examRollNumber}}</span></span>
-            <span>Exam Center: 215</span>
+            <span>Exam Center: </span>
         </div>
         <div>
             P.U. Registration No. : <span style="color:black">2078123478</span>
@@ -155,9 +155,9 @@
                     <tr>
                         <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{inc @index}}</span></td>
                         <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{courseCode}}</span></td>
-                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{subject}}</span> </td>
+                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{subjectName}}</span> </td>
                         <td> <span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{creditHour}}</span></td>
-                        <td> </td>
+                        <td> <span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;"></span></td>
                     </tr>
                    
                    
@@ -169,7 +169,7 @@
     <div>
         <div class="row footer">
             <span>Signature of the Student: ..........................................................</span>
-            <span>Date: ......................................</span>
+            <span>Date: {{date}}</span>
         </div>
     </div>
 </body>

@@ -38,14 +38,13 @@ import BackPaperUpload from "./features/staff/department/BackPaperUpload";
 import RegistrationLogin from "./features/registration/RegistrationLogin";
 import RegistrationForm from "./features/registration/RegistrationForm";
 import RegistrationProtectedRoute from "./features/registration/RegistrationProtectedRoute";
-import SignatureUpload from "./features/registration/SignatureUpload";
+import SignatureUpload from "./features/registration/SIgnatureUpload";
 import UploadDocs from "./features/registration/UploadDocs";
 import FormDownload from "./features/registration/FormDownload";
 import GenerateForm from "./features/registration/GenerateForm";
 import TickDocs from "./features/registration/TickDocs";
-// ERROR PAGE
-import Error404 from "./ui/Error404";
 
+import UploadPics from "./features/student/UploadPics";
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
@@ -56,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:'/student/dashboard',
         element: <Dashboard/>
+      },
+      {
+        path:'/student/upload-pics',
+        element:<UploadPics/>
       },
       {
         path:'/student/mock',
@@ -162,7 +165,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <RegistrationLogin/>
+    element: <Home/>
   },
   {
     path:'/student/login',
@@ -181,10 +184,6 @@ const router = createBrowserRouter([
     element: <RegistrationLogin/>
   },
   {
-    path: '*',
-    element: <Error404/>
-  },
-  {
     element: <RegistrationProtectedRoute><AppLayout/></RegistrationProtectedRoute>,
     children:[
       {
@@ -200,12 +199,12 @@ const router = createBrowserRouter([
         element:<UploadDocs/>
       },
       {
-        path:'/new-student/checkdocs',
-        element:<TickDocs/>
-      },
-      {
         path:'/new-student/generate-form',
         element: <GenerateForm/>
+      },
+      {
+        path:'/new-student/checkdocs',
+        element:<TickDocs/>
       },
       {
         path:'/new-student/form-download',

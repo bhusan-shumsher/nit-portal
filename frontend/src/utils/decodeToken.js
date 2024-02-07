@@ -50,3 +50,18 @@ export function isNewStudent(){
         return false;
     }
 };
+
+
+export function hasPic(){
+    const token =  JSON.parse(localStorage.getItem('token'));
+    if(!token){
+        return false;
+    }
+    const decoded = jwt_decode(token.token);
+    console.log(typeof decoded.hasPic);
+    if(decoded.hasPic ){
+        return true;
+    }else{
+        return false;
+    }
+}

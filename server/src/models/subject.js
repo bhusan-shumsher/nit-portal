@@ -34,13 +34,17 @@ const subjectSchema = new Schema({
     },
     concurrentCode:{
         type: String,
+        trim: true
+
     },
     hasPrerequisite:{
         type: Boolean,
         default: false
     },
     prerequisiteCode:{
-        type: String
+        type: String,
+        trim: true
+
     }
 });
 

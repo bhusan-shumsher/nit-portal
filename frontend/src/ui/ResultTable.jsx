@@ -11,15 +11,15 @@ export default function ResultTable(props){
         return d.sgpa
     })
     return(
-        <div class="row">
-    <div class="col-lg-10">
-    <div class="card">
-    <div class="card-header">
-    <h5 class="card-title">Semester {_id}</h5>
+        <div className="row">
+    <div className="col-lg-10">
+    <div className="card">
+    <div className="card-header">
+    <h5 className="card-title">Semester {_id}</h5>
     </div>
-    <div class="card-body">
-    <div class="table-responsive">
-    <table class="table table-hover mb-0">
+    <div className="card-body">
+    <div className="table-responsive">
+    <table className="table table-hover mb-0">
     <thead>
     <tr>
     <th>Course Code </th>
@@ -53,15 +53,18 @@ export default function ResultTable(props){
  function ResultRow({value}){
     
     return value.map(r=>{
-        return(
-            <tr>
-            <td></td>
-            <td>{r.subject}</td>
-            <td><p style={{color: r.grade ==='F' ? 'red':'black' }}>{r.grade}</p></td>
-            <td>{r.grade==='CNR' ? 'Course Not Registered': ''}</td>
-
-        </tr>
-        );
+        if('subject' in r && 'creditHour' in r){
+            return(
+                <tr>
+                <td>{r.courseCode}</td>
+                <td>{r.subject}</td>
+                <td><p style={{color: r.grade ==='F' ? 'red':'black' }}>{r.grade}</p></td>
+                <td>{r.grade==='CNR' ? 'Course Not Registered': ''}</td>
+    
+            </tr>
+            );
+        }
+        
     })
     
 }
