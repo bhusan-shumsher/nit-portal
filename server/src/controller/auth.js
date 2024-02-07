@@ -48,10 +48,11 @@ exports.login = async (req,res,next)=>{
                 faculty: existingUser.faculty,
                 hasPic: hasImage
             },'secret',
-            {expiresIn: '10h'});
+            {expiresIn: '24h'});
             return res.status(200).send({
                 token:token,
                  isFirstTime: existingUser.isFirstTime,
+                 firstName: existingUser.firstName,
                  role:existingUser.role});
         }else{
             return res.status(401).send({message:'Wrong password'}); 
@@ -70,7 +71,7 @@ exports.login = async (req,res,next)=>{
         faculty: existingUser.faculty
 
     },'secret',
-    {expiresIn: '1h'});
+    {expiresIn: '24h'});
     return res.status(200).send({token:token, isFirstTime: existingUser.firstTime,firstName: existingUser.firstName});
 
 }
@@ -79,7 +80,6 @@ exports.bulkUpload = async (req,res,next)=>{
     try{
         const file = req.file;
         const {currentSemester,faculty} = req.body;
-        console.log('faca',faculty);
         const data = util.ex2json(file.path, file.filename,'users',currentSemester);
          const users = await User.insertMany(data);
          if(users){
@@ -99,7 +99,6 @@ exports.changePassword = async (req,res,next)=>{
         const id = req.userId;
         console.log('id', id);
         const a = await User.findById(id);
-        console.log(a);
         const hashedPassword = await bcrypt.hash(password,12);
         const updatedUser = await User.findByIdAndUpdate(id,{
             password: hashedPassword,
@@ -153,7 +152,7 @@ exports.staffLogin = async (req,res,next)=>{
         firstName: existingUser.firstName,
         id: existingUser._id.toString()
     },'secret',
-    {expiresIn: '1h'});
+    {expiresIn: '24h'});
     return res.status(200).send({token:token, isFirstTime: existingUser.firstTime,firstName: existingUser.firstName});
 
 };

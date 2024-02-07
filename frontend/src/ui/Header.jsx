@@ -4,13 +4,15 @@ import { useBasicInfo } from "../hooks/adminHooks/useBasicInfo";
 import Spinner from "./Spinner";
 export default function Header(){
     const {logout} = useLogout();
-    const {data, isLoading:basicInfoLoading} = useBasicInfo();
-    console.log(data)
-    if(basicInfoLoading){
-        return (
-            <Spinner/>
-        );
-    }
+    // const {data, isLoading:basicInfoLoading} = useBasicInfo();
+    // console.log(data)
+    // if(basicInfoLoading){
+    //     return (
+    //         <Spinner/>
+    //     );
+    // }
+    const token = localStorage.getItem('token');
+    const name = token.token.firstName || 'Student';
     return(
         <div className="header">
         <div className="header-left">
@@ -38,30 +40,9 @@ export default function Header(){
                         <a href="javascript:void(0)" className="clear-noti"> Clear All </a>
                     </div>
                     <div className="noti-content">
-                        <ul className="notification-list">
-                            {/* TO SHOW THE NOTIFICATION */}
-                            {/* <li className="notification-message">
-                                <a href="#">
-                                    <div className="media d-flex">
-                                        <span className="avatar avatar-sm flex-shrink-0">
-                                            <img className="avatar-img rounded-circle" alt="User Image"
-                                                src="/img/profiles/avatar-02.jpg"/>
-                                        </span>
-                                        <div className="media-body flex-grow-1">
-                                            <p className="noti-details"><span className="noti-title">Carlson Tech</span> has
-                                                approved <span className="noti-title">your estimate</span></p>
-                                            <p className="noti-time"><span className="notification-time">4 mins ago</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> */}
-                            
+                        <ul className="notification-list"> 
                         </ul>
                     </div>
-                    {/* <div className="topnav-dropdown-footer">
-                        <a href="#">View all Notifications</a>
-                    </div> */}
                 </div>
             </li>
 
@@ -77,7 +58,7 @@ export default function Header(){
                         <img className="rounded-circle" src="/img/ncitlogo.jpeg" width="31"
                             alt="Soeng Souy"/>
                         <div className="user-text">
-                            <h6>{data.firstName || 'User'}</h6>
+                            <h6>{{name}}</h6>
                             <p className="text-muted mb-0">{data.role}</p>
                         </div>
                     </span>
