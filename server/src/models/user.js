@@ -115,8 +115,7 @@ const userSchema = new Schema({
         trim: true
     },
     image:{
-        default: null,
-        urlPath: String,
+        urlPath: {type: String, default: null},
         contentType: String
     },
     examRollNumber:{
@@ -128,8 +127,7 @@ const userSchema = new Schema({
         trim: true
     },
     signature:{
-        default: null,
-        sign:{type: String, trim:true},
+        sign:{type: String, trim:true,default:null},
         contentType:{type:String, trim: true}
     }
 });
