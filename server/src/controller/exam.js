@@ -225,6 +225,7 @@ function removeEmptyObjects(array) {
 
 
 const toBase64=(data)=>{
+    console.log('lado',data);
     const base64 = btoa(String.fromCharCode(... new Uint8Array(data)));
     console.log('ima',base64);
     return base64;
