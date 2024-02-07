@@ -164,7 +164,7 @@ function toBase64(filePath) {
         }
         });
         const image = {
-            urlPath: filePath,
+            urlPath: file.path,
             contentType: req.file.mimeType
         };
         await User.findOneAndUpdate(
