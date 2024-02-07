@@ -16,10 +16,8 @@ const {rollNumber,faculty} = req;
  if(personalData.length === 0){
     throw new Error('cant fetch your details now. Try again later');
  }
- if(!personalData[0].image){
-    throw new Error('cant load your photo.please check your pic')
- }
- if(!'data' in personalData[0].image ){
+
+ if(personalData[0].hasOwnProperty('image') ){
     throw new Error('Upload pic before submitting form');
  }
 // get current sem, ern 
