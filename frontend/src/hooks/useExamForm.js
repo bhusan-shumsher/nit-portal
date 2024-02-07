@@ -13,7 +13,7 @@ export function useExamForm(){
         onError: err=>{
             console.log('Error',err);
             // add toast
-            toast.error('cant submit form ');
+            toast.error(err.message);
         }
     })
     return {postForm,isLoading}

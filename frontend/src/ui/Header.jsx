@@ -60,7 +60,7 @@ export default function Header(){
                             alt="Soeng Souy"/>
                         <div className="user-text">
                             <h6>{name}</h6>
-                            <p className="text-muted mb-0">Student</p>
+                            <p className="text-muted mb-0">{name}</p>
                         </div>
                     </span>
                 </a>
