@@ -111,7 +111,7 @@ var template = handlebars.compile(templateHtml);
     const browserTwo = await puppeteer.launch({
 		headless: 'new'
 	});
-    var page = await browser.newPage();
+    var page = await browserTwo.newPage();
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
  
@@ -139,7 +139,7 @@ var template = handlebars.compile(secondaryHtml);
     const browserThree = await puppeteer.launch({
 		headless: 'new'
 	});
-    var page = await browser.newPage();
+    var page = await browserThree.newPage();
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
  
