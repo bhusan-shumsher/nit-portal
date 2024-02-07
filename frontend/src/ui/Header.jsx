@@ -13,7 +13,7 @@ export default function Header(){
     // }
     const token = localStorage.getItem('token');
     console.log(token);
-    const name = token.token.firstName || 'Student';
+    const name = token.firstName || 'Student';
     return(
         <div className="header">
         <div className="header-left">
@@ -60,7 +60,7 @@ export default function Header(){
                             alt="Soeng Souy"/>
                         <div className="user-text">
                             <h6>{name}</h6>
-                            <p className="text-muted mb-0">{data.role}</p>
+                            <p className="text-muted mb-0">Student</p>
                         </div>
                     </span>
                 </a>
@@ -72,7 +72,7 @@ export default function Header(){
                         </div>
                         <div className="user-text">
                             <h6>Student</h6>
-                            <p className="text-muted mb-0">{data.role}</p>
+                            <p className="text-muted mb-0">Student</p>
                         </div>
                     </div>
                     <button className="dropdown-item" onClick={logout}>Logout</button>
