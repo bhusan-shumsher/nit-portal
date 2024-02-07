@@ -53,7 +53,7 @@ newData.date = dateStamp;
 const baseImage = toBase64(data[0].image.data);
 newData.image = `data:${data[0].image.contentType};base64,${data[0].image.data}`;
 newData.logo = logoToBase64('src/template/logo.jpg');
-
+console.log(baseImage);
 console.log(newData.image);
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/newEntranceCard.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
