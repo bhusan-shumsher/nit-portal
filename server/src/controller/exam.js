@@ -8,6 +8,7 @@ const util = require('../utils/array-padding');
 
 
 exports.generateForm = async (req,res,next)=>{
+try{
 
 // get roll number
 const {rollNumber,faculty} = req; 
@@ -17,6 +18,9 @@ const {rollNumber,faculty} = req;
  }
  if(!personalData[0].image){
     throw new Error('cant load your photo.please check your pic')
+ }
+ if(!'data' in personalData[0].image ){
+    throw new Error('Upload pic before submitting form');
  }
 // get current sem, ern 
 const data = await User.aggregate([
@@ -169,7 +173,11 @@ var template = handlebars.compile(secondaryHtml);
 //   Close the browser instance
   await browser.close();
   res.status(200).send({message:'success !'});
-};
+}catch(err){
+    return res.status(501).send({message: err.message});
+}
+}
+
 
 
 exports.downloadForm = async (req,res,next)=>{
