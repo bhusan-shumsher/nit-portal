@@ -44,9 +44,9 @@ const newData = new Object();
 newData.backSubjects = backSubjects;
 newData.regularSubjects = regularSubjects;
 newData.allSubjects = removeEmptyObjects(regularSubjects).concat(renameKey(removeEmptyObjects(backSubjects)));
-newData.firstName = data[0].firstName;
-newData.lastName = data[0].lastName;
-newData.middleName = data[0].middleName;
+newData.firstName = data[0].firstName.toUpperCase();
+newData.lastName = data[0].lastName.toUpperCase();
+newData.middleName = data[0].middleName.toUpperCase();
 newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
@@ -209,10 +209,6 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
-  await User.updateOne(
-    {rollNumber},
-    {$set:{formSubmited: true}}
-);
 const triplicate = new Triplcate({
     semester: data[0].currentSemester,
     faculty :data[0].faculty,
