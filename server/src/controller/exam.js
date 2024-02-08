@@ -237,7 +237,7 @@ exports.downloadForm = async (req,res,next)=>{
     const fileDir = path.join('src','files','submitted-form',`${faculty}`,`${email}`);
     const absPath = path.resolve(fileDir);
 
-    const stream = fs.createReadStream(absPath+`/${faculty}-${rollNumber}.pdf`);
+    const stream = fs.createReadStream(absPath+`/${faculty}-${rollNumber}-entrance.pdf`);
     try{
         res.set({
             'Content-Disposition': `attachment; filename='hello.pdf'`,

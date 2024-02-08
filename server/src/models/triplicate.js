@@ -4,22 +4,18 @@ const Schema = mongoose.Schema;
 const triplicateSchema = new Schema({
    semester:{
       type: Number,
-      min: 1,
-      required: true
-   },
+      min: 1
+      },
    faculty:{
       type: String,
-      required: true,
       enum:['BECE','BESE','BEELX','BCA','BBA','BEIT']
    },
    rollNumber:{
     type: String,
-    required: true,
     trim: true
    },
    examRollNumber:{
     type: String,
-    required: true,
     trim: true
    },
    puRegistrationNumber:{
