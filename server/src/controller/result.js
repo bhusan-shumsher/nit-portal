@@ -55,12 +55,13 @@ exports.getStudentResult = async (req,res,next)=>{
 exports.getBacklog = async (req,res,next)=>{
     const {rollNumber} = req;
     const backlog = await Result.aggregate([
-        {$match: {rollNumber}},
+        {$match:{$and: [{rollNumber},{semester:1}]}},
         {$unwind: '$grades'},
         { $match: { $or: [
             { 'grades.grade': 'F' }, 
             { 'grades.grade': 'Abs' }, 
-            { 'grades.grade': 'Expelled' }
+            { 'grades.grade': 'Expelled' },
+            {'grades.grade':'CNR'}
         ] } }] );
     if(!backlog){
        return  res.status(500).send({message:'cant get backlog'});
