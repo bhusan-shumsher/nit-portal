@@ -54,7 +54,7 @@ const createStudentRecord = (data,currentSemester)=>{
     record.rollNumber = data.student_id;
     record.currentSemester = currentSemester;
     record.role = 'student';
-    record.password = data['father_contactno'] || '9888744489'; // password same as the roll number initially
+    record.password = data['password'] || data['father_contactno'] || '9888744489'; // password same as the roll number initially
     record.firstName = data.first_name;
     record.lastName = data.last_name;
     record.middleName = data.middleName;
