@@ -214,7 +214,7 @@ var template = handlebars.compile(secondaryHtml);
     {formSubmited: true}
 );
 const triplicate = new Triplcate({
-    semester: data[0].semester,
+    semester: data[0].currentSemester,
     faculty :data[0].faculty,
     rollNumber: data[0].rollNumber,
     examRollNumber: data[0].examRollNumber,
