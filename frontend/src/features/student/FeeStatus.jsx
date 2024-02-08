@@ -15,7 +15,6 @@ export default function FeeStatus(){
         );
     }
     if(data && !error){
-        console.log(data)
         const {duePaid} = data;
         if(duePaid){
            return <Navigate to="/student/exam-form"/>

@@ -54,8 +54,8 @@ const userSchema = new Schema({
     
     middleName:{
         type:String,
-        trim: true
-    },
+        default: ''
+        },
     lastName:{
         type: String,
         required: true,
@@ -124,7 +124,7 @@ const userSchema = new Schema({
     },
     puRegistrationNumber:{
         type: String,
-        trim: true
+        default:' '
     },
     signature:{
         sign:{type: String, trim:true,default:null},

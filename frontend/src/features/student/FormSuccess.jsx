@@ -1,11 +1,11 @@
 import { useShowForm } from "../../hooks/useShowForm";
 import {useState} from 'react';
-
+import Spinner from "../../ui/Spinner";
 export default function FormSuccess(){
     const {data,isLoading,isError,error} = useShowForm();
     
     if(isLoading){
-        return <h1>Loading</h1>
+        return <Spinner/>
     }
     return(
         <>

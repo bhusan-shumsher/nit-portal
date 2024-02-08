@@ -6,7 +6,7 @@
     <title>Course Registration Form</title>
     <style>
         body {
-            margin: 10px;
+            margin: 20px;
             color: #2e5cb8;
         }
 
@@ -34,18 +34,18 @@
         }
 
         .card-info {
-            line-height: 23px;
-            margin-top: 18px;
+            line-height: 25px;
+            margin-top: 20px;
         }
 
         .row span{
             display: inline-block;
         }
         .left{
-            width: 30%;
+            width: 25%;
         }
         .right{
-            width: 70%;
+            width: 75%;
             
         }
         .card-info .row {
@@ -73,13 +73,14 @@
             text-align: center;
         }
         .footer{
-            margin-top: 20px; 
+            margin-top: 12px; 
             display:flex; 
             justify-content:space-between; 
+            align-items: flex-end;
 
         }
         .recommendation{
-            margin-top: 10px;
+            margin-top: 12px;
             border-top: 2px solid #2e5cb8;
         }
         .recommendation-footer{
@@ -89,9 +90,13 @@
             margin: 20px 0px;
         }
         .seal{
-            border-top: 2px solid #2e5cb8; 
             width: 250px; 
             text-align:center;
+        }
+        .sign {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
         }
        
     </style>
@@ -107,24 +112,24 @@
     </div>
     <div class="card-info">
         <div class="row">
-            <span class="right">Name of the Student: {{firstName}} {{middleName}} {{lastName}} </span>
-            <span class="left">Roll No. : {{examRollNumber}}</span>
+            <span class="right">Name of the Student: <span style="color:black;">{{ firstName }} {{ middleName }} {{lastName}}</span> </span>
+            <span class="left">Roll No. : <span style="color:black;">{{examRollNumber}}</span></span>
         </div>
         <div class="row">
-            <span  class="right">Faculty : {{ faculty }}</span>
-            <span class="left">Level : Bachleor </span>
+            <span  class="right">Faculty : Science & Technology </span>
+            <span class="left">Level : Bachelor</span>
         </div>
         <div class="row">
-            <span class="right">  P.U. Registration No. : {{regNumber}}</span>
-            <span class="left">Program : {test}</span>
+            <span class="right">  P.U. Registration No. : <span style="color:black;">{{puRegistrationNumber}}</span></span>
+            <span class="left">Program : {{faculty}}</span>
         </div>
        
         <div class="row">
-            <span class="right">Semester/Trimester/Year : Fall </span>
-            <span class="left">Year : 2023</span>
+            <span class="right">Semester/Trimester/Year : Fall</span>
+            <span class="left">Year : 2023 </span>
         </div>
         <div>
-            Name of the College : Nepal College of Information Technology
+            Name of the College : <span style="color:black;">Nepal College of Information Technology</span>
         </div>
     </div>
     <div class="regular-courses">
@@ -143,11 +148,11 @@
                 <tbody>
                     {{#each allSubjects}}
                     <tr>
-                        <td>{{inc @index}}</td>
-                        <td>{{courseCode}} </td>
-                        <td>{{ subjectName}} </td>
-                        <td>{{creditHour}} </td>
-                        <td>{{remark}} </td>
+                        <td><span style="color:black;">{{inc @index}}</span></td>
+                        <td><span style="color:black;">{{courseCode}}</span> </td>
+                        <td><span style="color:black;">{{subjectName}}</span> </td>
+                        <td><span style="color:black;">{{creditHour}}</span></td>
+                        <td><span style="color:black;">{{remark}}</span> </td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -157,22 +162,21 @@
    
     <div>
         <div class="footer row">
-            <span class="right">Signature of the Student: </span>
-            <span class="left">Date:{{ date }}</span>
+            <span class="right">Signature of the Student:  <img class="sign" src="{{signature}}" alt="Signature of Student"></span>
+            <span class="left">Date: {{date}}</span>
         </div>
-    </div> 
+    </div>
     <div class="recommendation">
         <div class="info"><span>Recommendation</span> </div>
          <p>To the best of my knowledge, the particulars given by Mr./Ms. {{firstName}} {{middleName}} {{lastName}} are correct. I recommend for the registration of the courses listed above.</p>
          <div class="recommendation-footer">
             <span>Seal of Institute</span>
-            <span class="seal">Head of Institute </span>
-         </div>
-         <div class="recommendation-footer">
-            <span>Note:</span>
-            <span>Date: {{ date}}</span>
+            <span class="seal">   <img class="sign" style="margin-bottom:5px;" src="{{khakurel}}" alt="Signature of Principal"><br>
+               <span> <span  style="border-top: 2px solid #2e5cb8;padding:5px; ">Head of Institute  </span>
+                <br>Date: {{date}}</span></span>
          </div>
          <div>
+            <span>Note:</span>
             <ul>
                 <li>A regular Student of the university must register all the courses offered in the concerned semester</li>
                 <li>A regular Student is allowed to register additional three courses. However a final year student is allowed to register four additional courses and nonregular student is allowed to register maximum 24 credit hours courses.</li>

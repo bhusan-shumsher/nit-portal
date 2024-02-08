@@ -147,8 +147,8 @@ export default function ExamForm(){
                 <div className="content container-fluid">
                   <DIV> 
                 <div class="exam-header">
-                <img class="logo" src="university-logo.jpg" alt="University Logo"/>
-                <div class="exam-info">
+                {/* <img class="logo" src="university-logo.jpg" alt="University Logo"/> */}
+                <div className="exam-info">
                     <span>POKHARA UNIVERSITY</span>
                     <span>Office of the Controller of Examinations</span>
                     <span style={{fontSize:"16px"}}>Semester/Trimester/Yearly Examinations</span>
@@ -164,7 +164,7 @@ export default function ExamForm(){
             <BacklogTable subjects={backLogs}/>
             {feeData.duePaid ?
             <button 
-                    class="btn btn-primary" 
+                    className="btn btn-primary" 
                     type="submit"
                     onClick={submitForm}
                     >Continue</button>

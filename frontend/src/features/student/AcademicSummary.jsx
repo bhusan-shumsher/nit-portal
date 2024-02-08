@@ -13,7 +13,6 @@ export default function AcademicSummary(){
         return <h4>Cant fetch data</h4>
     }
     if(data && data.length >0){
-        console.log(data);
         const key = data.map(d=>{
             return d._id
         });
@@ -22,11 +21,9 @@ export default function AcademicSummary(){
         });
         var totalSub = 0;
         values.forEach(v=> totalSub += v);
-        console.log(totalSub)
         const failCount = data.map(d=>{
             return Object.values('F')
         })
-        console.log(failCount.length)
         return(
             <div className="col-lg-6">
            <div className="student-personals-grp">

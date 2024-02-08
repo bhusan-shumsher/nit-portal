@@ -51,6 +51,11 @@
             font-size:20px;
             text-align: center
         }
+        .sign {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
@@ -105,10 +110,10 @@
     <div>
         <footer class="footer">
             <span class="footer_head">Account Section</span>
-            <span>Examination Fee Rs. {{totalBackDue}} Paid </span>
+            <span>Examination Fee Rs. ................................. Paid </span>
             <span>Signature :............................................... </span>
             <div style="display:flex; justify-content:space-between; margin: 0px 45px 0px 0px;">
-                <span> Signature of Principal :.................................</span>
+                <span> Signature of Principal : <img class="sign" style="margin-bottom:5px;" src="{{khakurel}}" alt="Signature of Principal"></span>
             <span class="seal"> Seal of College</span>
             </div>
             <span>Date : {{ date }}</span>

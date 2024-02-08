@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Entrance Card</title>
+    <title>Application Form</title>
     <style>
         body {
             margin: 20px;
@@ -17,8 +17,8 @@
         }
 
         .logo {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             margin-right: 10px;
         }
 
@@ -31,7 +31,7 @@
         }
 
         .info span {
-            font-size: 20px;
+            font-size: 24px;
             margin-bottom: 4px;
         }
 
@@ -49,7 +49,7 @@
         .re-registered-courses {
             display: block;
             margin-top: 15px;
-            
+            font-weight: bold;
         }
 
         table {
@@ -67,8 +67,8 @@
         .footer{
             margin-top: 20px; 
             display:flex; 
-            justify-content:space-between; 
-            align-items: flex-end;
+            justify-content:space-between;
+
         }
         .sign {
             height: 45px;
@@ -81,36 +81,101 @@
 </head>
 <body>
     <div class="header">
-        <img class="logo" src="{{ logo }}" alt="University Logo">
+        <img class="logo" src="{{logo}}" alt="University Logo">
         <div class="info">
             <span>POKHARA UNIVERSITY</span>
             <span>Office of the Controller of Examinations</span>
-            <span style="font-size:16px">Semester/Trimester/Yearly Examinations</span>
-            <span style="font-size:16px">Entrance Card</span>
+            <span style="font-size:16px; font-weight:normal;margin-bottom:15px;">Application Form</span>
+            <span style="font-size:20px">Semester/Trimester/Yearly Examinations</span>
+           
         </div>
-        <img class="logo" src="{{ image }}" alt="PP Logo">
+        <img class="logo" src="{{image}}" alt="PP Logo">
     </div>
     <div class="card-info">
-        <div class="row">
-            <span style="width: 65%;">Exam Roll No. : <span style="color:red;">{{ examRollNumber}}</span></span>
-            <span style="width: 35%;">Exam Center: </span>
-        </div>
-        <div>
-            P.U. Registration No. : <span style="color:black;">{{puRegistrationNumber}}</span>
-        </div>
-        <div>
-            Name of the Student : <span style="color:black;"> {{firstName}} {{middleName}} {{lastName}}</span>
+        <div class="row"><span style="width: 65%;">Exam Roll No. : {{examRollNumber}}</span>
+            <span style="width: 35%;">Exam Center:  </span>
         </div>
         <div class="row">
             <span style="width: 65%;">Level : Bachelor</span>
             <span style="width: 35%;">Program : {{faculty}}</span>
         </div>
         <div class="row">
-            <span style="width: 65%;">Semester/Trimester/Year : Fall</span>
-            <span style="width: 35%;">Year : 2023</span>
+            <span style="width: 65%;">Semester/Trimester/Year : Fall </span>
+            <span style="width: 35%;">Year : 2023 </span>
         </div>
+            <div style="width:70%; display:flex; margin: 2px auto -5px;">
+            <span style="margin: 0px auto;">First Name</span>
+            <span style="margin: 0px auto;">Middle Name</span>
+            <span style="margin: 0px auto;">Last Name</span>
+            </div>
+    
+            <table> 
+                <tr>
+                    <th>Name</th>
+                    {{#each fullName}}
+                    <th><span style="color: black;">{{this}}</span></th>
+                    {{/each}}
+                    <!-- <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th> -->
+                </tr>
+            </table>
+        </div>
+        
         <div>
-            Name of the College : Nepal College of Information Tech
+            <table> 
+                <tr>
+                    <th style="padding: 5px;">P.U. Registration No.</th>
+                    {{#each puFormat}}
+                    <th> {{this}}</th>
+                    {{/each}}
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+            </table>
+        </div>
+       
+        <div style="margin-top:10px;">
+            Name of the College : Nepal College of Information Technology
         </div>
         <div>
             For the presence in the examination of the following courses as per course registered.
@@ -174,7 +239,8 @@
     <div>
         <div class="row footer">
             <span>Signature of the Student:  <img class="sign" src="{{ signature }}" alt="Signature of Student"></span>
-            <span>Date: {{date}}</span>
+            <span>Form checked and accepted by :........................</span>
+            <span>Date : {{date}}</span>
         </div>
     </div>
 </body>

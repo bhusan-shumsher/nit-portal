@@ -56,24 +56,34 @@ newData.puRegistrationNumber = data[0].puRegistrationNumber;
 // newData.image = logoToBase64('src/template/logo.jpg');
 newData.logo = logoToBase64('src/template/logo.jpg');
 newData.signature = `data:${data[0].signature.contentType};base64,${toBase64(data[0].signature.sign)}`;
+newData.khakurel = logoToBase64('src/template/khakurel.png');
+newData.fullName = addSpace(combineName(data[0].firstName, data[0].middleName, data[0].lastName));
+newData.puFormat = formatRegistration(data[0].puRegistrationNumber);
 console.log('ahit',data[0].image.urlPath);
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/finalEntrance.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
 {
     return parseInt(value) + 1;
 });
-// new page 
-const subRegHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/subReg.html'), 'utf8');
+// Course Registration
+const subRegHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/courseRegistration.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, optionSub)
 {
     return parseInt(value) + 1;
 });
-//SEONDARY PAGE
+//Filled by College
 const secondaryHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/secondaryForm.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, optionSub)
 {
     return parseInt(value) + 1;
 });
+// application form 
+const applicationHtml = fs.readFileSync(path.join(process.cwd(), 'server/src/template/applicationForm.html'), 'utf8');
+    handlebars.registerHelper("inc", function(value, optionSub)
+{
+    return parseInt(value) + 1;
+});
+// HERE IS WHAT IT TAKES ..CRITICAL
 var template = handlebars.compile(templateHtml);
 	var html = template(newData);
 
@@ -98,7 +108,7 @@ var template = handlebars.compile(templateHtml);
 
     // Downlaod the PDF
   const pdf = await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}.pdf`,
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-entrance.pdf`,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -132,8 +142,8 @@ var template = handlebars.compile(templateHtml);
 
     // Downlaod the PDF
   const pdfTwo= await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subReg.pdf`,
-    margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-courseReg.pdf`,
+    margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
   });
@@ -163,8 +173,38 @@ var template = handlebars.compile(secondaryHtml);
 
     // Downlaod the PDF
   const pdfThree = await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-subRegII.pdf`,
-    margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-cllgFill.pdf`,
+    margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
+    printBackground: true,
+    format: 'A4',
+  });
+  // SUPER DUPLICATE CODE -NEED TO REFACTOR
+  var template = handlebars.compile(applicationHtml);
+	var html = template(newData);
+
+    var pdfPath = path.join('form');
+    const browserFour = await puppeteer.launch({
+        args: ['--no-sandbox'],
+		headless: 'new'
+	});
+    var page = await browserFour.newPage();
+    await page.setContent(html, { waitUntil: 'domcontentloaded' });
+    await page.emulateMediaType('screen');
+ 
+    // create a folder 
+    console.log(__dirname);
+    try{
+        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        }
+    }catch(err){
+        console.log(err)
+    }
+
+    // Downlaod the PDF
+  const pdfFour = await page.pdf({
+    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-appl.pdf`,
+    margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
   });
@@ -244,3 +284,30 @@ function logoToBase64(filePath) {
   
     return  Buffer.from(img).toString('base64');
   };
+
+
+
+function addSpace(str) {
+    console.log(str.split(' ').join('   '));
+    return str.split(' ').join('  ');
+  }
+
+  function combineName(first,middle,last){
+     var fullName = first.concat(" ",middle).concat(" ",last);
+      console.log(fullName);
+     return fullName.toUpperCase();
+  }
+
+  function formatRegistration(str){
+    
+    if(str.length >2){
+        return str.split('');
+    }else{
+        var arr =[];
+        for(let i =0; i < 17; i++){
+            arr.push[' '];
+        }
+        return arr;
+    }
+
+  }

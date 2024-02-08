@@ -9,7 +9,7 @@ export default function Banner({firstName, middleName, lastName, faculty, batch,
     <div className="col-lg-4 col-md-4">
     <div className="profile-user-box">
     <div className="profile-user-img">
-    {image ?<img src={`https://ncit.college/${image?.urlPath}`} alt="Profile"/>: null}
+    {/* <img src={`https://ncit.college/${image?.urlPath}`} alt="Profile"/> */}
    
     </div>
     <div className="names-profiles">
