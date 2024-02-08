@@ -52,8 +52,10 @@ newData.examRollNumber = data[0].examRollNumber;
 newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
 newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.urlPath)}`;
+newData.puRegistrationNumber = data[0].puRegistrationNumber;
 // newData.image = logoToBase64('src/template/logo.jpg');
 newData.logo = logoToBase64('src/template/logo.jpg');
+newData.signature = `data:${data[0].signature.contentType};base64,${toBase64(data[0].signature.sign)}`;
 console.log('ahit',data[0].image.urlPath);
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/newEntranceCard.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
@@ -241,4 +243,4 @@ function logoToBase64(filePath) {
     const img = fs.readFileSync(filePath);
   
     return  Buffer.from(img).toString('base64');
-  }
+  };

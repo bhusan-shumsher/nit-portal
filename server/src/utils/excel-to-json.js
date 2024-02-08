@@ -74,6 +74,8 @@ const createStudentRecord = (data,currentSemester)=>{
     record.fatherContactNumber = data['father_contactno'];
     record.motherContactNumber = data['mother_contactno'];
     record.localGuardianContactNumber = data['local_contactno'];
+    record.puRegistrationNumber = data['pu_registration'];
+    record.examRollNumber = data['ern'];
     return record;
 }
 

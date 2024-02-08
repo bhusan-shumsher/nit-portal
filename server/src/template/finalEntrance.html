@@ -17,8 +17,8 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             margin-right: 10px;
         }
 
@@ -49,7 +49,7 @@
         .re-registered-courses {
             display: block;
             margin-top: 15px;
-            font-weight: bold;
+            
         }
 
         table {
@@ -68,7 +68,14 @@
             margin-top: 20px; 
             display:flex; 
             justify-content:space-between; 
-
+            align-items: flex-end;
+        }
+        .sign {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            /*border-bottom: 1px solid  #2e5cb8;
+            padding-bottom: 3px; */
         }
     </style>
 </head>
@@ -85,25 +92,25 @@
     </div>
     <div class="card-info">
         <div class="row">
-            <span style="width: 65%;">Exam Roll No. : {{examRollNumber}}</span>
-            <span style="width: 35%;">Exam Center:    </span>
+            <span style="width: 65%;color:red;">Exam Roll No. : {{ examRollNumber}}</span>
+            <span style="width: 35%;">Exam Center: </span>
         </div>
         <div>
-            P.U. Registration No. : {{registrationNumber}}
+            P.U. Registration No. : <span style="color:black;">{{puRegistrationNumber}}</span>x
         </div>
         <div>
-            Name of the Student : {{firstName}} {{middleName}} {{lastName}}
+            Name of the Student : <span style="color:black;"> {{firstName}} {{middleName}} {{lastName}}</span>
         </div>
         <div class="row">
             <span style="width: 65%;">Level : Bachelor</span>
-            <span style="width: 35%;">Program : {{ faculty }}</span>
+            <span style="width: 35%;">Program : {{faculty}}</span>
         </div>
         <div class="row">
-            <span style="width: 65%;">Semester/Trimester/Year : Fall z</span>
+            <span style="width: 65%;">Semester/Trimester/Year : Fall</span>
             <span style="width: 35%;">Year : 2023</span>
         </div>
         <div>
-            Name of the College : Nepal College of Information Technology
+            Name of the College : Nepal College of Information Tech
         </div>
         <div>
             For the presence in the examination of the following courses as per course registered.
@@ -126,10 +133,10 @@
                 <tbody>
                     {{# each regularSubjects}}
                     <tr>
-                        <td><span style="color:black; font-family:Arial, Helvetica, sans-serif;font-size: small;">{{inc @index}}</span></td>
-                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif;font-size: small;">{{courseCode}}</span></td>
-                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif;font-size: small;">{{subjectName}}</span> </td>
-                        <td> <span style="color:black; font-family: Arial, Helvetica, sans-serif;font-size: small;">{{creditHour}}</span></td>
+                        <td><span style="color:black;">{{inc @index}}</span></td>
+                        <td><span style="color:black;">{{courseCode}}</span></td>
+                        <td><span style="color:black;">{{subjectName}}</span> </td>
+                        <td> <span style="color:black;">{{creditHour}}</span></td>
                         <td> </td>
                     </tr>
                     {{/each}}
@@ -153,11 +160,11 @@
                 <!-- Add your course data here -->       <tbody>
                     {{# each backSubjects}}
                     <tr>
-                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{inc @index}}</span></td>
-                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{courseCode}}</span></td>
-                        <td><span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{subjectName}}</span> </td>
-                        <td> <span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;">{{creditHour}}</span></td>
-                        <td> <span style="color:black; font-family: Arial, Helvetica, sans-serif; font-style: normal;font-size: small;"></span></td>
+                        <td><span style="color:black;">{{inc @index}}</span></td>
+                        <td><span style="color:black;">{{courseCode}}</span></td>
+                        <td><span style="color:black;">{{subjectName}}</span> </td>
+                        <td> <span style="color:black;">{{creditHour}}</span></td>
+                        <td> <span style="color:black;"></span></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -166,7 +173,7 @@
     </div>
     <div>
         <div class="row footer">
-            <span>Signature of the Student: </span>
+            <span>Signature of the Student:  <img class="sign" src="{{ signature }}" alt="Signature of Student"></span>
             <span>Date: {{date}}</span>
         </div>
     </div>
