@@ -209,9 +209,9 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
-  await User.findOneAndUpdate(
+  await User.update(
     {rollNumber},
-    {formSubmited: true}
+    {$set:{formSubmited: true}}
 );
 const triplicate = new Triplcate({
     semester: data[0].currentSemester,
