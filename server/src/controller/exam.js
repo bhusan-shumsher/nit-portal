@@ -209,7 +209,7 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
-  await User.update(
+  await User.updateOne(
     {rollNumber},
     {$set:{formSubmited: true}}
 );
