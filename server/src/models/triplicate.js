@@ -46,4 +46,4 @@ const triplicateSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('Triplicate',triplicateSchemaSchema);
+module.exports = mongoose.model('Triplicate',triplicateSchema);
