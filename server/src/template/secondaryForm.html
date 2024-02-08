@@ -16,8 +16,8 @@
         }
 
         .logo {
-            width:100px;
-            height:100px;
+            width:90px;
+            height:90px;
         }
 
         .info { 
@@ -28,14 +28,14 @@
             display:flex;
             flex-direction:column;
             align-items:center;
-            font-size: 24px;
+            font-size: 21px;
             font-weight:bold;
             
         }
 
         .card-info {
-            line-height: 23px;
-            margin-top: 18px;
+            line-height: 21px;
+            margin-top: 15px;
         }
 
         .row span{
@@ -73,7 +73,7 @@
             text-align: center;
         }
         .footer{
-            margin-top: 20px; 
+            margin-top: 18px; 
             display:flex; 
             justify-content:space-between; 
 
@@ -85,13 +85,18 @@
         .recommendation-footer{
             display: flex;
             justify-content: space-between;
-            font-size: 18px;
+            font-size: 15px;
             margin: 20px 0px;
         }
         .seal{
             border-top: 2px solid #2e5cb8; 
             width: 250px; 
             text-align:center;
+        }
+        .sign {
+            height: 35px;
+            width: auto;
+            object-fit: contain;
         }
        
     </style>
@@ -107,16 +112,16 @@
     </div>
     <div class="card-info">
         <div class="row">
-            <span class="right">Name of the Student: {{firstName}} {{middleName}} {{lastName}} </span>
-            <span class="left">Roll No. : {{examRollNumber}}</span>
+            <span class="right">Name of the Student: <span style="color: black;">{{firstName}} {{middleName}} {{lastName}} </span></span>
+            <span class="left">Roll No. : <span style="color: black;">{{examRollNumber}}</span></span>
         </div>
         <div class="row">
-            <span  class="right">Faculty : {{ faculty }}</span>
+            <span  class="right">Faculty : Science & Technology</span>
             <span class="left">Level : Bachleor </span>
         </div>
         <div class="row">
-            <span class="right">  P.U. Registration No. : {{regNumber}}</span>
-            <span class="left">Program : {test}</span>
+            <span class="right">  P.U. Registration No. :<span style="color: black;">{{puRegistrationNumber}}</span>
+            <span class="left">Program :<span style="color: black;">> {{faculty}}</span</span>
         </div>
        
         <div class="row">
@@ -124,7 +129,7 @@
             <span class="left">Year : 2023</span>
         </div>
         <div>
-            Name of the College : Nepal College of Information Technology
+            Name of the College : <span style="color: black;">Nepal College of Information Technology</span>
         </div>
     </div>
     <div class="regular-courses">
@@ -165,7 +170,12 @@
         <div class="info"><span>Recommendation</span> </div>
          <p>To the best of my knowledge, the particulars given by Mr./Ms. {{firstName}} {{middleName}} {{lastName}} are correct. I recommend for the registration of the courses listed above.</p>
          <div class="recommendation-footer">
+
             <span>Seal of Institute</span>
+            </div>
+            </div>
+            <br/>
+            <img class="sign" style="margin-bottom:5px;" src="{{khakurel}}" alt="Signature of Principal"><br/>
             <span class="seal">Head of Institute </span>
          </div>
          <div class="recommendation-footer">
