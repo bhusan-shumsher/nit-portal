@@ -70,8 +70,8 @@ export default function ExamForm(){
     }
     function onSubmit(e){
         e.preventDefault();
-        if(backLogs.length > 5){
-            toast.error('You cant retake more than 5 subjects');
+        if(backLogs.length > feeData.backsAllowed){
+            toast.error('You are not allowed to fill these many backs!!');
 
         }else{
             setSelected(true);

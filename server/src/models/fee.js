@@ -52,9 +52,13 @@ const feeSchema = new Schema({
    middleName:{
     type: String,
     trim: true
+   },
+   backsAllowed:{
+    type: Number,
+    default: 5
    }
 },
-{timestamps: true}
+{timestamps: true},
 );
 
 

@@ -229,7 +229,7 @@ exports.getAllStudents = async(req,res,next)=>{
 exports.changeDueStatus = async(req,res,next)=>{
     try{
         const {rollNumber,status} = req.body;
-        console.log(rollNumber, status)
+        // console.log(rollNumber, status)
         const {email} = req;
         console.log(email)
         const student = await Fee.findOneAndUpdate({rollNumber},{

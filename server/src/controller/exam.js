@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 const handlebars = require("handlebars");
 const User = require('../models/user');
 const util = require('../utils/array-padding');
-
+const Triplcate = require('../models/triplicate');
 
 exports.generateForm = async (req,res,next)=>{
 try{
@@ -59,7 +59,6 @@ newData.signature = `data:${data[0].signature.contentType};base64,${toBase64(dat
 newData.khakurel = logoToBase64('src/template/khakurel.png');
 newData.fullName = addSpace(combineName(data[0].firstName, data[0].middleName, data[0].lastName));
 newData.puFormat = formatRegistration(data[0].puRegistrationNumber);
-console.log('ahit',data[0].image.urlPath);
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/finalEntrance.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
 {
@@ -214,6 +213,17 @@ var template = handlebars.compile(secondaryHtml);
     {rollNumber},
     {formSubmited: true}
 );
+const triplicate = new Triplcate({
+    semester: data[0].semester,
+    faculty :data[0].faculty,
+    rollNumber: data[0].rollNumber,
+    examRollNumber: data[0].examRollNumber,
+    puRegistrationNumber: data[0].puRegistrationNumber,
+    backSubjects: req.body.formData.backSubjects,
+    regularSubjects: req.body.formData.regularSubjects,
+    backCount: req.body.formData.backSubjects.length
+});
+await triplicate.save();
   return res.status(200).send({message:'success !'});
 }catch(err){
     return res.status(501).send({message: err.message});

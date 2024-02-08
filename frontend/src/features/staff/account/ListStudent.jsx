@@ -9,15 +9,15 @@ export default function ListStudent({students}){
     if(students.length === 0){
         return <h2>No student</h2>
     }
-    console.log('here',students)
+    // console.log('here',students)
     return(
-        <div class="row">
-            <div class="col-sm-12">
-            <div class="card card-table">
-            <div class="card-body">
-            <div class="table-responsive">
-            <table class="table table-stripped table-hover datatable">
-            <thead class="thead-light">
+        <div className="row">
+            <div className="col-sm-12">
+            <div className="card card-table">
+            <div className="card-body">
+            <div className="table-responsive">
+            <table className="table table-stripped table-hover datatable">
+            <thead className="thead-light">
             <tr>
             <th>Roll Number</th>
             <th>Name</th>
@@ -64,10 +64,10 @@ export default function ListStudent({students}){
 
  }
             {/* <td><span class="badge bg-success">{}</span></td> */}
-            <td class="text-end">
-            <button class="btn btn-sm btn-white text-success me-2"
+            <td className="text-end">
+            <button className="btn btn-sm btn-white text-success me-2"
             onClick={()=>onClick(student.rollNumber, 'true')}
-            ><i class="far fa-edit me-1"></i> Mark as Paid</button>
+            ><i className="far fa-edit me-1"></i> Mark as Paid</button>
             </td>
             </tr>
      );
