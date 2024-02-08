@@ -210,7 +210,7 @@ function toBase64(filePath) {
         }
         });
         const signature = {
-            urlPath: filePath,
+            sign: filePath,
             contentType: req.file.mimetype
         };
         await User.findOneAndUpdate(
