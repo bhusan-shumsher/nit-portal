@@ -78,7 +78,7 @@ const secondaryHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/sec
     return parseInt(value) + 1;
 });
 // application form 
-const applicationHtml = fs.readFileSync(path.join(process.cwd(), 'server/src/template/applicationForm.html'), 'utf8');
+const applicationHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/applicationForm.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, optionSub)
 {
     return parseInt(value) + 1;
@@ -210,6 +210,10 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
+  await User.findOneAndUpdate(
+    {rollNumber},
+    {formSubmited: true}
+);
   return res.status(200).send({message:'success !'});
 }catch(err){
     return res.status(501).send({message: err.message});

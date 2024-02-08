@@ -129,6 +129,10 @@ const userSchema = new Schema({
     signature:{
         sign:{type: String, trim:true,default:null},
         contentType:{type:String, trim: true}
+    },
+    formSubmitted:{
+        type: Boolean,
+        default: false
     }
 });
 
