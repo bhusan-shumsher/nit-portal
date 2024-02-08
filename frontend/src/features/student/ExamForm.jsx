@@ -94,6 +94,31 @@ export default function ExamForm(){
         );
        
     }
+    if(userData.formSubmitted){
+        return(
+            <div class="page-wrapper">
+<div class="content container-fluid">
+
+<div class="page-header">
+<div class="row">
+<div class="col">
+<h3 class="page-title">Exam Form</h3>
+<ul class="breadcrumb">
+
+</ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+    You have already submitted your form.
+</div>
+</div>
+</div>
+</div>
+        );
+    }
     if(!selected){
         return(
             <>
