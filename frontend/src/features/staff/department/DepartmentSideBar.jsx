@@ -54,14 +54,8 @@ export default function DeparmentSideBar(){
 <NavLink to='/department/edit-result'><i className="fas fa-file-invoice-dollar"></i> <span>Edit Result</span> <span className="menu-arrow"></span></NavLink>
 </li>
 <li>
-<a href="fees.html"><i className="fas fa-comment-dollar"></i> <span>Fees</span></a>
+<NavLink to='/department/form-submitted'><i className="fas fa-file-invoice-dollar"></i> <span>Form Submitted</span> <span className="menu-arrow"></span></NavLink>
 </li>
-<li>
-<a href="exam.html"><i className="fas fa-clipboard-list"></i> <span>Exam list</span></a>
-</li>
-
-
-
 </ul>
 </div>
 </div>

@@ -12,7 +12,6 @@ export default function Header(){
     //     );
     // }
     const token = localStorage.getItem('token');
-    console.log(token);
     const name = token.firstName || 'Student';
     return(
         <div className="header">

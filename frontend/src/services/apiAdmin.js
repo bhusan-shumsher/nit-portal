@@ -257,3 +257,24 @@ export async function updateBacklogs(data){
     }
     return response.data;
 }
+
+
+
+export async function filterBySubmission({currentSemester,type}){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.get('/api/department/form-submitted-list',
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            },
+            params:{
+                currentSemester,
+                type
+                    }
+        }  
+    );
+    if(!response){
+        throw new Error('cant get data');
+    }
+    return response.data;
+}

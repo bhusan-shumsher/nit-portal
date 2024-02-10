@@ -91,3 +91,22 @@ exports.incrementSemesterByOne = async(req,res,next)=>{
         return res.status(500).send({message: err.message});
     }
 }
+
+//FILTER BY FORM SUBMITTED 
+exports.filterFormSubmitted = async(req,res,next)=>{
+    try{
+        const {role} = req;
+        const {type,currentSemester} = req.query;
+        const users = await User.aggregate([
+            {$match:{$and:[
+                {currentSemester:Number(currentSemester)},
+                {formSubmitted: type === 'SUBMITTED'},
+                {faculty:role}
+            ]}}
+        ]);
+        return res.status(200).send(users);
+        
+    }catch(err){
+        return res.status(501).send({message: err.message});
+    }
+}

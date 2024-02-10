@@ -23,4 +23,7 @@ router.post('/api/department/add-academic-info',departmentController.addAcademic
 
 // increase semester of all students
 router.post('/api/department/increment-semester',departmentController.incrementSemesterByOne);
+//filter form 
+router.get('/api/department/form-submitted-list',isStaff,departmentController.filterFormSubmitted);
+
 module.exports = router;

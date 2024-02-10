@@ -46,6 +46,8 @@ import TickDocs from "./features/registration/TickDocs";
 import Error404 from "./ui/Error404";
 import UploadPics from "./features/student/UploadPics";
 import UploadSignature from "./features/student/UploadSignature";
+
+import ListFormSubmitted from "./features/staff/department/ListFormSubmitted";
 const queryClient = new QueryClient({});
 
 const router = createBrowserRouter([
@@ -143,6 +145,10 @@ const router = createBrowserRouter([
       {
         path:'department/update-backlogs',
         element: <BackPaperUpload/>
+      },
+      {
+        path:'department/form-submitted',
+        element: <ListFormSubmitted/>
       }
     ]
   },
