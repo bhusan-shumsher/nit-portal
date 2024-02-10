@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 const handlebars = require("handlebars");
 const User = require('../models/user');
 const util = require('../utils/array-padding');
-const Triplcate = require('../models/triplicate');
+const Triplicate = require('../models/triplicate');
 
 exports.generateForm = async (req,res,next)=>{
 try{
@@ -209,7 +209,7 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
-const triplicate = new Triplcate({
+const triplicate = new Triplicate({
     semester: data[0].currentSemester,
     faculty :data[0].faculty,
     rollNumber: data[0].rollNumber,
@@ -220,6 +220,9 @@ const triplicate = new Triplcate({
     backCount: req.body.formData.backSubjects.length
 });
 await triplicate.save();
+
+ await User.findOneAndUpate({rollNumber},{formSubmitted: true});
+
   return res.status(200).send({message:'success !'});
 }catch(err){
     return res.status(501).send({message: err.message});

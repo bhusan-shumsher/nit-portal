@@ -59,8 +59,8 @@ export default function ListStudent({students}){
             <td>{student.verifiedBy}</td>
             {/* <span class="badge bg-success">Success</span> */}
             {/* /* danger for red */}
-            {student.duePaid ? <td><span class="badge bg-success">Paid</span></td>:
-                        <td><span class="badge bg-danger">Due</span></td>
+            {student.duePaid ? <td><span className="badge bg-success">Paid</span></td>:
+                        <td><span className="badge bg-danger">Due</span></td>
 
  }
             {/* <td><span class="badge bg-success">{}</span></td> */}

@@ -94,7 +94,7 @@ export default function ExamForm(){
         );
        
     }
-    if(userData.formSubmitted){
+    if(userData.data.formSubmitted){
         return(
             <div class="page-wrapper">
 <div class="content container-fluid">

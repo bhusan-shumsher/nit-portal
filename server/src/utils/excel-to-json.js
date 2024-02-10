@@ -81,7 +81,7 @@ const createStudentRecord = (data,currentSemester)=>{
 
 const getDepartment = (rollNumber)=>{
     const code = rollNumber.slice(2,4);
-   if(code === '15' || code == '14'){
+   if(code === '15' || code == '14' || code == '41'){
     return 'BEIT'
    }
     if(code === '16' || code === '17'){
@@ -89,6 +89,11 @@ const getDepartment = (rollNumber)=>{
     }
     if(code == '12' || code == '13'){
         return 'BECE';
+    }
+    if(code == '18' || code == '19'){
+        return 'BECIVIL'
+    }else{
+        return 'BCA'
     }
 
 };

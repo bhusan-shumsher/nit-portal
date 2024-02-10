@@ -29,8 +29,6 @@ export default function AccountDashboard(){
         setValues(data);
         setEnabled(true);        
     }
-    console.log(data)
-
     return(
         
 

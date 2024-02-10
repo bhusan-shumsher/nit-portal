@@ -49,7 +49,7 @@ export default function Login(){
                         </div>
                         <div className="forgotpass">
                      
-                         <NavLink to='/forget-password'>Forgot Password?</NavLink>
+                         {/* <NavLink to='/forget-password'>Forgot Password?</NavLink> */}
                         </div>
                         <div className="form-group">
                         <button className="btn btn-primary btn-block" type="submit">
