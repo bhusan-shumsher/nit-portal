@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 
 import {useState} from 'react'
 import { useFilterBySubmission } from "../../../hooks/adminHooks/useFilterBySubmission";
-import {Spinner} from "../../../ui/Spinner";
 export default function ListFormSubmitted(){
     const {register, handleSubmit,formState} = useForm();
     const [enabled, setEnabled] = useState(false);
@@ -23,8 +22,7 @@ export default function ListFormSubmitted(){
             <div className="main-wrapper">
                 <div className="page-wrapper">
                     <div className="content container-fluid">
-                    <Spinner/>
-
+                        <h4>Data Loading ....</h4>
                     </div>
 
                 </div>
