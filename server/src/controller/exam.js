@@ -221,7 +221,7 @@ const triplicate = new Triplicate({
 });
 await triplicate.save();
 
- await User.findOneAndUpate({rollNumber},{formSubmitted: true});
+ // await User.findOneAndUpate({rollNumber},{formSubmitted: true});
 
   return res.status(200).send({message:'success !'});
 }catch(err){
