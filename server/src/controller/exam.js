@@ -89,7 +89,7 @@ var template = handlebars.compile(templateHtml);
     var pdfPath = path.join('form');
     const browser = await puppeteer.launch({
         args: ['--no-sandbox'],
-  	executablePath: '/usr/bin/chromium',
+  	// executablePath: '/usr/bin/chromium',
 
 		headless: 'new'
 	});
@@ -124,7 +124,7 @@ var template = handlebars.compile(templateHtml);
     var pdfPath = path.join('form');
     const browserTwo = await puppeteer.launch({
         args: ['--no-sandbox'],
-  executablePath: '/usr/bin/chromium',
+  // executablePath: '/usr/bin/chromium',
 
 		headless: 'new'
 	});
@@ -155,7 +155,7 @@ var template = handlebars.compile(secondaryHtml);
     var pdfPath = path.join('form');
     const browserThree = await puppeteer.launch({
         args: ['--no-sandbox'],
-  executablePath: '/usr/bin/chromium'
+  // executablePath: '/usr/bin/chromium'
 
 		headless: 'new'
 	});
@@ -187,7 +187,7 @@ var template = handlebars.compile(secondaryHtml);
     var pdfPath = path.join('form');
     const browserFour = await puppeteer.launch({
         args: ['--no-sandbox'],
-	      executablePath: '/usr/bin/chromium',
+	      // executablePath: '/usr/bin/chromium',
 
 		headless: 'new'
 	});
@@ -226,7 +226,7 @@ const triplicate = new Triplicate({
 });
 await triplicate.save();
 
- // await User.findOneAndUpate({rollNumber},{formSubmitted: true});
+ await User.updateOne({rollNumber},{$set:{formSubmitted: true}});
 
   return res.status(200).send({message:'success !'});
 }catch(err){
