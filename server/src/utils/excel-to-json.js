@@ -92,7 +92,10 @@ const getDepartment = (rollNumber)=>{
     }
     if(code == '18' || code == '19'){
         return 'BECIVIL'
-    }else{
+    }if(code == '22'){
+        return 'BBA'
+    }
+    else{
         return 'BCA'
     }
 
