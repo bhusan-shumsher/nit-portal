@@ -41,6 +41,11 @@ const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFul
 const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
 const backSubjects = util.arrayPadding(req.body.formData.backSubjects, 8);
 const newData = new Object();
+// ADJUSTMENT FOR BBA
+var PROGRAM = 'Science & Technology';
+if(data[0].faculty === 'BBA'){
+	PROGRAM = 'Management';
+}
 newData.backSubjects = backSubjects;
 newData.regularSubjects = regularSubjects;
 newData.allSubjects = removeEmptyObjects(regularSubjects).concat(renameKey(removeEmptyObjects(backSubjects)));
@@ -59,6 +64,7 @@ newData.signature = `data:${data[0].signature.contentType};base64,${toBase64(dat
 newData.khakurel = logoToBase64('src/template/khakurel.png');
 newData.fullName = addSpace(combineName(data[0].firstName, data[0].middleName, data[0].lastName));
 newData.puFormat = formatRegistration(data[0].puRegistrationNumber);
+newData.PROGRAM = PROGRAM;
 const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/finalEntrance.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, options)
 {
