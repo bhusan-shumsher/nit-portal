@@ -8,7 +8,7 @@ const triplicateSchema = new Schema({
       },
    faculty:{
       type: String,
-      enum:['BECE','BESE','BEELX','BCA','BBA','BEIT']
+      enum:['BECE','BESE','BEELX','BCA','BBA','BEIT','BECIVIL']
    },
    rollNumber:{
     type: String,
