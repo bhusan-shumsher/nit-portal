@@ -29,8 +29,9 @@ export default function AdminDashboard(){
                  link ="/department/student"
                />
                <Card 
-                title ="Teachers"
+                title ="Form Submission"
                 count = "50"
+                link="/department/form-submitted"
                 image = "/img/icons/dash-icon-02.svg"
                />
                {/* <Card
