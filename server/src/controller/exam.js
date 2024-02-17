@@ -77,7 +77,7 @@ const subRegHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/course
     return parseInt(value) + 1;
 });
 //Filled by College
-const secondaryHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/secondaryForm.html'), 'utf8');
+const secondaryHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/subReg.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, optionSub)
 {
     return parseInt(value) + 1;
