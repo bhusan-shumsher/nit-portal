@@ -220,6 +220,9 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
+  await browserTwo.close();
+  await browserThree.close();
+  await browserFour.close();
 const triplicate = new Triplicate({
     semester: data[0].currentSemester,
     faculty :data[0].faculty,
