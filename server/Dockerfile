@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bri
 RUN apt-get install -y fonts-indic
 RUN apt-get install chromium -y
 RUN apt-get install certbot -y
-RUN apt-get install python-certbot-nginx
+RUN apt-get install python3-certbot-nginx
 RUN apt-get install certbot -y
 RUN apt-get install python3-certbot-nginx
 RUN certbot --nginx -d ncit.college -d www.ncit.college
