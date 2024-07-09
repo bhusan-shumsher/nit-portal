@@ -12,7 +12,7 @@ services:
       - api
       - client
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/default.conf:/etc/nginx/nginx.conf
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
       # - /home/cert:/etc/nginx/certs
