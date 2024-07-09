@@ -12,17 +12,9 @@ services:
       - api
       - client
     volumes:
-      - ./nginx/default.conf:/etc/nginx/default.conf
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-      # - /home/cert:/etc/nginx/certs
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email bhusan@ncit.edu.np -d ncit.college --agree-tos
+     
+      - /home/cert:/etc/nginx/certs
+  
   client:
     build:
       dockerfile: Dockerfile
