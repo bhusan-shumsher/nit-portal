@@ -225,13 +225,12 @@ var template = handlebars.compile(secondaryHtml);
   await browserFour.close();
 
   // rename folder 
-   fs.rename(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`,err=>{
-    if(err){
-        console.log('unable to rename folder');
-    }else{
-        console.log('****SUCCESSFULLY RENAMED FOLDER')
-    }
-   })
+  try{
+    fs.renameSync(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`)
+
+  }catch(err){
+    console.log('RENAMING IS FUCKED');
+  }
 const triplicate = new Triplicate({
     semester: data[0].currentSemester,
     faculty :data[0].faculty,
