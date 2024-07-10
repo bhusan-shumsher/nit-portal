@@ -63,7 +63,7 @@ exports.getBacklog = async (req,res,next)=>{
             { 'grades.grade': 'Expelled' },
             {'grades.grade':'CNR'}
         ] } }] );
-        
+      console.log(backlog);  
     if(!backlog){
        return  res.status(500).send({message:'cant get backlog'});
     }
