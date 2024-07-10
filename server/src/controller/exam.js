@@ -228,6 +228,8 @@ var template = handlebars.compile(secondaryHtml);
    fs.rename(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`,err=>{
     if(err){
         console.log('unable to rename folder');
+    }else{
+        console.log('****SUCCESSFULLY RENAMED FOLDER')
     }
    })
 const triplicate = new Triplicate({
