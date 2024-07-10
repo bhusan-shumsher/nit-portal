@@ -223,6 +223,13 @@ var template = handlebars.compile(secondaryHtml);
   await browserTwo.close();
   await browserThree.close();
   await browserFour.close();
+
+  // rename folder 
+   fs.rename(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`,err=>{
+    if(err){
+        console.log('unable to rename folder');
+    }
+   })
 const triplicate = new Triplicate({
     semester: data[0].currentSemester,
     faculty :data[0].faculty,

@@ -70,6 +70,9 @@ export default function ExamForm(){
     }
     function onSubmit(e){
         e.preventDefault();
+        if(backLogs.length > 3){
+            toast.error('You are not allowed to fill these many backs!!');
+        }
         if(backLogs.length > feeData.backsAllowed){
             toast.error('You are not allowed to fill these many backs!!');
 
@@ -137,7 +140,7 @@ export default function ExamForm(){
 </div>
         <div class="form-group row">
 <label class="col-form-label col-md-2"> List of Backlogs</label>
-<label><font color='red'> *You can choose maximum 5 subjects to retake. Retake will cost Rs. 500/Subject</font></label>
+<label><font color='red'> *You can choose maximum 3 subjects to retake. Retake will cost Rs. 500/Subject</font></label>
 <br></br>
 <div class="col-md-10">
         <form>

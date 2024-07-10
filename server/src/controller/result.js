@@ -55,7 +55,7 @@ exports.getStudentResult = async (req,res,next)=>{
 exports.getBacklog = async (req,res,next)=>{
     const {rollNumber} = req;
     const backlog = await Result.aggregate([
-        {$match:{$and: [{rollNumber},{semester:1}]}},
+        {$match:{$and: [{rollNumber},{semester:1},{semester:2},{semester:3}]}},
         {$unwind: '$grades'},
         { $match: { $or: [
             { 'grades.grade': 'F' }, 
