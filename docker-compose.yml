@@ -12,7 +12,6 @@ services:
       - api
       - client
     volumes:
-     
       - /home/cert:/etc/nginx/certs
   
   client:
