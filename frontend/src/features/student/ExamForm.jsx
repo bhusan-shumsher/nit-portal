@@ -69,12 +69,12 @@ export default function ExamForm(){
 
     }
     function onSubmit(e){
-        console.log('BACKLOGS--->',backLogs);
+        // console.log('BACKLOGS--->',backLogs);
         e.preventDefault();
+        // if(backLogs.length > 3){
+        //     toast.error('You are not allowed to fill these many backs!!');
+        // }
         if(backLogs.length > 3){
-            toast.error('You are not allowed to fill these many backs!!');
-        }
-        if(backLogs.length > feeData.backsAllowed){
             toast.error('You are not allowed to fill these many backs!!');
 
         }else{
