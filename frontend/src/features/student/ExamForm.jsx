@@ -76,7 +76,7 @@ export default function ExamForm(){
         // }
         if(backLogs.length > 3){
             toast.error('You are not allowed to fill these many backs!!');
-
+            setSelected(false);
         }else{
             setSelected(true);
         }
