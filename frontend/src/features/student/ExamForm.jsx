@@ -80,7 +80,6 @@ export default function ExamForm(){
         }else if(backLogs.length <4){
             setSelected(true);
         }
-
     }
     function submitForm(){
         const form = new Object();
@@ -88,7 +87,7 @@ export default function ExamForm(){
         form.backSubjects = backLogs;
         postForm(form);
     }
-    if(isLoading || backlogIsLoading ){
+    if(isLoading || backlogIsLoading || currentSubjectIsLoading || userIsLoadin || feeLoading){
         return(
             <div className="page-wrapper">
             <div className="content container-fluid">
@@ -96,7 +95,6 @@ export default function ExamForm(){
            </div>
            </div>
         );
-       
     }
     if(userData.data.formSubmitted){
         return(
@@ -142,6 +140,8 @@ export default function ExamForm(){
         <div class="form-group row">
 <label class="col-form-label col-md-2"> List of Backlogs</label>
 <label><font color='red'> *You can choose maximum 3 subjects to retake. Retake will cost Rs. 500/Subject</font></label>
+<br></br>
+<label><font color='red'> *If the subject you have passed is in the list, please IGNORE *</font></label>
 <br></br>
 <div class="col-md-10">
         <form>
