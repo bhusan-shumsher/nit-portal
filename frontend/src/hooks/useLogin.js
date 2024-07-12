@@ -9,7 +9,7 @@ export function useLogin(){
         onSuccess: (data)=>{
             
             localStorage.setItem('token',JSON.stringify(data));
-            navigate('/student/dashboard',{replace: true})
+            navigate('/student/exam-form',{replace: true})
         },
         onError: err=>{
             console.log('Error',err);
