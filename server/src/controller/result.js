@@ -61,7 +61,8 @@ exports.getBacklog = async (req,res,next)=>{
             { 'grades.grade': 'F' }, 
             { 'grades.grade': 'Abs' }, 
             { 'grades.grade': 'Expelled' },
-            {'grades.grade':'CNR'}
+            {'grades.grade':'CNR'},
+            {'grades.grade':'NQ'}
         ] } }] );
       console.log(backlog);  
     if(!backlog){
