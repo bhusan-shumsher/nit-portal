@@ -255,7 +255,7 @@ await triplicate.save();
 
 exports.downloadForm = async (req,res,next)=>{
     const {rollNumber,faculty,email} = req;
-    const fileDir = path.join('src','files','submitted-form',`${faculty}`,`${email}`);
+    const fileDir = path.join('src','files','submitted-form',`${faculty}`,`${email}-OK`);
     const absPath = path.resolve(fileDir);
 
     const stream = fs.createReadStream(absPath+`/${faculty}-${rollNumber}-entrance.pdf`);
